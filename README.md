@@ -41,3 +41,9 @@ El proyecto sigue un flujo de trabajo basado en una combinación de fork y una v
 - **develop**: Una copia de main donde se integrarán las nuevas características.
 - **Ramas de características (feature branches)**: Por ejemplo, feature/login, feature/user-profile, etc.
 
+### Convención de nombres de commits:
+Los mensajes de commit deben comenzar con una categoría de cambio, que puede ser una de las siguientes: feat, fix, refactor o chore.
+- **feat**: Nueva funcionalidad.
+- **fix**: Corrección de errores.
+- **refactor**: Cambios en el código que no añaden nuevas funcionalidades ni corrigen errores.
+- **chore**: se utiliza para cualquier otro tipo de cambio, como escribir documentación, formatear código, agregar pruebas, etc.
