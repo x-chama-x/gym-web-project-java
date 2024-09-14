@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <title>ver Usuarios - GYMWEB</title>
+        
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+      
+        <!-- Importar tipografía Montserrat desde Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap" rel="stylesheet">
+      
+        <style>
+          .ejercicio-nombre:hover {
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombreado al pasar el mouse */
+          }
+        </style>
+      </head>
+<body>
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html">GYMWEB</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" role="main">
+        <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
+            <div class="overlay-itro"></div>
+            <div class="hero-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="cajafuera" align="center">
+                            <div class="formulariocaja">
+                                <h2 class="formtitulo">Lista de Usuarios</h2>
+                                <p>Aquí puedes ver todos los usuarios registrados en la plataforma.</p>
+                                <button class="edit-btn" onclick="openAddModal()">Agregar Usuario</button> <!-- Botón para agregar usuario -->
+                                
+                                <div class="user-grid">
+                                    <div class="user-card">
+                                        <h3>Juan Pérez</h3>
+                                        <p><strong>Email:</strong> juan@example.com</p>
+                                        <p class="password-field">
+                                            <strong>Clave:</strong> 
+                                            <span id="pwd1">********</span>
+                                            <button class="password-toggle" onclick="togglePassword('pwd1', 'pass123')">👁️</button>
+                                        </p>
+                                        <p><strong>Rol:</strong> Usuario</p>
+                                        <button class="edit-btn" onclick="openEditModal(1)">Editar</button>
+                                        <button class="edit-btn" onclick="deleteUser(1)">Eliminar</button> <!-- Botón para eliminar usuario -->
+                                    </div>
+                                    <div class="user-card">
+                                        <h3>María García</h3>
+                                        <p><strong>Email:</strong> maria@example.com</p>
+                                        <p class="password-field">
+                                            <strong>Clave:</strong> 
+                                            <span id="pwd2">********</span>
+                                            <button class="password-toggle" onclick="togglePassword('pwd2', 'secure456')">👁️</button>
+                                        </p>
+                                        <p><strong>Rol:</strong> Administrador</p>
+                                        <button class="edit-btn" onclick="openEditModal(2)">Editar</button>
+                                        <button class="edit-btn" onclick="deleteUser(1)">Eliminar</button> <!-- Botón para eliminar usuario -->
+                                    </div>
+                                    <div class="user-card">
+                                        <h3>Carlos Rodríguez</h3>
+                                        <p><strong>Email:</strong> carlos@example.com</p>
+                                        <p class="password-field">
+                                            <strong>Clave:</strong> 
+                                            <span id="pwd3">********</span>
+                                            <button class="password-toggle" onclick="togglePassword('pwd3', 'carlos789')">👁️</button>
+                                        </p>
+                                        <p><strong>Rol:</strong> Usuario</p>
+                                        <button class="edit-btn" onclick="openEditModal(3)">Editar</button>
+                                        <button class="edit-btn" onclick="deleteUser(1)">Eliminar</button> <!-- Botón para eliminar usuario -->
+                                    </div>
+                                    <div class="user-card">
+                                        <h3>Ana Martínez</h3>
+                                        <p><strong>Email:</strong> ana@example.com</p>
+                                        <p class="password-field">
+                                            <strong>Clave:</strong> 
+                                            <span id="pwd4">********</span>
+                                            <button class="password-toggle" onclick="togglePassword('pwd4', 'ana2023')">👁️</button>
+                                        </p>
+                                        <p><strong>Rol:</strong> Usuario</p>
+                                        <button class="edit-btn" onclick="openEditModal(4)">Editar</button>
+                                        <button class="edit-btn" onclick="deleteUser(1)">Eliminar</button> <!-- Botón para eliminar usuario -->
+                                    </div>
+                                    <div class="user-card">
+                                        <h3>Luis Sánchez</h3>
+                                        <p><strong>Email:</strong> luis@example.com</p>
+                                        <p class="password-field">
+                                            <strong>Clave:</strong> 
+                                            <span id="pwd5">********</span>
+                                            <button class="password-toggle" onclick="togglePassword('pwd5', 'luisadmin')">👁️</button>
+                                        </p>
+                                        <p><strong>Rol:</strong> Administrador</p>
+                                        <button class="edit-btn" onclick="openEditModal(5)">Editar</button>
+                                        <button class="edit-btn" onclick="deleteUser(1)">Eliminar</button> <!-- Botón para eliminar usuario -->
+                                    </div>
+                                    <div class="user-card">
+                                        <h3>Laura Gómez</h3>
+                                        <p><strong>Email:</strong> laura@example.com</p>
+                                        <p class="password-field">
+                                            <strong>Clave:</strong> 
+                                            <span id="pwd6">********</span>
+                                            <button class="password-toggle" onclick="togglePassword('pwd6', 'laurapass')">👁️</button>
+                                        </p>
+                                        <p><strong>Rol:</strong> Usuario</p>
+                                        <button class="edit-btn" onclick="openEditModal(6)">Editar</button>
+                                        <button class="edit-btn" onclick="deleteUser(1)">Eliminar</button> <!-- Botón para eliminar usuario -->
+                                    </div>
+                                </div>
+                                
+                                <a href="#" class="botonenviar">Volver al menú de perfil</a>
+                                <a href="#" class="botonenviar">Cerrar Sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="divider"></div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © GYMWEB <strong>Aplicacion de entrenamiento</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://x-chama-x.github.io/franciscochiminelli.com/">x_chama_x</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="editUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <form id="editUserForm">
+                <h2 id="modalTitle">Editar Usuario</h2> <!-- Cambiar el título dinámicamente -->
+                <input type="hidden" id="editUserId">
+                <div>
+                    <label for="editUserName">Nombre:</label>
+                    <input type="text" id="editUserName" required>
+                </div>
+                <div>
+                    <label for="editUserEmail">Email:</label>
+                    <input type="email" id="editUserEmail" required>
+                </div>
+                <div>
+                    <label for="editUserPassword">Clave:</label>
+                    <input type="password" id="editUserPassword" required>
+                </div>
+                <div>
+                    <label for="editUserRole">Rol:</label>
+                    <select id="editUserRole" required>
+                        <option value="Usuario">Usuario</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
+                </div>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openAddModal() {
+            document.getElementById('editUserModal').style.display = 'block';
+            document.getElementById('modalTitle').textContent = 'Agregar Usuario';
+            document.getElementById('editUserId').value = '';
+            document.getElementById('editUserName').value = '';
+            document.getElementById('editUserEmail').value = '';
+            document.getElementById('editUserPassword').value = '';
+            document.getElementById('editUserRole').value = 'Usuario';
+        }
+    
+        function openEditModal(userId) {
+            document.getElementById('editUserModal').style.display = 'block';
+            document.getElementById('modalTitle').textContent = 'Editar Usuario';
+            // Aquí puedes cargar los datos del usuario según el userId
+            // Ejemplo de datos de usuario
+            const userData = {
+                1: { name: 'Juan Pérez', email: 'juan@example.com', password: 'pass123', role: 'Usuario' },
+                2: { name: 'María García', email: 'maria@example.com', password: 'secure456', role: 'Administrador' },
+                3: { name: 'Carlos Rodríguez', email: 'carlos@example.com', password: 'carlos789', role: 'Usuario' },
+                4: { name: 'Ana Martínez', email: 'ana@example.com', password: 'ana2023', role: 'Usuario' },
+                5: { name: 'Luis Sánchez', email: 'luis@example.com', password: 'luisadmin', role: 'Administrador' },
+                6: { name: 'Laura Gómez', email: 'laura@example.com', password: 'laurapass', role: 'Usuario' }
+            };
+            const user = userData[userId];
+            document.getElementById('editUserId').value = userId;
+            document.getElementById('editUserName').value = user.name;
+            document.getElementById('editUserEmail').value = user.email;
+            document.getElementById('editUserPassword').value = user.password;
+            document.getElementById('editUserRole').value = user.role;
+        }
+    
+        function closeEditModal() {
+            document.getElementById('editUserModal').style.display = 'none';
+        }
+    
+        // Cierra el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('editUserModal')) {
+                closeEditModal();
+            }
+        }
+    
+        document.getElementById('editUserForm').onsubmit = function(e) {
+            e.preventDefault();
+            // Aquí puedes manejar la lógica para guardar los cambios
+            closeEditModal();
+        }
+    
+        function togglePassword(spanId, password) {
+            var span = document.getElementById(spanId);
+            if (span.textContent === '********') {
+                span.textContent = password;
+            } else {
+                span.textContent = '********';
+            }
+        }
+    
+        function deleteUser(userId) {
+            // Aquí puedes manejar la lógica para eliminar el usuario
+            alert('Usuario ' + userId + ' eliminado');
+        }
+    </script>
+</body>
+</html>
