@@ -1,6 +1,6 @@
 # Proyecto GYMWEB
 
-GYMWEB es una aplicación de entrenamiento diseñada para gestionar y facilitar el acceso a rutinas de ejercicio y administración de usuarios.
+GYMWEB es una aplicación web de seguimiento de actividades físicas para usuarios que desean llevar un registro de sus entrenamientos y progresos en el gimnasio.
 
 ## Estructura del Proyecto
 
