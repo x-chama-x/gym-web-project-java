@@ -102,19 +102,24 @@
 
 <!-- JavaScript -->
 <script>
-  document.getElementById('rolSelect').addEventListener('change', function() {
-      this.style.background = 'transparent'; // Fondo transparente cuando se selecciona una opción
-  });
+    document.getElementById('rolSelect').addEventListener('change', function() {
+        this.style.background = 'transparent'; // Fondo transparente cuando se selecciona una opción
+    });
 
-  document.getElementById('rolSelect').addEventListener('focus', function() {
-      this.style.background = '#333'; // Fondo oscuro cuando se enfoca
-  });
+    document.getElementById('rolSelect').addEventListener('focus', function() {
+        this.style.background = '#333'; // Fondo oscuro cuando se enfoca
+    });
 
-  document.getElementById('rolSelect').addEventListener('blur', function() {
-      if (this.value) {
-          this.style.background = 'transparent'; // Fondo transparente si hay valor seleccionado
-      } else {
-          this.style.background = 'transparent'; // Fondo transparente si no hay valor seleccionado
-      }
-  });
+    document.getElementById('rolSelect').addEventListener('blur', function() {
+        if (this.value) {
+            this.style.background = 'transparent'; // Fondo transparente si hay valor seleccionado
+        } else {
+            this.style.background = 'transparent'; // Fondo transparente si no hay valor seleccionado
+        }
+    });
+
+    document.forms['vaidrollteam'].addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío del formulario
+        window.location.href = 'principal.html'; // Redirige a principal.html
+    });
 </script>

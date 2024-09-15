@@ -123,8 +123,8 @@
                 </li>
                   </ul>
                   <ul>
-                    <li style="list-style-type: none;"><a href="index.html"><i class="bi bi-tools"></i> Editar rutina</a></li>
-                    <li style="list-style-type: none;"><a href="index.html"><i class="bi bi-trash-fill"></i> eliminar rutina</a></li>
+                    <li style="list-style-type: none;"><a href="editarEntrenamiento.html"><i class="bi bi-tools"></i> Editar rutina</a></li>
+                    <li style="list-style-type: none;"><a href="#" onclick="borrarRutina()"><i class="bi bi-trash-fill"></i> eliminar rutina</a></li>
                     <li style="list-style-type: none;"><a href="Entrenamientos.html"><i class="bi bi-box-arrow-right"></i> volver al menú de entrenamientos</a></li>
                   </ul>
                 </div>
@@ -160,3 +160,13 @@
 </body>
 
 </html>
+
+<script>
+  function borrarRutina() {
+      if (confirm("¿Está seguro de que desea eliminar esta rutina?")) {
+          // Aquí puedes agregar la lógica para eliminar la rutina, por ejemplo, una llamada AJAX
+          alert("Rutina eliminada");
+          window.location.href = "index.html"; // Redirigir a la página principal después de eliminar
+      }
+  }
+</script>
