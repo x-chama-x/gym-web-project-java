@@ -23,6 +23,8 @@ En esta carpeta se encuentra toda la documentación relacionada con el proyecto,
 Esta es la carpeta principal del código fuente del proyecto. Está organizada de la siguiente manera:
 
 - **java**: Contiene el código fuente Java del proyecto, organizado en paquetes según la funcionalidad.
+    - **controlador**: Contiene los servlets para el manejo de las peticiones HTTP y la lógica de control.
+    - **modelo**: Contiene las clases JavaBeans que representan las entidades de la base de datos.
 - **resources**: Contiene los archivos de configuración y recursos estáticos como archivos de propiedades, plantillas, etc.
 - **webapp**: Contiene los archivos web estáticos y dinámicos, incluyendo HTML, CSS, JavaScript y JSP.
 
