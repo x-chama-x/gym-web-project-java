@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Editar Ejercicio - GYMWEB</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Importar tipografía Montserrat desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        .modal-content {
+            color: #ffffff;
+            background-color: #000000;
+        }
+        .modal-content input[type="text"], .modal-content textarea, .modal-content select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+        }
+        .modal-content label {
+            display: block;
+            margin-top: 10px;
+            color: #fff;
+        }
+        .modal-content button {
+            background-color: #0078ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .char-count {
+            font-size: 0.8em;
+            color: #888;
+        }
+        #imagenPreview {
+            max-width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html">GYMWEB</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">Mi Perfil</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main" role="main">
+        <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
+            <div class="overlay-itro"></div>
+            <div class="hero-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="cajafuera" align="center">
+                            <div class="formulariocaja">
+                                <div class="formtitulo">Press de Banca con Barra</div>
+                                <img src="assets/img/press-plano.jpg" alt="Press plano con barra" class="ejercicio-imagen" id="ejercicioImagen">
+                                <div class="ejercicio-espaciado"></div>
+                                <div class="ejercicio-detalles">
+                                    <p><strong>Zona Principal:</strong> PECHO</p>
+                                    <p><strong>Músculos Principales:</strong> Pecho, Tríceps, Hombro</p>
+                                    <p><strong>Equipo:</strong> Barra de pesas, Banco plano</p>
+                                    <h3>Descripción</h3>
+                                    <p>El press de banca con barra es un ejercicio compuesto que trabaja principalmente el pectoral mayor, deltoides y tríceps. Es uno de los ejercicios más populares y efectivos para desarrollar fuerza y masa muscular en el tren superior.</p>
+                                    <h3>Preparación</h3>
+                                    <p>Acuéstate en un banco plano con los pies apoyados en el suelo. Agarra la barra con un agarre ligeramente más ancho que los hombros y mantén los codos cerca del cuerpo.</p>
+                                    <h3>Ejecución</h3>
+                                    <p>Inhala y baja la barra hacia el pecho, manteniendo la espalda pegada al banco. Una vez que la barra toque el pecho, exhala y empuja la barra hacia arriba hasta extender completamente los brazos. Repite el movimiento de manera controlada.</p>
+                                    <h3>Consejos Clave</h3>
+                                    <ul>
+                                        <li>Mantén la espalda pegada al banco en todo momento.</li>
+                                        <li>No arquees la espalda ni levantes los hombros del banco.</li>
+                                        <li>Inhala en la fase excéntrica (bajada) y exhala en la fase concéntrica (subida).</li>
+                                        <li>Contrae los músculos pectorales en la parte superior del movimiento.</li>
+                                    </ul>
+                                    <button id="editButton" class="edit-button">Editar Ejercicio</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="divider"></div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © GYMWEB <strong>Aplicacion de entrenamiento</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://x-chama-x.github.io/franciscochiminelli.com/">x_chama_x</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Ejercicio</h2>
+            <form id="editForm">
+                <label for="nombre">Nombre del Ejercicio:</label>
+                <input type="text" id="nombre" name="nombre" maxlength="50">
+                <span class="char-count">0/50</span>
+
+                <label for="zonaPrincipal">Zona Principal:</label>
+                <select id="zonaPrincipal" name="zonaPrincipal">
+                    <option value="BRAZO">BRAZO</option>
+                    <option value="ESPALDA">ESPALDA</option>
+                    <option value="GLÚTEOS">GLÚTEOS</option>
+                    <option value="HOMBRO">HOMBRO</option>
+                    <option value="PECHO">PECHO</option>
+                    <option value="PIERNAS">PIERNAS</option>
+                    <option value="TODO EL CUERPO">TODO EL CUERPO</option>
+                </select>
+
+                <label for="musculos">Músculos Principales:</label>
+                <input type="text" id="musculos" name="musculos" maxlength="100">
+                <span class="char-count">0/100</span>
+
+                <label for="equipo">Equipo:</label>
+                <select id="equipo" name="equipo">
+                    <option value="">Seleccione el equipo</option>
+                    <option value="Barra de pesas">Barra de pesas</option>
+                    <option value="Mancuernas">Mancuernas</option>
+                    <option value="Máquina de cable">Máquina de cable</option>
+                    <option value="Banco de pesas">Banco de pesas</option>
+                    <option value="Banda elástica">Banda elástica</option>
+                    <option value="Pelota de estabilidad">Pelota de estabilidad</option>
+                    <option value="TRX">TRX</option>
+                    <option value="Kettlebell">Kettlebell</option>
+                    <option value="Plyo box">Plyo box</option>
+                    <option value="Peso corporal">Peso corporal</option>
+                    <option value="Otro">Otro (especificar en la descripción)</option>
+                </select>
+
+
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" rows="4" maxlength="300"></textarea>
+                <span class="char-count">0/300</span>
+
+                <label for="preparacion">Preparación:</label>
+                <textarea id="preparacion" name="preparacion" rows="4" maxlength="300"></textarea>
+                <span class="char-count">0/300</span>
+
+                <label for="ejecucion">Ejecución:</label>
+                <textarea id="ejecucion" name="ejecucion" rows="4" maxlength="300"></textarea>
+                <span class="char-count">0/300</span>
+
+                <label for="consejos">Consejos Clave:</label>
+                <textarea id="consejos" name="consejos" rows="4" maxlength="300"></textarea>
+                <span class="char-count">0/300</span>
+
+                <label for="imagen">Imagen del Ejercicio:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+                <img id="imagenPreview" src="#" alt="Vista previa de la imagen" style="display:none;">
+
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Obtener elementos del DOM
+        var modal = document.getElementById("editModal");
+        var btn = document.getElementById("editButton");
+        var span = document.getElementsByClassName("close")[0];
+        var form = document.getElementById("editForm");
+        var imagenInput = document.getElementById("imagen");
+        var imagenPreview = document.getElementById("imagenPreview");
+        var ejercicioImagen = document.getElementById("ejercicioImagen");
+
+        // Abrir el modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Cerrar el modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cerrar el modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Manejar el envío del formulario
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para guardar los cambios
+            console.log("Cambios guardados");
+            modal.style.display = "none";
+        }
+
+        // Actualizar contadores de caracteres
+        document.querySelectorAll('input[type="text"], textarea').forEach(function(el) {
+            el.addEventListener('input', function() {
+                this.nextElementSibling.textContent = this.value.length + '/' + this.maxLength;
+            });
+        });
+
+        // Previsualizar imagen
+        imagenInput.onchange = function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagenPreview.src = e.target.result;
+                    imagenPreview.style.display = 'block';
+                    ejercicioImagen.src = e.target.result; // Actualizar la imagen principal
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

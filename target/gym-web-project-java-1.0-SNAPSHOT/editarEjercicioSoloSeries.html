@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <title>GYMWEB</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+      
+        <!-- Importar tipografía Montserrat desde Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap" rel="stylesheet">
+      
+      </head>
+<body>
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html">GYMWEB</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" role="main">
+        <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
+            <div class="overlay-itro"></div>
+            <div class="hero-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="cajafuera" align="center">
+                            <div class="formulariocaja">
+                                <div class="formtitulo">
+                                    Press de Banca con Barra
+                                </div>
+
+                                <img src="assets/img/press-plano.jpg" alt="Press plano con barra" class="ejercicio-imagen">
+
+                                <div class="ejercicio-espaciado"></div>
+
+                                <div class="ejercicio-detalles">
+                                    <p><strong>Músculos Principales:</strong> Pecho, Tríceps, Hombro</p>
+                                    <p><strong>Equipo:</strong> Barra de pesas, Banco plano</p>
+
+                                    <h3>Series y Repeticiones</h3>
+                                    <ul id="seriesList"></ul>
+
+                                    <button class="edit-button" onclick="openModal()">Editar Series</button>
+
+                                    <h3>Descripción</h3>
+                                    <p>El press de banca con barra es un ejercicio compuesto que trabaja principalmente el pectoral mayor, deltoides y tríceps. Es uno de los ejercicios más populares y efectivos para desarrollar fuerza y masa muscular en el tren superior.</p>
+
+                                    <h3>Preparación</h3>
+                                    <p>Acuéstate en un banco plano con los pies apoyados en el suelo. Agarra la barra con un agarre ligeramente más ancho que los hombros y mantén los codos cerca del cuerpo.</p>
+
+                                    <h3>Ejecución</h3>
+                                    <p>Inhala y baja la barra hacia el pecho, manteniendo la espalda pegada al banco. Una vez que la barra toque el pecho, exhala y empuja la barra hacia arriba hasta extender completamente los brazos. Repite el movimiento de manera controlada.</p>
+
+                                    <h3>Consejos Clave</h3>
+                                    <ul>
+                                        <li>Mantén la espalda pegada al banco en todo momento.</li>
+                                        <li>No arquees la espalda ni levantes los hombros del banco.</li>
+                                        <li>Inhala en la fase excéntrica (bajada) y exhala en la fase concéntrica (subida).</li>
+                                        <li>Contrae los músculos pectorales en la parte superior del movimiento.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="divider"></div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © GYMWEB <strong>Aplicacion de entrenamiento</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://x-chama-x.github.io/franciscochiminelli.com/">x_chama_x</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Editar Series</h2>
+            <div id="seriesEditForm"></div>
+            <button class="add-series-button" onclick="addSeries()">Agregar Serie</button>
+            <button onclick="saveSeries()">Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        let series = [
+            { weight: 30, reps: 10 },
+            { weight: 40, reps: 10 },
+            { weight: 40, reps: 10 },
+            { weight: 40, reps: 10 }
+        ];
+
+        function updateSeriesList() {
+            let list = document.getElementById('seriesList');
+            list.innerHTML = '';
+            series.forEach((serie, index) => {
+                list.innerHTML += `<li><span class="series-number">${index + 1}.</span> <strong>${serie.weight}kg</strong> - <em>${serie.reps} reps</em></li>`;
+            });
+        }
+
+        function openModal() {
+            document.getElementById('editModal').style.display = 'block';
+            updateSeriesEditForm();
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        function updateSeriesEditForm() {
+            let form = document.getElementById('seriesEditForm');
+            form.innerHTML = '';
+            series.forEach((serie, index) => {
+                form.innerHTML += `
+                    <div class="series-input">
+                        <label>Serie ${index + 1}:</label>
+                        <input type="number" id="weight${index}" value="${serie.weight}" min="0" step="0.5"> kg
+                        <input type="number" id="reps${index}" value="${serie.reps}" min="1" step="1"> reps
+                        <button class="remove-series-button" onclick="removeSeries(${index})">Eliminar</button>
+                    </div>
+                `;
+            });
+        }
+
+        function addSeries() {
+            if (series.length < 8) {
+                series.push({ weight: 0, reps: 0 });
+                updateSeriesEditForm();
+            } else {
+                alert("No se pueden agregar más de 8 series.");
+            }
+        }
+
+        function removeSeries(index) {
+            series.splice(index, 1);
+            updateSeriesEditForm();
+        }
+
+        function saveSeries() {
+            series = series.map((_, index) => ({
+                weight: parseFloat(document.getElementById(`weight${index}`).value),
+                reps: parseInt(document.getElementById(`reps${index}`).value)
+            }));
+            updateSeriesList();
+            closeModal();
+        }
+
+        // Cerrar el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('editModal')) {
+                closeModal();
+            }
+        }
+
+        // Inicializar la lista de series
+        updateSeriesList();
+    </script>
+</body>
+</html>

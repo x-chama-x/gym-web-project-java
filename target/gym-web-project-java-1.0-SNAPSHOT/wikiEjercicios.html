@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Wiki de Ejercicios - GYMWEB</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+  
+    <!-- Importar tipografía Montserrat desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap" rel="stylesheet">
+  </head>
+  
+<body>
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html">GYMWEB</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" role="main">
+        <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
+            <div class="overlay-itro"></div>
+            <div class="hero-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="cajafuera" align="center">
+                            <div class="formulariocaja">
+                                <div class="formtitulo">
+                                    Wiki de Ejercicios
+                                </div>
+                                <p>Aquí puedes ver todos los ejercicios disponibles y sus detalles.</p>
+                                <button id="agregarEjercicioBtn" class="botonenviar">Agregar Ejercicio</button>
+                                <div class="ejercicios-contenedor">
+                                    <ul class="profile-usermenu">
+                                        <li>
+                                            <div class="ejercicio">
+                                                <img src="assets/img/press-plano.jpg" alt="Press plano con barra" class="ejercicio-thumbnail">
+                                                <a href="#"><span class="ejercicio-nombre">ejercicios de pecho</span></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="ejercicio">
+                                                <img src="assets/img/peckDeck.jpg" alt="Peck Deck" class="ejercicio-thumbnail">
+                                                <a href="#"><span class="ejercicio-nombre">ejercicios de espalda</span></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="ejercicio">
+                                                <img src="assets/img/flexiones.jpg" alt="Flex. Brazos" class="ejercicio-thumbnail">
+                                                <a href="#"><span class="ejercicio-nombre">ejercicios de brazos</span></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="ejercicio">
+                                                <img src="assets/img/pressPechoSentado.jpg" alt="Press de pecho sentado" class="ejercicio-thumbnail">
+                                                <a href="#"><span class="ejercicio-nombre">ejercicios de hombros</span></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="ejercicio">
+                                                <img src="assets/img/pressPechoSentado.jpg" alt="Press de pecho sentado" class="ejercicio-thumbnail">
+                                                <a href="#"><span class="ejercicio-nombre">ejercicios de piernas</span></a>
+                                            </div>
+                                        </li>
+                                        <li><a href="#">volver al menú de perfil</a></li>
+                                        <li><a href="#">Cerrar Sesión</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="divider"></div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © GYMWEB <strong>Aplicacion de entrenamiento</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://x-chama-x.github.io/franciscochiminelli.com/">x_chama_x</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="agregarEjercicioModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Agregar Ejercicio</h2>
+          <form id="agregarEjercicioForm">
+              <div class="form-group">
+                  <label for="nombreEjercicio">Nombre del Ejercicio:</label>
+                  <input type="text" id="nombreEjercicio" name="nombreEjercicio" maxlength="50" required>
+                  <span class="char-count">0/50</span>
+              </div>
+              <div class="form-group">
+                  <label for="zonaPrincipal">Zona Principal:</label>
+                  <select id="zonaPrincipal" name="zonaPrincipal" required>
+                      <option value="">Seleccione una zona</option>
+                      <option value="BRAZO">BRAZO</option>
+                      <option value="ESPALDA">ESPALDA</option>
+                      <option value="GLÚTEOS">GLÚTEOS</option>
+                      <option value="HOMBRO">HOMBRO</option>
+                      <option value="PECHO">PECHO</option>
+                      <option value="PIERNAS">PIERNAS</option>
+                      <option value="TODO EL CUERPO">TODO EL CUERPO</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="musculosPrincipales">Músculos Principales:</label>
+                  <input type="text" id="musculosPrincipales" name="musculosPrincipales" maxlength="100" required>
+                  <span class="char-count">0/100</span>
+              </div>
+              <div class="form-group">
+                  <label for="equipo">Equipo:</label>
+                  <select id="equipo" name="equipo" required>
+                      <option value="">Seleccione el equipo</option>
+                      <option value="Barra de pesas">Barra de pesas</option>
+                      <option value="Mancuernas">Mancuernas</option>
+                      <option value="Máquina de cable">Máquina de cable</option>
+                      <option value="Banco de pesas">Banco de pesas</option>
+                      <option value="Banda elástica">Banda elástica</option>
+                      <option value="Pelota de estabilidad">Pelota de estabilidad</option>
+                      <option value="TRX">TRX</option>
+                      <option value="Kettlebell">Kettlebell</option>
+                      <option value="Plyo box">Plyo box</option>
+                      <option value="Peso corporal">Peso corporal</option>
+                      <option value="Otro">Otro (especificar en la descripción)</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="descripcion">Descripción:</label>
+                  <textarea id="descripcion" name="descripcion" maxlength="300" required></textarea>
+                  <span class="char-count">0/300</span>
+              </div>
+              <div class="form-group">
+                  <label for="preparacion">Preparación:</label>
+                  <textarea id="preparacion" name="preparacion" maxlength="300" required></textarea>
+                  <span class="char-count">0/300</span>
+              </div>
+              <div class="form-group">
+                  <label for="ejecucion">Ejecución:</label>
+                  <textarea id="ejecucion" name="ejecucion" maxlength="300" required></textarea>
+                  <span class="char-count">0/300</span>
+              </div>
+              <div class="form-group">
+                  <label for="consejosClaves">Consejos Clave:</label>
+                  <textarea id="consejosClaves" name="consejosClaves" maxlength="300" required></textarea>
+                  <span class="char-count">0/300</span>
+              </div>
+              <div class="form-group">
+                  <label for="imagenEjercicio">Imagen del Ejercicio:</label>
+                  <input type="file" id="imagenEjercicio" name="imagenEjercicio" accept="image/*" required>
+                  <img id="imagenPreview" src="#" alt="Vista previa de la imagen" style="display:none;">
+              </div>
+              <button type="submit" class="botonenviar">Guardar Ejercicio</button>
+          </form>
+      </div>
+  </div>
+    <script>
+        // JavaScript para manejar el modal y la funcionalidad de agregar ejercicio
+        var modal = document.getElementById("agregarEjercicioModal");
+        var btn = document.getElementById("agregarEjercicioBtn");
+        var span = document.getElementsByClassName("close")[0];
+        var form = document.getElementById("agregarEjercicioForm");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para enviar los datos del formulario al servidor
+            console.log("Formulario enviado");
+            modal.style.display = "none";
+        }
+
+        // Función para actualizar el contador de caracteres
+        function updateCharCount(input) {
+            var maxLength = input.getAttribute('maxlength');
+            var currentLength = input.value.length;
+            input.nextElementSibling.textContent = currentLength + '/' + maxLength;
+        }
+
+        // Agregar event listeners para los inputs y textareas
+        document.querySelectorAll('input[type="text"], textarea').forEach(function(el) {
+            el.addEventListener('input', function() {
+                updateCharCount(this);
+            });
+        });
+
+        // Vista previa de la imagen
+        document.getElementById('imagenEjercicio').onchange = function(e) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('imagenPreview').src = e.target.result;
+                document.getElementById('imagenPreview').style.display = 'block';
+            };
+            reader.readAsDataURL(this.files[0]);
+        };
+    </script>
+</body>
+</html>
