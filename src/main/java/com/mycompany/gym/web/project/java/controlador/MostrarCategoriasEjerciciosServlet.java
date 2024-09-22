@@ -1,0 +1,45 @@
+package com.mycompany.gym.web.project.java.controlador;
+
+import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpo;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+// anotacion del servlet
+@WebServlet(name = "mostrar-categorias-ejercicios-servlet", value = "/wikiEjercicios")
+
+public class MostrarCategoriasEjerciciosServlet extends HttpServlet {
+    private List<ParteDelCuerpo> categorias;
+
+
+    // inicializar el servlet y crea una lista de categorías (ParteDelCuerpo)
+    @Override
+    public void init() throws ServletException {
+        System.out.println("Inicializando el servlet y las categorías");
+        categorias = new ArrayList<>();
+        categorias.add(new ParteDelCuerpo(1, "Pecho"));
+        categorias.add(new ParteDelCuerpo(2, "Espalda"));
+        categorias.add(new ParteDelCuerpo(3, "Piernas"));
+        categorias.add(new ParteDelCuerpo(4, "Hombros"));
+        categorias.add(new ParteDelCuerpo(5, "Brazos"));
+        categorias.add(new ParteDelCuerpo(6, "Abdominales"));
+    }
+
+
+    // establece las categorías como un atributo de la solicitud y reenvía la solicitud a wikiEjercicios.jsp
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Entrando al método doGet del servlet");
+        // Imprimir el contenido de categorias
+        for (ParteDelCuerpo categoria : categorias) {
+            System.out.println("Categoria: " + categoria.getNombre());
+        }
+        request.setAttribute("categorias", categorias);
+        request.getRequestDispatcher("/wikiEjercicios.jsp").forward(request, response);
+    }
+}
