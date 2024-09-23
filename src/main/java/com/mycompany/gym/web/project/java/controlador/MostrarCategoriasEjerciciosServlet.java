@@ -11,9 +11,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-// anotacion del servlet
-@WebServlet(name = "mostrar-categorias-ejercicios-servlet", value = "/wikiEjercicios")
-
 public class MostrarCategoriasEjerciciosServlet extends HttpServlet {
     private List<ParteDelCuerpo> categorias;
 
@@ -40,6 +37,6 @@ public class MostrarCategoriasEjerciciosServlet extends HttpServlet {
             System.out.println("Categoria: " + categoria.getNombre());
         }
         request.setAttribute("categorias", categorias);
-        request.getRequestDispatcher("/wikiEjercicios.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/wikiEjercicios.jsp").forward(request, response);
     }
 }
