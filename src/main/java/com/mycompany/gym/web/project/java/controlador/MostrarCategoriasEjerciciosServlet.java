@@ -18,7 +18,6 @@ public class MostrarCategoriasEjerciciosServlet extends HttpServlet {
     // inicializar el servlet y crea una lista de categorías (ParteDelCuerpo)
     @Override
     public void init() throws ServletException {
-        System.out.println("Inicializando el servlet y las categorías");
         categorias = new ArrayList<>();
         categorias.add(new ParteDelCuerpo(1, "Pecho"));
         categorias.add(new ParteDelCuerpo(2, "Espalda"));
@@ -31,11 +30,6 @@ public class MostrarCategoriasEjerciciosServlet extends HttpServlet {
 
     // establece las categorías como un atributo de la solicitud y reenvía la solicitud a wikiEjercicios.jsp
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Entrando al método doGet del servlet");
-        // Imprimir el contenido de categorias
-        for (ParteDelCuerpo categoria : categorias) {
-            System.out.println("Categoria: " + categoria.getNombre());
-        }
         request.setAttribute("categorias", categorias);
         request.getRequestDispatcher("WEB-INF/jsp/wikiEjercicios.jsp").forward(request, response);
     }
