@@ -13,12 +13,12 @@ public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
     }
 
     private void cargarCategorias() {
-        categorias.add(new ParteDelCuerpo(1, "Pecho"));
-        categorias.add(new ParteDelCuerpo(2, "Espalda"));
-        categorias.add(new ParteDelCuerpo(3, "Piernas"));
-        categorias.add(new ParteDelCuerpo(4, "Hombros"));
-        categorias.add(new ParteDelCuerpo(5, "Brazos"));
-        categorias.add(new ParteDelCuerpo(6, "Abdominales"));
+        categorias.add(new ParteDelCuerpo(1, "Pecho", "pecho.jpg"));
+        categorias.add(new ParteDelCuerpo(2, "Espalda", "espalda.jpg"));
+        categorias.add(new ParteDelCuerpo(3, "Piernas", "piernas.jpg"));
+        categorias.add(new ParteDelCuerpo(4, "Hombros", "hombros.jpg"));
+        categorias.add(new ParteDelCuerpo(5, "Brazos", "brazos.jpg"));
+        categorias.add(new ParteDelCuerpo(6, "Abdominales", "abdominales.jpg"));
     }
 
     @Override
