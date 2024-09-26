@@ -2,12 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Ejercicios</title>
-    <link href="assets/css/style.css" rel="stylesheet">
-</head>
+  <!-- head -->
+    <c:import url="includes/head.jsp" />
+   <!-- end head -->
 <body>
+    <!-- ======= Header ======= -->
+    <c:import url="includes/header.jsp" />
+    <!-- End Header -->
     <main id="main" role="main">
         <section id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
             <div class="overlay-itro"></div>
@@ -41,5 +42,8 @@
             </div>
         </section>
     </main>
+    <!-- ======= Footer ======= -->
+    <c:import url="includes/footer.jsp" />
+    <!-- End Footer -->
 </body>
 </html>
