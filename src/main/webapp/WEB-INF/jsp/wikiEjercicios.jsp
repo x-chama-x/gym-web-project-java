@@ -24,7 +24,7 @@
                                 <c:forEach var="categoria" items="${categorias}">
                                     <div class="ejercicio">
                                         <img src="assets/img/musculoPrincipalCategoria/${categoria.imagen}" alt="${categoria.nombre} " class = "ejercicio-thumbnail">
-                                        <a href="#" class="ejercicio-nombre">${categoria.nombre}</a>
+                                        <a href="mostrarEjercicios?categoriaId=${categoria.parteDelCuerpoID}" class="ejercicio-nombre">${categoria.nombre}</a>
                                     </div>
                                 </c:forEach>
                             </div>

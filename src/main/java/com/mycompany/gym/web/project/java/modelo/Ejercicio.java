@@ -20,6 +20,24 @@ public class Ejercicio implements Serializable {
     public Ejercicio() {
     }
 
+    public Ejercicio (int ejercicioID, int usuarioID, int equipoID, int parteDelCuerpoID,
+      String nombre, String imagen, String musculosQueTrabaja, String preparacion, String consejosClave,
+      String descripcion, String ejecucion, String musculoPrincipal, CargadoPor cargadoPor) {
+        this.ejercicioID = ejercicioID;
+        this.usuarioID = usuarioID;
+        this.equipoID = equipoID;
+        this.parteDelCuerpoID = parteDelCuerpoID;
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.musculosQueTrabaja = musculosQueTrabaja;
+        this.preparacion = preparacion;
+        this.consejosClave = consejosClave;
+        this.descripcion = descripcion;
+        this.ejecucion = ejecucion;
+        this.musculoPrincipal = musculoPrincipal;
+        this.cargadoPor = cargadoPor;
+    }
+
     public int getEjercicioID() {
         return ejercicioID;
     }

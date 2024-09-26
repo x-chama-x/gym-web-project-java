@@ -26,6 +26,22 @@ public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
         return new ArrayList<>(categorias);
     }
 
+    @Override
+    public ParteDelCuerpo getById(Integer id) throws Exception {
+        ParteDelCuerpo categoria = null;
+        int i = 0;
+        while (i < categorias.size() && categoria == null) {
+            if (categorias.get(i).getParteDelCuerpoID() == id) {
+                categoria = categorias.get(i);
+            }
+            i++;
+        }
+        if (categoria == null) {
+            throw new IllegalArgumentException("Categoría no encontrada: " + id);
+        }
+        return categoria;
+    }
+
     // metodos no implementados
     @Override
     public void add(ParteDelCuerpo entidad) throws Exception {
@@ -39,11 +55,6 @@ public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
 
     @Override
     public void delete(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public ParteDelCuerpo getById(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
