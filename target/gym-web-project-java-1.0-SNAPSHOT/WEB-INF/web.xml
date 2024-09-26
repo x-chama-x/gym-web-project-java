@@ -8,7 +8,7 @@
     <servlet>
         <description>El servlet mostrarEjerciciosDeCategoriaServlet se encarga de manejar las solicitudes HTTP GET para mostrar los ejercicios de una categoría específica. Cuando se recibe una solicitud con un parámetro categoriaId, el servlet obtiene la lista de ejercicios correspondientes a esa categoría desde el EjercicioDAO y los envía a la página JSP mostrarEjercicios.jsp para su visualización. Si el parámetro categoriaId no está presente, el servlet responde con un error de solicitud incorrecta (400).</description>
         <servlet-name>mostrar-ejercicios-de-categoria-servlet</servlet-name>
-        <servlet-class>com.mycompany.gym.web.project.java.controlador.mostrarEjerciciosDeCategoriaServlet</servlet-class>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarEjerciciosDeCategoriaServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
