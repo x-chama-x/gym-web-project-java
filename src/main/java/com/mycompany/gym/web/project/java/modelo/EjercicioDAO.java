@@ -117,12 +117,18 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
 
     @Override
     public Ejercicio getById(Integer id) throws Exception {
-        for (Ejercicio ejercicio : ejercicios) {
-            if (ejercicio.getEjercicioID() == id) {
-                return ejercicio;
+        Ejercicio ejercicio = null;
+        int i = 0;
+        while (i < ejercicios.size() && ejercicio == null) {
+            if (ejercicios.get(i).getEjercicioID() == id) {
+                ejercicio = ejercicios.get(i);
             }
+            i++;
         }
-        throw new IllegalArgumentException("Ejercicio no encontrado: " + id);
+        if (ejercicio == null) {
+            throw new IllegalArgumentException("Ejercicio no encontrado: " + id);
+        }
+        return ejercicio;
     }
 
     // metodos no implementados

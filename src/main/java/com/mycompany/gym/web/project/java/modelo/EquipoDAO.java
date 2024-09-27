@@ -26,12 +26,18 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
 
     @Override
     public Equipo getById(Integer id) throws Exception {
-        for (Equipo equipo : equipos) {
-            if (equipo.getEquipoID() == id) {
-                return equipo;
+        Equipo equipo = null;
+        int i = 0;
+        while (i < equipos.size() && equipo == null) {
+            if (equipos.get(i).getEquipoID() == id) {
+                equipo = equipos.get(i);
             }
+            i++;
         }
-        throw new IllegalArgumentException("Equipo no encontrado: " + id);
+        if (equipo == null) {
+            throw new IllegalArgumentException("Equipo no encontrado: " + id);
+        }
+        return equipo;
     }
 
     @Override
