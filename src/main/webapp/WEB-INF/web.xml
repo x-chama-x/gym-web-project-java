@@ -10,6 +10,11 @@
         <servlet-name>mostrar-ejercicios-de-categoria-servlet</servlet-name>
         <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarEjerciciosDeCategoriaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <description>este servlet es el responsable de manejar las solicitudes relacionadas con los datos de un ejercicio</description>
+        <servlet-name>mostrar-detalle-de-ejercicio-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarDetalleDeEjercicioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
         <url-pattern>/wikiEjercicios</url-pattern>
@@ -17,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>mostrar-ejercicios-de-categoria-servlet</servlet-name>
         <url-pattern>/mostrarEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrar-detalle-de-ejercicio-servlet</servlet-name>
+        <url-pattern>/mostrarDetalleDeEjercicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

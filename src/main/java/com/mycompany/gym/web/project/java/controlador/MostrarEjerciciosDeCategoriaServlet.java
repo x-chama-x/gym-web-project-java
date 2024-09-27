@@ -28,7 +28,7 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
         if (categoriaIdStr != null) {
             try {
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                List<Ejercicio> ejercicios = ejercicioDAO.getAll(categoriaId);
+                List<Ejercicio> ejercicios = ejercicioDAO.getAll(categoriaId); // Cargar ejercicios por categoría
                 ParteDelCuerpo categoria = parteDelCuerpoDAO.getById(categoriaId);
                 request.setAttribute("ejercicios", ejercicios);
                 request.setAttribute("categoriaNombre", categoria.getNombre());

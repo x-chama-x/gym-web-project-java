@@ -1,12 +1,13 @@
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\DAO.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\ParteDelCuerpo.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\ParteDelCuerpoDAO.java
-C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\CargadoPor.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarEjerciciosDeCategoriaServlet.java
-C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\RolUsuario.java
-C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\EntrenamientoHasEjercicio.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarCategoriasEjerciciosServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\EjercicioDAO.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\Entrenamiento.java
-C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\Usuario.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\Ejercicio.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\CargadoPor.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\RolUsuario.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\EntrenamientoHasEjercicio.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarDetalleDeEjercicioServlet.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\Usuario.java
