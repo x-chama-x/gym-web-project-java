@@ -23,7 +23,7 @@
                                 <div class="ejercicio-espaciado"></div>
                                 <div class="ejercicio-detalles">
                                     <span><strong>Músculos Principales:</strong> ${ejercicio.musculosQueTrabaja}</span><br>
-                                    <span><strong>Equipo:</strong> ${ejercicio.equipoID}</span><br><br>
+                                    <span><strong>Equipo:</strong> ${equipoNombre}</span><br><br>
                                     <h3>Descripción</h3>
                                     <p>${ejercicio.descripcion}</p>
                                     <h3>Preparación</h3>

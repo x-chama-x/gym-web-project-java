@@ -61,44 +61,44 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
     }
 
     private void cargarEjerciciosPiernas() {
-        ejercicios.add(new Ejercicio(5, 1, 5, 3, "Sentadillas", "sentadillas.jpg",
+        ejercicios.add(new Ejercicio(5, 1, 3, 3, "Sentadillas", "sentadillas.jpg",
                 "Cuádriceps, glúteos", "De pie, pies separados", "Mantén la espalda recta",
                 "Ejercicio completo para piernas", "Flexiona rodillas, baja y sube", "Cuádriceps",
                 CargadoPor.SISTEMA));
-        ejercicios.add(new Ejercicio(6, 1, 6, 3, "Peso muerto", "peso_muerto.jpg",
+        ejercicios.add(new Ejercicio(6, 1, 4, 3, "Peso muerto", "peso_muerto.jpg",
                 "Isquiotibiales, glúteos, espalda baja", "De pie, barra al frente", "Mantén la espalda recta",
                 "Ejercicio compuesto para piernas y espalda", "Flexiona caderas y rodillas, baja y sube", "Isquiotibiales",
                 CargadoPor.SISTEMA));
     }
 
     private void cargarEjerciciosHombros() {
-        ejercicios.add(new Ejercicio(7, 1, 7, 4, "Press militar", "press_militar.jpg",
+        ejercicios.add(new Ejercicio(7, 1, 2, 4, "Press militar", "press_militar.jpg",
                 "Deltoides, tríceps", "De pie o sentado", "Mantén el core estable",
                 "Ejercicio básico para hombros", "Empuja la barra sobre la cabeza", "Deltoides",
                 CargadoPor.SISTEMA));
-        ejercicios.add(new Ejercicio(8, 1, 8, 4, "Elevaciones laterales", "elevaciones_laterales.jpg",
+        ejercicios.add(new Ejercicio(8, 1, 2, 4, "Elevaciones laterales", "elevaciones_laterales.jpg",
                 "Deltoides laterales", "De pie, mancuernas a los lados", "Codos ligeramente flexionados",
                 "Aísla los deltoides laterales", "Eleva las mancuernas hasta la altura de los hombros", "Deltoides",
                 CargadoPor.SISTEMA));
     }
 
     private void cargarEjerciciosBrazos() {
-        ejercicios.add(new Ejercicio(9, 1, 9, 5, "Curl de bíceps", "curl_biceps.jpg",
+        ejercicios.add(new Ejercicio(9, 1, 2, 5, "Curl de bíceps Mancuerna", "curl_biceps.jpg",
                 "Bíceps", "De pie, mancuernas", "Codos pegados al cuerpo",
                 "Ejercicio de aislamiento para bíceps", "Flexiona y extiende los codos", "Bíceps",
                 CargadoPor.SISTEMA));
-        ejercicios.add(new Ejercicio(10, 1, 10, 5, "Extensiones de tríceps", "extensiones_triceps.jpg",
+        ejercicios.add(new Ejercicio(10, 1, 5, 5, "Extensiones de tríceps", "extensiones_triceps.jpg",
                 "Tríceps", "De pie o sentado", "Mantén los codos cerca de la cabeza",
                 "Aísla los tríceps", "Extiende los brazos sobre la cabeza", "Tríceps",
                 CargadoPor.SISTEMA));
     }
 
     private void cargarEjerciciosAbdominales() {
-        ejercicios.add(new Ejercicio(11, 1, 11, 6, "Crunches", "crunches.jpg",
+        ejercicios.add(new Ejercicio(11, 1, 3, 6, "Crunches", "crunches.jpg",
                 "Abdominales superiores", "Acostado, rodillas flexionadas", "Mantén la zona lumbar pegada al suelo",
                 "Ejercicio básico para abdominales", "Eleva los hombros del suelo", "Recto abdominal",
                 CargadoPor.SISTEMA));
-        ejercicios.add(new Ejercicio(12, 1, 12, 6, "Plancha", "plancha.jpg",
+        ejercicios.add(new Ejercicio(12, 1, 3, 6, "Plancha", "plancha.jpg",
                 "Core, abdominales", "Posición de flexiones", "Mantén el cuerpo en línea recta",
                 "Fortalece el core y la estabilidad", "Mantén la posición", "Core",
                 CargadoPor.SISTEMA));
