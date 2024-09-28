@@ -131,6 +131,16 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         return ejercicio;
     }
 
+    @Override
+    public void delete(Integer id) throws Exception {
+        Ejercicio ejercicio = getById(id);
+        if (ejercicio != null) {
+            ejercicios.remove(ejercicio);
+        } else {
+            throw new IllegalArgumentException("Ejercicio no encontrado: " + id);
+        }
+    }
+
     // metodos no implementados
 
     @Override
@@ -140,11 +150,6 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
 
     @Override
     public void update(Ejercicio entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void delete(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
