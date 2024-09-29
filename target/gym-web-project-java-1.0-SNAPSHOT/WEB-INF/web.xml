@@ -15,6 +15,10 @@
         <servlet-name>mostrar-detalle-de-ejercicio-servlet</servlet-name>
         <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarDetalleDeEjercicioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>eliminar-ejercicio-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.EliminarEjercicioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
         <url-pattern>/wikiEjercicios</url-pattern>
@@ -26,6 +30,10 @@
     <servlet-mapping>
         <servlet-name>mostrar-detalle-de-ejercicio-servlet</servlet-name>
         <url-pattern>/mostrarDetalleDeEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminar-ejercicio-servlet</servlet-name>
+        <url-pattern>/eliminarEjercicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

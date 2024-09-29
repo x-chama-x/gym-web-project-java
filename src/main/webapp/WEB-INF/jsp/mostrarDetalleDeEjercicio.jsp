@@ -39,6 +39,8 @@
                                 </div>
                                 <a href="mostrarEjercicios?categoriaId=${ejercicio.parteDelCuerpoID}" class="boton">Volver a la lista de ejercicios </a>
                                 <br>
+                                <a href="eliminarEjercicio?ejercicioId=${ejercicio.ejercicioID}&categoriaId=${ejercicio.parteDelCuerpoID}" class="boton">Eliminar Ejercicio</a>
+                                <br>
                                 <a href="principal.html">Volver al menú de perfil</a>
                                 <br>
                                 <c:import url="includes/cerrarSesion.jsp" />

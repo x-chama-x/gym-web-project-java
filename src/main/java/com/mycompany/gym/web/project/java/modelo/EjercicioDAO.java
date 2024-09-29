@@ -131,6 +131,27 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         return ejercicio;
     }
 
+    // Método que devuelve un ejercicio por ID de una lista de ejercicios cargada
+    public Ejercicio getById(List<Ejercicio> ejercicios, int ejercicioId) {
+        Ejercicio ejercicio = null;
+        int i = 0;
+        while (i < ejercicios.size() && ejercicio == null) {
+            if (ejercicios.get(i).getEjercicioID() == ejercicioId) {
+                ejercicio = ejercicios.get(i);
+            }
+            i++;
+        }
+        if (ejercicio == null) {
+            throw new IllegalArgumentException("Ejercicio no encontrado: " + ejercicioId);
+        }
+        return ejercicio;
+    }
+
+
+
+
+
+
     @Override
     public void delete(Integer id) throws Exception {
         Ejercicio ejercicio = getById(id);

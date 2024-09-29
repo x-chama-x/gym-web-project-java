@@ -28,16 +28,33 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
         if (categoriaIdStr != null) {
             try {
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                List<Ejercicio> ejercicios = ejercicioDAO.getAll(categoriaId); // Cargar ejercicios por categoría
-                ParteDelCuerpo categoria = parteDelCuerpoDAO.getById(categoriaId);
-                request.setAttribute("ejercicios", ejercicios);
-                request.setAttribute("categoriaNombre", categoria.getNombre());
-                request.getRequestDispatcher("WEB-INF/jsp/mostrarEjercicios.jsp").forward(request, response);
+                List<Ejercicio> ejercicios = cargarEjerciciosPorCategoria(categoriaId);
+                ParteDelCuerpo categoria = cargarCategoria(categoriaId);
+                almacenarEjerciciosEnSesion(request, ejercicios);
+                redirigirAListaDeEjercicios(request, response, ejercicios, categoria);
             } catch (Exception e) {
                 throw new ServletException("Error al cargar los ejercicios", e);
             }
         } else {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Categoría no especificada");
         }
+    }
+
+    private List<Ejercicio> cargarEjerciciosPorCategoria(int categoriaId) throws Exception {
+        return ejercicioDAO.getAll(categoriaId);
+    }
+
+    private ParteDelCuerpo cargarCategoria(int categoriaId) throws Exception {
+        return parteDelCuerpoDAO.getById(categoriaId);
+    }
+
+    private void almacenarEjerciciosEnSesion(HttpServletRequest request, List<Ejercicio> ejercicios) {
+        request.getSession().setAttribute("ejercicios", ejercicios);
+    }
+
+    private void redirigirAListaDeEjercicios(HttpServletRequest request, HttpServletResponse response, List<Ejercicio> ejercicios, ParteDelCuerpo categoria) throws ServletException, IOException {
+        request.setAttribute("ejercicios", ejercicios);
+        request.setAttribute("categoriaNombre", categoria.getNombre());
+        request.getRequestDispatcher("WEB-INF/jsp/mostrarEjercicios.jsp").forward(request, response);
     }
 }
