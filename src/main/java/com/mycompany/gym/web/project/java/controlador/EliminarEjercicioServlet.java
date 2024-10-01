@@ -13,7 +13,7 @@ public class EliminarEjercicioServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = new EjercicioDAO();
+        ejercicioDAO = EjercicioDAO.getInstance();
     }
 
     @Override
@@ -37,7 +37,6 @@ public class EliminarEjercicioServlet extends HttpServlet {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                ejercicioDAO.getAll(); // Cargar ejercicios por categoría antes de eliminar el ejercicio específico
                 ejercicioDAO.delete(ejercicioId);
                 response.sendRedirect("mostrarEjercicios?categoriaId=" + categoriaId);
             } catch (Exception e) {

@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
     private EjercicioDAO ejercicioDAO;
@@ -19,7 +18,7 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = new EjercicioDAO();
+        ejercicioDAO = EjercicioDAO.getInstance();
         parteDelCuerpoDAO = new ParteDelCuerpoDAO();
     }
 

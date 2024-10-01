@@ -19,7 +19,7 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = new EjercicioDAO();
+        ejercicioDAO = EjercicioDAO.getInstance();
         equipoDAO = new EquipoDAO();
     }
 
@@ -41,7 +41,7 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
         }
     }
 
-    // Método que recupera los ejercicios de la sesión
+    // Metodo que recupera los ejercicios de la sesión
     private List<Ejercicio> recuperarEjerciciosDeSesion(HttpServletRequest request) throws ServletException {
         List<Ejercicio> ejercicios = (List<Ejercicio>) request.getSession().getAttribute("ejercicios");
         if (ejercicios == null) {

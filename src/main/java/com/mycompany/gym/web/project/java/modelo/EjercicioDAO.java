@@ -5,10 +5,18 @@ import java.util.List;
 
 public class EjercicioDAO implements DAO<Ejercicio,Integer> {
     private List<Ejercicio> ejercicios;
+    private static EjercicioDAO instance; // Singleton para que solo haya una instancia de la clase
 
     public EjercicioDAO() {
         this.ejercicios = new ArrayList<>();
         cargarTodosLosEjercicios();
+    }
+
+    public static synchronized EjercicioDAO getInstance() {
+        if (instance == null) {
+            instance = new EjercicioDAO();
+        }
+        return instance;
     }
 
     // Datos Hardcodedeados de los ejercicios
@@ -150,6 +158,13 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
             ejercicios.remove(ejercicio);
         } else {
             throw new IllegalArgumentException("Ejercicio no encontrado: " + id);
+        }
+    }
+
+    public void mostrarListaDeEjerciciosSoloNombre(List<Ejercicio> ejercicios) {
+        System.out.println("Lista de ejercicios:");
+        for (Ejercicio ejercicio : ejercicios) {
+            System.out.println(ejercicio.getNombre());
         }
     }
 
