@@ -15,7 +15,7 @@ public class AgregarEjercicioServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = new EjercicioDAO();
+        ejercicioDAO = EjercicioDAO.getInstance();
         equipoDAO = new EquipoDAO();
         parteDelCuerpoDAO = new ParteDelCuerpoDAO();
     }
