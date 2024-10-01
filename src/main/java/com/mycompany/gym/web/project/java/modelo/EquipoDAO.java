@@ -40,6 +40,21 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
         return equipo;
     }
 
+    public Equipo getByName(String nombre) throws Exception {
+        Equipo equipo = null;
+        int i = 0;
+        while (i < equipos.size() && equipo == null) {
+            if (equipos.get(i).getNombre().equals(nombre)) {
+                equipo = equipos.get(i);
+            }
+            i++;
+        }
+        if (equipo == null) {
+            throw new IllegalArgumentException("Equipo no encontrado: " + nombre);
+        }
+        return equipo;
+    }
+
     @Override
     public void add(Equipo entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");

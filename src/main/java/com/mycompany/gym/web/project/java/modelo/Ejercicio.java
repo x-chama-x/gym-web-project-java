@@ -141,4 +141,23 @@ public class Ejercicio implements Serializable {
     public void setCargadoPor(CargadoPor cargadoPor) {
         this.cargadoPor = cargadoPor;
     }
+
+    @Override
+    public String toString() {
+        return "Ejercicio{" +
+                "ejercicioID=" + ejercicioID +
+                ", usuarioID=" + usuarioID +
+                ", equipoID=" + equipoID +
+                ", parteDelCuerpoID=" + parteDelCuerpoID +
+                ", nombre='" + nombre + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", musculosQueTrabaja='" + musculosQueTrabaja + '\'' +
+                ", preparacion='" + preparacion + '\'' +
+                ", consejosClave='" + consejosClave + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", ejecucion='" + ejecucion + '\'' +
+                ", musculoPrincipal='" + musculoPrincipal + '\'' +
+                ", cargadoPor=" + cargadoPor +
+                '}';
+    }
 }

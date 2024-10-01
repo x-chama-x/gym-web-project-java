@@ -147,10 +147,11 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         return ejercicio;
     }
 
-
-
-
-
+    @Override
+    public void add(Ejercicio entidad) throws Exception {
+        entidad.setEjercicioID(ejercicios.size() + 1); // Simular ID autoincremental
+        ejercicios.add(entidad);
+    }
 
     @Override
     public void delete(Integer id) throws Exception {
@@ -163,11 +164,6 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
     }
 
     // metodos no implementados
-
-    @Override
-    public void add(Ejercicio entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
     @Override
     public void update(Ejercicio entidad) throws Exception {

@@ -42,6 +42,21 @@ public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
         return categoria;
     }
 
+    public ParteDelCuerpo getByName(String nombre) throws Exception {
+        ParteDelCuerpo categoria = null;
+        int i = 0;
+        while (i < categorias.size() && categoria == null) {
+            if (categorias.get(i).getNombre().equals(nombre)) {
+                categoria = categorias.get(i);
+            }
+            i++;
+        }
+        if (categoria == null) {
+            throw new IllegalArgumentException("Categoría no encontrada: " + nombre);
+        }
+        return categoria;
+    }
+
     // metodos no implementados
     @Override
     public void add(ParteDelCuerpo entidad) throws Exception {

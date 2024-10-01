@@ -28,7 +28,7 @@
                                     </div>
                                 </c:forEach>
                             </div>
-                            <a href="agregarEjercicio.html" class="boton">Agregar Ejercicio</a>
+                            <a href="agregarEjercicio" class="boton">Agregar Ejercicio</a>
                             <br>
                             <a href="principal.html">Volver al menú de perfil</a>
                             <br>
