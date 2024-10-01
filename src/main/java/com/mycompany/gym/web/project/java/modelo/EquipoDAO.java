@@ -17,6 +17,7 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
         equipos.add(new Equipo(3, "Peso corporal", "peso_corporal.jpg"));
         equipos.add(new Equipo(4, "Barra de pesas", "barra.jpg"));
         equipos.add(new Equipo(5, "Máquina de poleas", "poleas.jpg"));
+        equipos.add(new Equipo(6, "Máquina de pectorales", "maquinapec.jpg"));
     }
 
     @Override

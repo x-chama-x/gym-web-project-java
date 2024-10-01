@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AgregarEjercicioServlet extends HttpServlet {
     private EjercicioDAO ejercicioDAO;
@@ -22,7 +23,15 @@ public class AgregarEjercicioServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/jsp/agregarEjercicio.jsp").forward(request, response);
+        try {
+            List<ParteDelCuerpo> partesDelCuerpo = parteDelCuerpoDAO.getAll();
+            List<Equipo> equipos = equipoDAO.getAll();
+            request.setAttribute("partesDelCuerpo", partesDelCuerpo);
+            request.setAttribute("equipos", equipos);
+            request.getRequestDispatcher("WEB-INF/jsp/agregarEjercicio.jsp").forward(request, response);
+        } catch (Exception e) {
+            throw new ServletException("Error al cargar los datos para agregar ejercicio", e);
+        }
     }
 
     @Override

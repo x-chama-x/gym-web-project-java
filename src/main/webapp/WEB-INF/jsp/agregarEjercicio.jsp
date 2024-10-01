@@ -35,20 +35,16 @@
                                     <input type="text" id="ejecucion" name="ejecucion" required><br>
                                     <label for="musculoPrincipal">Músculo Principal:</label>
                                     <select id="musculoPrincipal" name="musculoPrincipal" required>
-                                        <option value="Pecho">Pecho</option>
-                                        <option value="Espalda">Espalda</option>
-                                        <option value="Piernas">Piernas</option>
-                                        <option value="Hombros">Hombros</option>
-                                        <option value="Brazos">Brazos</option>
-                                        <option value="Abdominales">Abdominales</option>
+                                        <c:forEach var="parte" items="${partesDelCuerpo}">
+                                            <option value="${parte.nombre}">${parte.nombre}</option>
+                                        </c:forEach>
                                     </select><br>
+
                                     <label for="equipo">Equipo:</label>
                                     <select id="equipo" name="equipo" required>
-                                        <option value="Banco plano">Banco plano</option>
-                                        <option value="Mancuernas">Mancuernas</option>
-                                        <option value="Peso corporal">Peso corporal</option>
-                                        <option value="Barra de pesas">Barra de pesas</option>
-                                        <option value="Máquina de poleas">Máquina de poleas</option>
+                                        <c:forEach var="equipo" items="${equipos}">
+                                            <option value="${equipo.nombre}">${equipo.nombre}</option>
+                                        </c:forEach>
                                     </select><br>
                                     <button type="submit" class="boton">Agregar</button>
                                 </form>
