@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
     private EjercicioDAO ejercicioDAO;
@@ -28,7 +29,7 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
         if (categoriaIdStr != null) {
             try {
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                List<Ejercicio> ejercicios = cargarEjerciciosPorCategoria(categoriaId);
+                List<Ejercicio> ejercicios = ejercicioDAO.getByParteDelCuerpoID(categoriaId);
                 ParteDelCuerpo categoria = cargarCategoria(categoriaId);
                 almacenarEjerciciosEnSesion(request, ejercicios);
                 redirigirAListaDeEjercicios(request, response, ejercicios, categoria);
@@ -40,9 +41,6 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
         }
     }
 
-    private List<Ejercicio> cargarEjerciciosPorCategoria(int categoriaId) throws Exception {
-        return ejercicioDAO.getAll(categoriaId);
-    }
 
     private ParteDelCuerpo cargarCategoria(int categoriaId) throws Exception {
         return parteDelCuerpoDAO.getById(categoriaId);

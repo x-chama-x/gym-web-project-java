@@ -8,34 +8,19 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
 
     public EjercicioDAO() {
         this.ejercicios = new ArrayList<>();
+        cargarTodosLosEjercicios();
     }
 
     // Datos Hardcodedeados de los ejercicios
 
-    private void cargarEjerciciosPorCategoria(int categoriaId) {
+    private void cargarTodosLosEjercicios() {
         ejercicios.clear(); // Limpiar la lista antes de cargar nuevos ejercicios
-        switch (categoriaId) {
-            case 1:
-                cargarEjerciciosPecho();
-                break;
-            case 2:
-                cargarEjerciciosEspalda();
-                break;
-            case 3:
-                cargarEjerciciosPiernas();
-                break;
-            case 4:
-                cargarEjerciciosHombros();
-                break;
-            case 5:
-                cargarEjerciciosBrazos();
-                break;
-            case 6:
-                cargarEjerciciosAbdominales();
-                break;
-            default:
-                throw new IllegalArgumentException("Categoría no válida: " + categoriaId);
-        }
+        cargarEjerciciosPecho();
+        cargarEjerciciosEspalda();
+        cargarEjerciciosPiernas();
+        cargarEjerciciosHombros();
+        cargarEjerciciosBrazos();
+        cargarEjerciciosAbdominales();
     }
 
     private void cargarEjerciciosPecho() {
@@ -109,12 +94,6 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         return new ArrayList<>(ejercicios);
     }
 
-    // Método que devuelve una lista de ejercicios por categoría
-    public List<Ejercicio> getAll(int categoriaId) throws Exception {
-        cargarEjerciciosPorCategoria(categoriaId);
-        return new ArrayList<>(ejercicios);
-    }
-
     @Override
     public Ejercicio getById(Integer id) throws Exception {
         Ejercicio ejercicio = null;
@@ -131,7 +110,18 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         return ejercicio;
     }
 
-    // Método que devuelve un ejercicio por ID de una lista de ejercicios cargada
+    // obtener una lista de ejercicios por ID de parte del cuerpo
+    public List<Ejercicio> getByParteDelCuerpoID(int parteDelCuerpoID) {
+        List<Ejercicio> ejerciciosPorParteDelCuerpo = new ArrayList<>();
+        for (Ejercicio ejercicio : ejercicios) {
+            if (ejercicio.getParteDelCuerpoID() == parteDelCuerpoID) {
+                ejerciciosPorParteDelCuerpo.add(ejercicio);
+            }
+        }
+        return ejerciciosPorParteDelCuerpo;
+    }
+
+    // Metodo que devuelve un ejercicio por ID de una lista de ejercicios cargada
     public Ejercicio getById(List<Ejercicio> ejercicios, int ejercicioId) {
         Ejercicio ejercicio = null;
         int i = 0;
