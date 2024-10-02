@@ -160,7 +160,7 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
             throw new IllegalArgumentException("Ejercicio no encontrado: " + id);
         }
     }
-    
+
     @Override
     public void update(Ejercicio entidad) throws Exception {
         Ejercicio ejercicio = getById(entidad.getEjercicioID());

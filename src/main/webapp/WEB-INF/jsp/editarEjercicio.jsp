@@ -18,7 +18,7 @@
                         <div class="cajafuera" align="center">
                             <div class="formulariocaja">
                                 <div class="formtitulo">Editar Ejercicio</div>
-                                <form action="editarEjercicio" method="post" enctype="multipart/form-data">
+                                <form action="editarEjercicio" method="post">
                                     <input type="hidden" name="ejercicioId" value="${ejercicio.ejercicioID}">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" id="nombre" name="nombre" value="${ejercicio.nombre}" required><br>
@@ -35,7 +35,17 @@
                                     <label for="ejecucion">Ejecución:</label>
                                     <input type="text" id="ejecucion" name="ejecucion" value="${ejercicio.ejecucion}" required><br>
                                     <label for="musculoPrincipal">Músculo Principal:</label>
-                                    <input type="text" id="musculoPrincipal" name="musculoPrincipal" value="${ejercicio.musculoPrincipal}" required><br>
+                                    <select id="musculoPrincipal" name="musculoPrincipal" required>
+                                        <c:forEach var="parte" items="${partesDelCuerpo}">
+                                            <option value="${parte.nombre}" ${parte.nombre == ejercicio.musculoPrincipal ? 'selected' : ''}>${parte.nombre}</option>
+                                        </c:forEach>
+                                    </select><br>
+                                    <label for="equipo">Equipo:</label>
+                                    <select id="equipo" name="equipo" required>
+                                        <c:forEach var="equipo" items="${equipos}">
+                                            <option value="${equipo.nombre}" ${equipo.nombre == equipoNombre ? 'selected' : ''}>${equipo.nombre}</option>
+                                        </c:forEach>
+                                    </select><br>
                                     <button type="submit" class="boton">Guardar Cambios</button>
                                     <button type="reset" class="boton">Restablecer</button>
                                 </form>
