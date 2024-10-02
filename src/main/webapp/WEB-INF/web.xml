@@ -23,6 +23,10 @@
         <servlet-name>agregar-ejercicio-servlet</servlet-name>
         <servlet-class>com.mycompany.gym.web.project.java.controlador.AgregarEjercicioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editar-ejercicio-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.EditarEjercicioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
         <url-pattern>/wikiEjercicios</url-pattern>
@@ -42,6 +46,10 @@
     <servlet-mapping>
         <servlet-name>agregar-ejercicio-servlet</servlet-name>
         <url-pattern>/agregarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editar-ejercicio-servlet</servlet-name>
+        <url-pattern>/editarEjercicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

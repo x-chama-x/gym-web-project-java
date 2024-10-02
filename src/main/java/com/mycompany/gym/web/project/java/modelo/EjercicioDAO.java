@@ -160,18 +160,28 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
             throw new IllegalArgumentException("Ejercicio no encontrado: " + id);
         }
     }
+    
+    @Override
+    public void update(Ejercicio entidad) throws Exception {
+        Ejercicio ejercicio = getById(entidad.getEjercicioID());
+        if (ejercicio != null) {
+            ejercicio.setNombre(entidad.getNombre());
+            ejercicio.setImagen(entidad.getImagen());
+            ejercicio.setMusculosQueTrabaja(entidad.getMusculosQueTrabaja());
+            ejercicio.setPreparacion(entidad.getPreparacion());
+            ejercicio.setConsejosClave(entidad.getConsejosClave());
+            ejercicio.setDescripcion(entidad.getDescripcion());
+            ejercicio.setEjecucion(entidad.getEjecucion());
+            ejercicio.setMusculoPrincipal(entidad.getMusculoPrincipal());
+        } else {
+            throw new IllegalArgumentException("Ejercicio no encontrado: " + entidad.getEjercicioID());
+        }
+    }
 
     public void mostrarListaDeEjerciciosSoloNombre(List<Ejercicio> ejercicios) {
         System.out.println("Lista de ejercicios:");
         for (Ejercicio ejercicio : ejercicios) {
             System.out.println(ejercicio.getNombre());
         }
-    }
-
-    // metodos no implementados
-
-    @Override
-    public void update(Ejercicio entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
