@@ -67,9 +67,7 @@ public class AgregarEjercicioServlet extends HttpServlet {
         // Corrige la orientación de la imagen
         try {
             correctImageOrientation(file);
-        } catch (ImageProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (MetadataException e) {
+        } catch (ImageProcessingException | MetadataException e) {
             throw new RuntimeException(e);
         }
 
