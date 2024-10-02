@@ -18,7 +18,7 @@
                         <div class="cajafuera" align="center">
                             <div class="formulariocaja">
                                 <div class="formtitulo">Agregar Ejercicio</div>
-                                <form action="agregarEjercicio" method="post">
+                                <form action="agregarEjercicio" method="post" enctype="multipart/form-data">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" id="nombre" name="nombre" required><br>
                                     <label for="imagen">Imagen:</label>

@@ -18,7 +18,7 @@
                         <div class="cajafuera" align="center">
                             <div class="formulariocaja">
                                 <div class="formtitulo">Editar Ejercicio</div>
-                                <form action="editarEjercicio" method="post">
+                                <form action="editarEjercicio" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="ejercicioId" value="${ejercicio.ejercicioID}">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" id="nombre" name="nombre" value="${ejercicio.nombre}" required><br>
