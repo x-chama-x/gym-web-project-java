@@ -1,5 +1,6 @@
 package com.mycompany.gym.web.project.java.controlador;
 
+import com.mycompany.gym.web.project.java.modelo.Ejercicio;
 import com.mycompany.gym.web.project.java.modelo.EjercicioDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -21,9 +22,17 @@ public class EliminarEjercicioServlet extends HttpServlet {
         String ejercicioIdStr = request.getParameter("ejercicioId");
         String categoriaIdStr = request.getParameter("categoriaId");
         if (ejercicioIdStr != null && categoriaIdStr != null) {
-            request.setAttribute("ejercicioId", ejercicioIdStr);
-            request.setAttribute("categoriaId", categoriaIdStr);
-            request.getRequestDispatcher("WEB-INF/jsp/confirmarEliminarEjercicio.jsp").forward(request, response);
+            try {
+                int ejercicioId = Integer.parseInt(ejercicioIdStr);
+                Ejercicio ejercicio = ejercicioDAO.getById(ejercicioId);
+                request.setAttribute("ejercicioId", ejercicioIdStr);
+                request.setAttribute("categoriaId", categoriaIdStr);
+                request.setAttribute("ejercicioNombre", ejercicio.getNombre());
+                request.setAttribute("ejercicioImagen", ejercicio.getImagen());
+                request.getRequestDispatcher("WEB-INF/jsp/confirmarEliminarEjercicio.jsp").forward(request, response);
+            } catch (Exception e) {
+                throw new ServletException("Error al obtener el ejercicio", e);
+            }
         } else {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ejercicio o categoría no especificada");
         }
