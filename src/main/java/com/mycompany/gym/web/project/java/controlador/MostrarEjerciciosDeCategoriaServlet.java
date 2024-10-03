@@ -16,20 +16,22 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
     private EjercicioDAOHardCodeado ejercicioDAOHardCodeado;
     private ParteDelCuerpoDAOHardCodeado parteDelCuerpoDAOHardCodeado;
 
+    // inicializa el servlet y carga los DAOs de ejercicios y partes del cuerpo
     @Override
     public void init() throws ServletException {
-        ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance();
-        parteDelCuerpoDAOHardCodeado = new ParteDelCuerpoDAOHardCodeado();
+        ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance(); // cargar los ejercicios
+        parteDelCuerpoDAOHardCodeado = new ParteDelCuerpoDAOHardCodeado(); // cargar las partes del cuerpo (categorías)
     }
 
+    // obtiene los ejercicios de una categoría y redirige a la vista de ejercicios (mostrarEjercicios.jsp)
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String categoriaIdStr = request.getParameter("categoriaId");
+        String categoriaIdStr = request.getParameter("categoriaId"); // obtener el ID de la categoría de la petición/solicitud
         if (categoriaIdStr != null) {
             try {
-                int categoriaId = Integer.parseInt(categoriaIdStr);
-                List<Ejercicio> ejercicios = ejercicioDAOHardCodeado.getByParteDelCuerpoID(categoriaId);
-                ParteDelCuerpo categoria = cargarCategoria(categoriaId);
+                int categoriaId = Integer.parseInt(categoriaIdStr); // convertir el ID de la categoría a entero
+                List<Ejercicio> ejercicios = ejercicioDAOHardCodeado.getByParteDelCuerpoID(categoriaId); // obtener los ejercicios de la categoría
+                ParteDelCuerpo categoria = cargarCategoria(categoriaId); // obtener la categoría
                 redirigirAListaDeEjercicios(request, response, ejercicios, categoria);
             } catch (Exception e) {
                 throw new ServletException("Error al cargar los ejercicios", e);
@@ -39,13 +41,15 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
         }
     }
 
+    // carga una categoría por su ID
     private ParteDelCuerpo cargarCategoria(int categoriaId) throws Exception {
         return parteDelCuerpoDAOHardCodeado.getById(categoriaId);
     }
 
+    // redirige a la vista de ejercicios (mostrarEjercicios.jsp)
     private void redirigirAListaDeEjercicios(HttpServletRequest request, HttpServletResponse response, List<Ejercicio> ejercicios, ParteDelCuerpo categoria) throws ServletException, IOException {
-        request.setAttribute("ejercicios", ejercicios);
-        request.setAttribute("categoriaNombre", categoria.getNombre());
+        request.setAttribute("ejercicios", ejercicios); // establezco los ejercicios como atributo de la petición
+        request.setAttribute("categoriaNombre", categoria.getNombre()); // establezco el nombre de la categoría como atributo de la petición
         request.getRequestDispatcher("WEB-INF/jsp/mostrarEjercicios.jsp").forward(request, response);
     }
 }
