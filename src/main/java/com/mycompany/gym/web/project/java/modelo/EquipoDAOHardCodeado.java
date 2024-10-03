@@ -1,10 +1,9 @@
 package com.mycompany.gym.web.project.java.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class EquipoDAOHardCodeado implements DAO<Equipo, Integer> {
-    private List<Equipo> equipos;
+    private ArrayList<Equipo> equipos;
 
     public EquipoDAOHardCodeado() {
         this.equipos = new ArrayList<>();
@@ -21,7 +20,7 @@ public class EquipoDAOHardCodeado implements DAO<Equipo, Integer> {
     }
 
     @Override
-    public List<Equipo> getAll() throws Exception {
+    public ArrayList<Equipo> getAll() throws Exception {
         return new ArrayList<>(equipos);
     }
 

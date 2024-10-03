@@ -21,7 +21,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.util.List;
+import java.util.ArrayList;
+
 
 @MultipartConfig
 public class EditarEjercicioServlet extends HttpServlet {
@@ -41,8 +42,8 @@ public class EditarEjercicioServlet extends HttpServlet {
         try {
             int ejercicioId = Integer.parseInt(request.getParameter("ejercicioId"));
             Ejercicio ejercicio = ejercicioDAOHardCodeado.getById(ejercicioId);
-            List<ParteDelCuerpo> partesDelCuerpo = parteDelCuerpoDAOHardCodeado.getAll();
-            List<Equipo> equipos = equipoDAOHardCodeado.getAll();
+            ArrayList<ParteDelCuerpo> partesDelCuerpo = parteDelCuerpoDAOHardCodeado.getAll();
+            ArrayList<Equipo> equipos = equipoDAOHardCodeado.getAll();
             request.setAttribute("ejercicio", ejercicio);
             request.setAttribute("partesDelCuerpo", partesDelCuerpo);
             request.setAttribute("equipos", equipos);

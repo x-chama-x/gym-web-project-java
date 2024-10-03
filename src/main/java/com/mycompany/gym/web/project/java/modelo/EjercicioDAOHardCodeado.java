@@ -1,10 +1,9 @@
 package com.mycompany.gym.web.project.java.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class EjercicioDAOHardCodeado implements DAO<Ejercicio,Integer> {
-    private List<Ejercicio> ejercicios;
+    private ArrayList<Ejercicio> ejercicios;
     private static EjercicioDAOHardCodeado instance; // Singleton para que solo haya una instancia de la clase
 
     public EjercicioDAOHardCodeado() {
@@ -98,7 +97,7 @@ public class EjercicioDAOHardCodeado implements DAO<Ejercicio,Integer> {
     }
 
     @Override
-    public List<Ejercicio> getAll() throws Exception {
+    public ArrayList<Ejercicio> getAll() throws Exception {
         return new ArrayList<>(ejercicios);
     }
 
@@ -119,8 +118,8 @@ public class EjercicioDAOHardCodeado implements DAO<Ejercicio,Integer> {
     }
 
     // obtener una lista de ejercicios por ID de parte del cuerpo
-    public List<Ejercicio> getByParteDelCuerpoID(int parteDelCuerpoID) {
-        List<Ejercicio> ejerciciosPorParteDelCuerpo = new ArrayList<>();
+    public ArrayList<Ejercicio> getByParteDelCuerpoID(int parteDelCuerpoID) {
+        ArrayList<Ejercicio> ejerciciosPorParteDelCuerpo = new ArrayList<>();
         for (Ejercicio ejercicio : ejercicios) {
             if (ejercicio.getParteDelCuerpoID() == parteDelCuerpoID) {
                 ejerciciosPorParteDelCuerpo.add(ejercicio);
@@ -130,7 +129,7 @@ public class EjercicioDAOHardCodeado implements DAO<Ejercicio,Integer> {
     }
 
     // Metodo que devuelve un ejercicio por ID de una lista de ejercicios cargada
-    public Ejercicio getById(List<Ejercicio> ejercicios, int ejercicioId) {
+    public Ejercicio getById(ArrayList<Ejercicio> ejercicios, int ejercicioId) {
         Ejercicio ejercicio = null;
         int i = 0;
         while (i < ejercicios.size() && ejercicio == null) {
@@ -178,7 +177,7 @@ public class EjercicioDAOHardCodeado implements DAO<Ejercicio,Integer> {
         }
     }
 
-    public void mostrarListaDeEjerciciosSoloNombre(List<Ejercicio> ejercicios) {
+    public void mostrarListaDeEjerciciosSoloNombre(ArrayList<Ejercicio> ejercicios) {
         System.out.println("Lista de ejercicios:");
         for (Ejercicio ejercicio : ejercicios) {
             System.out.println(ejercicio.getNombre());

@@ -1,11 +1,10 @@
 package com.mycompany.gym.web.project.java.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ParteDelCuerpoDAOHardCodeado implements DAO<ParteDelCuerpo, Integer> {
 
-    private List<ParteDelCuerpo> categorias;
+    private ArrayList<ParteDelCuerpo> categorias;
 
     public ParteDelCuerpoDAOHardCodeado() {
         this.categorias = new ArrayList<>();
@@ -24,7 +23,7 @@ public class ParteDelCuerpoDAOHardCodeado implements DAO<ParteDelCuerpo, Integer
 
     // metodo que devuelve una lista de todas las categorias
     @Override
-    public List<ParteDelCuerpo> getAll() throws Exception {
+    public ArrayList<ParteDelCuerpo> getAll() throws Exception {
         return new ArrayList<>(categorias);
     }
 

@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
 
@@ -31,7 +31,7 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                List<Ejercicio> ejercicios = ejercicioDAOHardCodeado.getByParteDelCuerpoID(categoriaId);
+                ArrayList<Ejercicio> ejercicios = ejercicioDAOHardCodeado.getByParteDelCuerpoID(categoriaId);
                 Ejercicio ejercicio = ejercicioDAOHardCodeado.getById(ejercicios, ejercicioId);
                 Equipo equipo = cargarEquipoDelEjercicio(ejercicio);
                 redirigirADetalleDeEjercicio(request, response, ejercicio, equipo);
