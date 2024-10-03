@@ -3,18 +3,18 @@ package com.mycompany.gym.web.project.java.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EjercicioDAO implements DAO<Ejercicio,Integer> {
+public class EjercicioDAOHardCodeado implements DAO<Ejercicio,Integer> {
     private List<Ejercicio> ejercicios;
-    private static EjercicioDAO instance; // Singleton para que solo haya una instancia de la clase
+    private static EjercicioDAOHardCodeado instance; // Singleton para que solo haya una instancia de la clase
 
-    public EjercicioDAO() {
+    public EjercicioDAOHardCodeado() {
         this.ejercicios = new ArrayList<>();
         cargarTodosLosEjercicios();
     }
 
-    public static synchronized EjercicioDAO getInstance() {
+    public static synchronized EjercicioDAOHardCodeado getInstance() {
         if (instance == null) {
-            instance = new EjercicioDAO();
+            instance = new EjercicioDAOHardCodeado();
         }
         return instance;
     }

@@ -3,10 +3,10 @@ package com.mycompany.gym.web.project.java.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EquipoDAO implements DAO<Equipo, Integer> {
+public class EquipoDAOHardCodeado implements DAO<Equipo, Integer> {
     private List<Equipo> equipos;
 
-    public EquipoDAO() {
+    public EquipoDAOHardCodeado() {
         this.equipos = new ArrayList<>();
         cargarEquipos();
     }

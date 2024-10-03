@@ -1,7 +1,7 @@
 package com.mycompany.gym.web.project.java.controlador;
 
 import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpo;
-import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpoDAO;
+import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpoDAOHardCodeado;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,17 +11,17 @@ import java.io.IOException;
 import java.util.List;
 
 public class MostrarCategoriasEjerciciosServlet extends HttpServlet {
-    private ParteDelCuerpoDAO parteDelCuerpoDAO;
+    private ParteDelCuerpoDAOHardCodeado parteDelCuerpoDAOHardCodeado;
 
     @Override
     public void init() throws ServletException {
-        parteDelCuerpoDAO = new ParteDelCuerpoDAO();
+        parteDelCuerpoDAOHardCodeado = new ParteDelCuerpoDAOHardCodeado();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<ParteDelCuerpo> categorias = parteDelCuerpoDAO.getAll();
+            List<ParteDelCuerpo> categorias = parteDelCuerpoDAOHardCodeado.getAll();
             request.setAttribute("categorias", categorias);
             request.getRequestDispatcher("WEB-INF/jsp/wikiEjercicios.jsp").forward(request, response);
         } catch (Exception e) {

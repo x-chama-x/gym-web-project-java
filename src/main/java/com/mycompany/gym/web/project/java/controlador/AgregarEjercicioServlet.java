@@ -25,22 +25,22 @@ import java.util.List;
 
 @MultipartConfig
 public class AgregarEjercicioServlet extends HttpServlet {
-    private EjercicioDAO ejercicioDAO;
-    private EquipoDAO equipoDAO;
-    private ParteDelCuerpoDAO parteDelCuerpoDAO;
+    private EjercicioDAOHardCodeado ejercicioDAOHardCodeado;
+    private EquipoDAOHardCodeado equipoDAOHardCodeado;
+    private ParteDelCuerpoDAOHardCodeado parteDelCuerpoDAOHardCodeado;
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = EjercicioDAO.getInstance();
-        equipoDAO = new EquipoDAO();
-        parteDelCuerpoDAO = new ParteDelCuerpoDAO();
+        ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance();
+        equipoDAOHardCodeado = new EquipoDAOHardCodeado();
+        parteDelCuerpoDAOHardCodeado = new ParteDelCuerpoDAOHardCodeado();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<ParteDelCuerpo> partesDelCuerpo = parteDelCuerpoDAO.getAll();
-            List<Equipo> equipos = equipoDAO.getAll();
+            List<ParteDelCuerpo> partesDelCuerpo = parteDelCuerpoDAOHardCodeado.getAll();
+            List<Equipo> equipos = equipoDAOHardCodeado.getAll();
             request.setAttribute("partesDelCuerpo", partesDelCuerpo);
             request.setAttribute("equipos", equipos);
             request.getRequestDispatcher("WEB-INF/jsp/agregarEjercicio.jsp").forward(request, response);
@@ -80,11 +80,11 @@ public class AgregarEjercicioServlet extends HttpServlet {
         String equipoNombre = request.getParameter("equipo");
 
         try {
-            int parteDelCuerpoID = parteDelCuerpoDAO.getByName(musculoPrincipal).getParteDelCuerpoID();
-            int equipoID = equipoDAO.getByName(equipoNombre).getEquipoID();
+            int parteDelCuerpoID = parteDelCuerpoDAOHardCodeado.getByName(musculoPrincipal).getParteDelCuerpoID();
+            int equipoID = equipoDAOHardCodeado.getByName(equipoNombre).getEquipoID();
 
             Ejercicio nuevoEjercicio = new Ejercicio(0, 0, equipoID, parteDelCuerpoID, nombre, fileName, musculosQueTrabaja, preparacion, consejosClave, descripcion, ejecucion, musculoPrincipal, CargadoPor.SISTEMA);
-            ejercicioDAO.add(nuevoEjercicio);
+            ejercicioDAOHardCodeado.add(nuevoEjercicio);
             System.out.println(nuevoEjercicio);
             response.sendRedirect("wikiEjercicios");
         } catch (Exception e) {

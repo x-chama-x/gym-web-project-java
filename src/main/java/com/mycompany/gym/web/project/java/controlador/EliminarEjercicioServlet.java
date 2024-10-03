@@ -1,7 +1,7 @@
 package com.mycompany.gym.web.project.java.controlador;
 
 import com.mycompany.gym.web.project.java.modelo.Ejercicio;
-import com.mycompany.gym.web.project.java.modelo.EjercicioDAO;
+import com.mycompany.gym.web.project.java.modelo.EjercicioDAOHardCodeado;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,11 +10,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class EliminarEjercicioServlet extends HttpServlet {
-    private EjercicioDAO ejercicioDAO;
+    private EjercicioDAOHardCodeado ejercicioDAOHardCodeado;
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = EjercicioDAO.getInstance();
+        ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance();
     }
 
     @Override
@@ -24,7 +24,7 @@ public class EliminarEjercicioServlet extends HttpServlet {
         if (ejercicioIdStr != null && categoriaIdStr != null) {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
-                Ejercicio ejercicio = ejercicioDAO.getById(ejercicioId);
+                Ejercicio ejercicio = ejercicioDAOHardCodeado.getById(ejercicioId);
                 request.setAttribute("ejercicioId", ejercicioIdStr);
                 request.setAttribute("categoriaId", categoriaIdStr);
                 request.setAttribute("ejercicioNombre", ejercicio.getNombre());
@@ -46,7 +46,7 @@ public class EliminarEjercicioServlet extends HttpServlet {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                ejercicioDAO.delete(ejercicioId);
+                ejercicioDAOHardCodeado.delete(ejercicioId);
                 response.sendRedirect("mostrarEjercicios?categoriaId=" + categoriaId);
             } catch (Exception e) {
                 throw new ServletException("Error al eliminar el ejercicio", e);

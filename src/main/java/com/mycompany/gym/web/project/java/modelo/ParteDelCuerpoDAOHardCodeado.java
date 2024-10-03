@@ -3,11 +3,11 @@ package com.mycompany.gym.web.project.java.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
+public class ParteDelCuerpoDAOHardCodeado implements DAO<ParteDelCuerpo, Integer> {
 
     private List<ParteDelCuerpo> categorias;
 
-    public ParteDelCuerpoDAO() {
+    public ParteDelCuerpoDAOHardCodeado() {
         this.categorias = new ArrayList<>();
         cargarCategorias();
     }

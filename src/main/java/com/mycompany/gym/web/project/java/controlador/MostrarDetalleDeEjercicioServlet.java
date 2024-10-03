@@ -1,9 +1,9 @@
 package com.mycompany.gym.web.project.java.controlador;
 
 import com.mycompany.gym.web.project.java.modelo.Ejercicio;
-import com.mycompany.gym.web.project.java.modelo.EjercicioDAO;
+import com.mycompany.gym.web.project.java.modelo.EjercicioDAOHardCodeado;
 import com.mycompany.gym.web.project.java.modelo.Equipo;
-import com.mycompany.gym.web.project.java.modelo.EquipoDAO;
+import com.mycompany.gym.web.project.java.modelo.EquipoDAOHardCodeado;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,13 +14,13 @@ import java.util.List;
 
 public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
 
-    private EjercicioDAO ejercicioDAO;
-    private EquipoDAO equipoDAO;
+    private EjercicioDAOHardCodeado ejercicioDAOHardCodeado;
+    private EquipoDAOHardCodeado equipoDAOHardCodeado;
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = EjercicioDAO.getInstance();
-        equipoDAO = new EquipoDAO();
+        ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance();
+        equipoDAOHardCodeado = new EquipoDAOHardCodeado();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
                 List<Ejercicio> ejercicios = recuperarEjerciciosDeSesion(request);
-                Ejercicio ejercicio = ejercicioDAO.getById(ejercicios, ejercicioId);
+                Ejercicio ejercicio = ejercicioDAOHardCodeado.getById(ejercicios, ejercicioId);
                 Equipo equipo = cargarEquipoDelEjercicio(ejercicio);
                 redirigirADetalleDeEjercicio(request, response, ejercicio, equipo);
             } catch (Exception e) {
@@ -53,7 +53,7 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
 
 
     private Equipo cargarEquipoDelEjercicio(Ejercicio ejercicio) throws Exception {
-        return equipoDAO.getById(ejercicio.getEquipoID());
+        return equipoDAOHardCodeado.getById(ejercicio.getEquipoID());
     }
 
     private void redirigirADetalleDeEjercicio(HttpServletRequest request, HttpServletResponse response, Ejercicio ejercicio, Equipo equipo) throws ServletException, IOException {

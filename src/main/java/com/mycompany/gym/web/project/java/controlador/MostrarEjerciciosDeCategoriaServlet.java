@@ -1,9 +1,9 @@
 package com.mycompany.gym.web.project.java.controlador;
 
 import com.mycompany.gym.web.project.java.modelo.Ejercicio;
-import com.mycompany.gym.web.project.java.modelo.EjercicioDAO;
+import com.mycompany.gym.web.project.java.modelo.EjercicioDAOHardCodeado;
 import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpo;
-import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpoDAO;
+import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpoDAOHardCodeado;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,13 +13,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
-    private EjercicioDAO ejercicioDAO;
-    private ParteDelCuerpoDAO parteDelCuerpoDAO;
+    private EjercicioDAOHardCodeado ejercicioDAOHardCodeado;
+    private ParteDelCuerpoDAOHardCodeado parteDelCuerpoDAOHardCodeado;
 
     @Override
     public void init() throws ServletException {
-        ejercicioDAO = EjercicioDAO.getInstance();
-        parteDelCuerpoDAO = new ParteDelCuerpoDAO();
+        ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance();
+        parteDelCuerpoDAOHardCodeado = new ParteDelCuerpoDAOHardCodeado();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
         if (categoriaIdStr != null) {
             try {
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                List<Ejercicio> ejercicios = ejercicioDAO.getByParteDelCuerpoID(categoriaId);
+                List<Ejercicio> ejercicios = ejercicioDAOHardCodeado.getByParteDelCuerpoID(categoriaId);
                 ParteDelCuerpo categoria = cargarCategoria(categoriaId);
                 almacenarEjerciciosEnSesion(request, ejercicios);
                 redirigirAListaDeEjercicios(request, response, ejercicios, categoria);
@@ -42,7 +42,7 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
 
 
     private ParteDelCuerpo cargarCategoria(int categoriaId) throws Exception {
-        return parteDelCuerpoDAO.getById(categoriaId);
+        return parteDelCuerpoDAOHardCodeado.getById(categoriaId);
     }
 
     private void almacenarEjerciciosEnSesion(HttpServletRequest request, List<Ejercicio> ejercicios) {
