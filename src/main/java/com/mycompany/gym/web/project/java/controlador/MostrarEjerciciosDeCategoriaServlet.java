@@ -30,7 +30,6 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
                 int categoriaId = Integer.parseInt(categoriaIdStr);
                 List<Ejercicio> ejercicios = ejercicioDAOHardCodeado.getByParteDelCuerpoID(categoriaId);
                 ParteDelCuerpo categoria = cargarCategoria(categoriaId);
-                almacenarEjerciciosEnSesion(request, ejercicios);
                 redirigirAListaDeEjercicios(request, response, ejercicios, categoria);
             } catch (Exception e) {
                 throw new ServletException("Error al cargar los ejercicios", e);
@@ -40,13 +39,8 @@ public class MostrarEjerciciosDeCategoriaServlet extends HttpServlet {
         }
     }
 
-
     private ParteDelCuerpo cargarCategoria(int categoriaId) throws Exception {
         return parteDelCuerpoDAOHardCodeado.getById(categoriaId);
-    }
-
-    private void almacenarEjerciciosEnSesion(HttpServletRequest request, List<Ejercicio> ejercicios) {
-        request.getSession().setAttribute("ejercicios", ejercicios);
     }
 
     private void redirigirAListaDeEjercicios(HttpServletRequest request, HttpServletResponse response, List<Ejercicio> ejercicios, ParteDelCuerpo categoria) throws ServletException, IOException {

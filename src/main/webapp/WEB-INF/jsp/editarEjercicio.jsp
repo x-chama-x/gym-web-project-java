@@ -20,6 +20,7 @@
                                 <div class="formtitulo">Editar Ejercicio</div>
                                 <form action="editarEjercicio" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="ejercicioId" value="${ejercicio.ejercicioID}">
+                                    <input type="hidden" name="categoriaId" value="${ejercicio.parteDelCuerpoID}">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" id="nombre" name="nombre" value="${ejercicio.nombre}" required><br>
                                     <label for="imagen">Imagen:</label>
@@ -49,7 +50,7 @@
                                     <button type="submit" class="boton">Guardar Cambios</button>
                                     <button type="reset" class="boton">Restablecer</button>
                                 </form>
-                                <a href="mostrarDetalleDeEjercicio?ejercicioId=${ejercicio.ejercicioID}" class="boton">Cancelar</a>
+                                <a href="mostrarDetalleDeEjercicio?ejercicioId=${ejercicio.ejercicioID}&categoriaId=${ejercicio.parteDelCuerpoID}" class="boton">Cancelar</a>
                             </div>
                         </div>
                     </div>

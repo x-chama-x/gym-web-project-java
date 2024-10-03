@@ -21,11 +21,14 @@ public class ParteDelCuerpoDAOHardCodeado implements DAO<ParteDelCuerpo, Integer
         categorias.add(new ParteDelCuerpo(6, "Abdominales", "abdominales.jpg"));
     }
 
+
+    // metodo que devuelve una lista de todas las categorias
     @Override
     public List<ParteDelCuerpo> getAll() throws Exception {
         return new ArrayList<>(categorias);
     }
 
+    // metodo que devuelve una categoria por su id
     @Override
     public ParteDelCuerpo getById(Integer id) throws Exception {
         ParteDelCuerpo categoria = null;

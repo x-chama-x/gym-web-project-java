@@ -26,10 +26,12 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ejercicioIdStr = request.getParameter("ejercicioId");
-        if (ejercicioIdStr != null) {
+        String categoriaIdStr = request.getParameter("categoriaId");
+        if (ejercicioIdStr != null && categoriaIdStr != null) {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
-                List<Ejercicio> ejercicios = recuperarEjerciciosDeSesion(request);
+                int categoriaId = Integer.parseInt(categoriaIdStr);
+                List<Ejercicio> ejercicios = ejercicioDAOHardCodeado.getByParteDelCuerpoID(categoriaId);
                 Ejercicio ejercicio = ejercicioDAOHardCodeado.getById(ejercicios, ejercicioId);
                 Equipo equipo = cargarEquipoDelEjercicio(ejercicio);
                 redirigirADetalleDeEjercicio(request, response, ejercicio, equipo);
@@ -37,19 +39,9 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
                 throw new ServletException("Error al cargar los detalles del ejercicio", e);
             }
         } else {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ejercicio no especificado");
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ejercicio o categoría no especificado");
         }
     }
-
-    // Metodo que recupera los ejercicios de la sesión
-    private List<Ejercicio> recuperarEjerciciosDeSesion(HttpServletRequest request) throws ServletException {
-        List<Ejercicio> ejercicios = (List<Ejercicio>) request.getSession().getAttribute("ejercicios");
-        if (ejercicios == null) {
-            throw new ServletException("No se encontraron ejercicios en la sesión");
-        }
-        return ejercicios;
-    }
-
 
 
     private Equipo cargarEquipoDelEjercicio(Ejercicio ejercicio) throws Exception {
