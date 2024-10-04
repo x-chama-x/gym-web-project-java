@@ -12,24 +12,22 @@ import java.io.IOException;
 public class EliminarEjercicioServlet extends HttpServlet {
     private EjercicioDAOHardCodeado ejercicioDAOHardCodeado;
 
+    // inicializa el servlet y carga los ejercicios
     @Override
     public void init() throws ServletException {
         ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance();
     }
 
+    // se encarga de obtener el ejercicio y redirigir a la página de confirmación de eliminación
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ejercicioIdStr = request.getParameter("ejercicioId");
-        String categoriaIdStr = request.getParameter("categoriaId");
+        String ejercicioIdStr = request.getParameter("ejercicioId"); // obtengo el id del ejercicio
+        String categoriaIdStr = request.getParameter("categoriaId"); // obtengo el id de la categoría
         if (ejercicioIdStr != null && categoriaIdStr != null) {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
-                Ejercicio ejercicio = ejercicioDAOHardCodeado.getById(ejercicioId);
-                request.setAttribute("ejercicioId", ejercicioIdStr);
-                request.setAttribute("categoriaId", categoriaIdStr);
-                request.setAttribute("ejercicioNombre", ejercicio.getNombre());
-                request.setAttribute("ejercicioImagen", ejercicio.getImagen());
-                request.getRequestDispatcher("WEB-INF/jsp/confirmarEliminarEjercicio.jsp").forward(request, response);
+                Ejercicio ejercicio = ejercicioDAOHardCodeado.getById(ejercicioId); // obtengo el ejercicio
+                establecerAtributosYReenviarSolicitud(request, response, ejercicioIdStr, categoriaIdStr, ejercicio);
             } catch (Exception e) {
                 throw new ServletException("Error al obtener el ejercicio", e);
             }
@@ -38,6 +36,16 @@ public class EliminarEjercicioServlet extends HttpServlet {
         }
     }
 
+    // redirige a la página de confirmación de eliminación de ejercicio
+    private void establecerAtributosYReenviarSolicitud(HttpServletRequest request, HttpServletResponse response, String ejercicioIdStr, String categoriaIdStr, Ejercicio ejercicio) throws ServletException, IOException {
+        request.setAttribute("ejercicioId", ejercicioIdStr);
+        request.setAttribute("categoriaId", categoriaIdStr);
+        request.setAttribute("ejercicioNombre", ejercicio.getNombre());
+        request.setAttribute("ejercicioImagen", ejercicio.getImagen());
+        request.getRequestDispatcher("WEB-INF/jsp/confirmarEliminarEjercicio.jsp").forward(request, response);
+    }
+
+    // elimina el ejercicio y redirige a la página de ejercicios de la categoría
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ejercicioIdStr = request.getParameter("ejercicioId");
@@ -46,7 +54,7 @@ public class EliminarEjercicioServlet extends HttpServlet {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
                 int categoriaId = Integer.parseInt(categoriaIdStr);
-                ejercicioDAOHardCodeado.delete(ejercicioId);
+                ejercicioDAOHardCodeado.delete(ejercicioId); // elimino el ejercicio
                 response.sendRedirect("mostrarEjercicios?categoriaId=" + categoriaId);
             } catch (Exception e) {
                 throw new ServletException("Error al eliminar el ejercicio", e);
@@ -55,7 +63,4 @@ public class EliminarEjercicioServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ejercicio o categoría no especificada");
         }
     }
-
-
-
 }
