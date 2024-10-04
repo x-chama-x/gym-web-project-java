@@ -20,6 +20,7 @@ public class AgregarEjercicioServlet extends HttpServlet {
     private EquipoDAOHardCodeado equipoDAOHardCodeado;
     private ParteDelCuerpoDAOHardCodeado parteDelCuerpoDAOHardCodeado;
 
+    // Inicializa el servlet y carga los ejercicios, equipos y partes del cuerpo
     @Override
     public void init() throws ServletException {
         ejercicioDAOHardCodeado = EjercicioDAOHardCodeado.getInstance();
