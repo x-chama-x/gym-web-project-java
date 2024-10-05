@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <description>El MuscleCategoryServlet es responsable de manejar las solicitudes relacionadas con las categorías de músculos en una aplicación web de gimnasio.</description>
+        <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarCategoriasEjerciciosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>El servlet mostrarEjerciciosDeCategoriaServlet se encarga de manejar las solicitudes HTTP GET para mostrar los ejercicios de una categoría específica. Cuando se recibe una solicitud con un parámetro categoriaId, el servlet obtiene la lista de ejercicios correspondientes a esa categoría desde el EjercicioDAO y los envía a la página JSP mostrarEjercicios.jsp para su visualización. Si el parámetro categoriaId no está presente, el servlet responde con un error de solicitud incorrecta (400).</description>
+        <servlet-name>mostrar-ejercicios-de-categoria-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarEjerciciosDeCategoriaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>este servlet es el responsable de manejar las solicitudes relacionadas con los datos de un ejercicio</description>
+        <servlet-name>mostrar-detalle-de-ejercicio-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarDetalleDeEjercicioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminar-ejercicio-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.EliminarEjercicioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregar-ejercicio-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.AgregarEjercicioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editar-ejercicio-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.EditarEjercicioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
+        <url-pattern>/wikiEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrar-ejercicios-de-categoria-servlet</servlet-name>
+        <url-pattern>/mostrarEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrar-detalle-de-ejercicio-servlet</servlet-name>
+        <url-pattern>/mostrarDetalleDeEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminar-ejercicio-servlet</servlet-name>
+        <url-pattern>/eliminarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregar-ejercicio-servlet</servlet-name>
+        <url-pattern>/agregarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editar-ejercicio-servlet</servlet-name>
+        <url-pattern>/editarEjercicio</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
