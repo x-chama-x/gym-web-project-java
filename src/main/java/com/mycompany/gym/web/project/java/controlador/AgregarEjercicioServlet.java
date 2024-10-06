@@ -108,12 +108,12 @@ public class AgregarEjercicioServlet extends HttpServlet {
 
     // Metodo para determinar el origen del ejercicio basado en el rol del usuario
     private CargadoPor determinarOrigen(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        String rolUsuario = (String) session.getAttribute("rolUsuario");
+        CargadoPor cargadoPor = CargadoPor.USUARIO;
+        HttpSession session = request.getSession(); // Obtener la sesion del usuario
+        String rolUsuario = (String) session.getAttribute("rolUsuario"); // Obtener el rol del usuario
         if (rolUsuario != null && rolUsuario.equals(RolUsuario.ADMINISTRADOR.name())) {
-            return CargadoPor.SISTEMA;
-        } else {
-            return CargadoPor.USUARIO;
+            cargadoPor = CargadoPor.SISTEMA;
         }
+        return cargadoPor;
     }
 }
