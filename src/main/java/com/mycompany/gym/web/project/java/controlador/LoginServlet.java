@@ -4,7 +4,6 @@ import com.mycompany.gym.web.project.java.modelo.RolUsuario;
 import com.mycompany.gym.web.project.java.modelo.Usuario;
 import com.mycompany.gym.web.project.java.modelo.UsuarioDAOHardCodeado;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         if (usuario != null && rolUsuario.equals(usuario.getRol())) {
             HttpSession session = request.getSession();
             session.setAttribute("userLogueado", usuario);
-            response.sendRedirect("principal.html");
+            response.sendRedirect("principal.jsp");
         } else {
             request.setAttribute("errorMessage", "datos incorrectos");
             request.getRequestDispatcher("index.jsp").forward(request, response);
