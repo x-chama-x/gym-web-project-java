@@ -3,10 +3,7 @@ package com.mycompany.gym.web.project.java.controlador;
 import com.mycompany.gym.web.project.java.modelo.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
+import jakarta.servlet.http.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +57,9 @@ public class AgregarEjercicioServlet extends HttpServlet {
             int parteDelCuerpoID = parteDelCuerpoDAOHardCodeado.getByName(musculoPrincipal).getParteDelCuerpoID();
             int equipoID = equipoDAOHardCodeado.getByName(equipoNombre).getEquipoID();
 
-            Ejercicio nuevoEjercicio = new Ejercicio(0, 0, equipoID, parteDelCuerpoID, nombre, null, musculosQueTrabaja, preparacion, consejosClave, descripcion, ejecucion, musculoPrincipal, CargadoPor.SISTEMA);
+            CargadoPor cargadoPor = determinarOrigen(request); // Determina si el ejercicio fue cargado por el sistema o un usuario
+
+            Ejercicio nuevoEjercicio = new Ejercicio(0, 0, equipoID, parteDelCuerpoID, nombre, null, musculosQueTrabaja, preparacion, consejosClave, descripcion, ejecucion, musculoPrincipal, cargadoPor);
             procesarImagen(filePart, nuevoEjercicio);
             ejercicioDAOHardCodeado.add(nuevoEjercicio);
             response.sendRedirect("wikiEjercicios");
@@ -105,5 +104,16 @@ public class AgregarEjercicioServlet extends HttpServlet {
             }
         }
         return null;
+    }
+
+    // Metodo para determinar el origen del ejercicio basado en el rol del usuario
+    private CargadoPor determinarOrigen(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String rolUsuario = (String) session.getAttribute("rolUsuario");
+        if (rolUsuario != null && rolUsuario.equals(RolUsuario.ADMINISTRADOR.name())) {
+            return CargadoPor.SISTEMA;
+        } else {
+            return CargadoPor.USUARIO;
+        }
     }
 }
