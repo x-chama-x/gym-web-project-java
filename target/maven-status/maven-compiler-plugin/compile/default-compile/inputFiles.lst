@@ -1,8 +1,12 @@
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\UsuarioDAOHardCodeado.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\DAO.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\ParteDelCuerpo.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\filtros\AuthFilter.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarEjerciciosDeCategoriaServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\EjercicioDAOHardCodeado.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\LoginServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarCategoriasEjerciciosServlet.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\filtros\UtilFilter.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\AgregarEjercicioServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\Entrenamiento.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\ParteDelCuerpoDAOHardCodeado.java

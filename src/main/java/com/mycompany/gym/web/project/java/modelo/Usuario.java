@@ -13,6 +13,14 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
+    public Usuario(int usuarioID, String nombre, String correo, String contrasena, RolUsuario rol) {
+        this.usuarioID = usuarioID;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.rol = rol;
+    }
+
     public int getUsuarioID() {
         return usuarioID;
     }
@@ -51,5 +59,10 @@ public class Usuario implements Serializable {
 
     public void setRol(RolUsuario rol) {
         this.rol = rol;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "usuarioID=" + usuarioID + ", nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena + ", rol=" + rol + '}';
     }
 }
