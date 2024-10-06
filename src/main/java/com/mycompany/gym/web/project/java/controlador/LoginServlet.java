@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
         if (usuario != null && rolUsuario.equals(usuario.getRol())) {
             HttpSession session = request.getSession();
             session.setAttribute("userLogueado", usuario);
+            session.setAttribute("rolUsuario", rolUsuario.name()); // Guardar el rol como String en la sesión
             response.sendRedirect("principal.jsp");
         } else {
             request.setAttribute("errorMessage", "datos incorrectos");

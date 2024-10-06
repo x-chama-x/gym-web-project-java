@@ -60,7 +60,7 @@
                             <div class="profile-usermenu">
                                 <ul>
                                     <li>
-                                        <a href="wikiEjercicios.jsp"><i class="bi bi-card-list"></i> wiki de Ejercicios</a>
+                                        <a href="wikiEjercicios"><i class="bi bi-card-list"></i> wiki de Ejercicios</a>
                                         <p>Encuentra una variedad de ejercicios para mejorar tu entrenamiento.</p>
                                     </li>
                                     <li>
@@ -71,6 +71,12 @@
                                         <a href="#"><i class="bi bi-graph-up"></i> Estadísticas</a>
                                         <p>Revisa tus estadísticas y progreso a lo largo del tiempo.</p>
                                     </li>
+                                    <c:if test="${sessionScope.rolUsuario == 'ADMINISTRADOR'}">
+                                        <li>
+                                          <a href="#"><i class="bi bi-people"></i> Usuarios</a>
+                                          <p>Ver y editar los usuarios registrados en la aplicación web.</p>
+                                        </li>
+                                    </c:if>
                                     <li>
                                         <a href="logout"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
                                     </li>
