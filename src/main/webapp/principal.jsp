@@ -56,7 +56,7 @@
                 <div class="container">
                     <div class="cajafuera" align="center">
                         <div class="formulariocaja">
-                            <div class="formtitulo">Perfil de Usuario</div>
+                            <div class="formtitulo">Perfil de ${sessionScope.userLogueado.nombre}</div>
                             <div class="profile-usermenu">
                                 <ul>
                                     <li>
