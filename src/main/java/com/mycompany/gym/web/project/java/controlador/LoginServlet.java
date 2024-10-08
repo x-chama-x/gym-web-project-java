@@ -21,15 +21,12 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        String rol = request.getParameter("rol");
-        RolUsuario rolUsuario = RolUsuario.valueOf(rol.toUpperCase()); // pasar a mayusculas el rol y convertirlo a un enum
-
         Usuario usuario = usuarioDAO.autenticar(username, password);
 
-        if (usuario != null && rolUsuario.equals(usuario.getRol())) {
+        if (usuario != null) {
             HttpSession session = request.getSession();
             session.setAttribute("userLogueado", usuario);
-            session.setAttribute("rolUsuario", rolUsuario.name()); // Guardar el rol como String en la sesión
+            session.setAttribute("rolUsuario", usuario.getRol().name()); // Guardar el rol del usuario autenticado
             response.sendRedirect("principal.jsp");
         } else {
             request.setAttribute("errorMessage", "datos incorrectos");

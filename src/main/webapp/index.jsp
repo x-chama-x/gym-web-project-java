@@ -43,11 +43,6 @@
                                 <img src="assets/img/apple-touch-icon.png"/>
                                 <input type="text" name="username" placeholder="&#128273; Ingresar usuario" class="cajaentradatexto" required>
                                 <input type="password" name="password" placeholder="&#128274; Ingresar password" class="cajaentradatexto" required>
-                                <select id="rolSelect" name="rol" class="cajaentradatexto rol-select" required>
-                                    <option value="" disabled selected>&#128100; Seleccione su rol</option>
-                                    <option value="ADMINISTRADOR">Administrador</option>
-                                    <option value="USUARIO_FINAL">Usuario</option>
-                                </select>
                                 <div align="right" class="af"><a href="#">Recuperar contraseña</a></div>
                                 <input type="submit" value="Iniciar sesión" class="botonenviar">
                                 <div>¿Necesitas una cuenta? <a href="registro.html">Registrar</a></div>
