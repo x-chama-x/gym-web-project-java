@@ -1,6 +1,4 @@
 package com.mycompany.gym.web.project.java.controlador;
-
-import com.mycompany.gym.web.project.java.modelo.RolUsuario;
 import com.mycompany.gym.web.project.java.modelo.Usuario;
 import com.mycompany.gym.web.project.java.modelo.UsuarioDAOHardCodeado;
 import jakarta.servlet.ServletException;
@@ -16,17 +14,21 @@ public class LoginServlet extends HttpServlet {
     private UsuarioDAOHardCodeado usuarioDAO = new UsuarioDAOHardCodeado();
 
 
+    // este metodo es para autenticar a los usuarios
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // obtengo los datos del usuario del formulario
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+        // autentico al usuario
         Usuario usuario = usuarioDAO.autenticar(username, password);
 
         if (usuario != null) {
             HttpSession session = request.getSession();
             session.setAttribute("userLogueado", usuario);
-            session.setAttribute("rolUsuario", usuario.getRol().name()); // Guardar el rol del usuario autenticado
+            session.setAttribute("rolUsuario", usuario.getRol().name()); // Guardo el rol del usuario autenticado para mostrar o no ciertas opciones en la vista
             response.sendRedirect("principal.jsp");
         } else {
             request.setAttribute("errorMessage", "datos incorrectos");
