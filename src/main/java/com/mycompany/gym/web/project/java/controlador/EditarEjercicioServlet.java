@@ -83,29 +83,17 @@ public class EditarEjercicioServlet extends HttpServlet {
     // procesa la imagen recibida y la guarda en la carpeta assets/img
     private void procesarImagen(Part filePart, Ejercicio ejercicio) throws IOException {
         if (filePart != null && filePart.getSize() > 0) {
-            String fileName = obtenerNombreDelArchivo(filePart);
-            String uniqueFileName = System.currentTimeMillis() + "_" + fileName; // Genera un nombre de archivo único
-            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\" + uniqueFileName;
+            String fileName = ejercicio.getEjercicioID() + ".jpg"; // Usar el ID del ejercicio como nombre de archivo
+            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\" + fileName;
 
-            // guardar la imagen en la carpeta assets/img
+            // Guardar la imagen en la carpeta assets/img
             File file = new File(filePath);
             file.getParentFile().mkdirs();
             try (InputStream input = filePart.getInputStream()) {
-                Files.copy(input, file.toPath());
+                Files.copy(input, file.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING); // Sobrescribir el archivo existente
             }
-            ejercicio.setImagen(uniqueFileName);
+            ejercicio.setImagen(fileName);
         }
-    }
-
-    // obtiene el nombre del archivo de la parte recibida
-    private String obtenerNombreDelArchivo(Part part) {
-        String contentDisposition = part.getHeader("content-disposition");
-        for (String cd : contentDisposition.split(";")) {
-            if (cd.trim().startsWith("filename")) {
-                return cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-            }
-        }
-        return null;
     }
 
     // actualiza los datos del ejercicio
