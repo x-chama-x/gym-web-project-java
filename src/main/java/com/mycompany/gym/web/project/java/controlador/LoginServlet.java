@@ -29,7 +29,8 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("userLogueado", usuario);
             session.setAttribute("rolUsuario", usuario.getRol().name()); // Guardo el rol del usuario autenticado para mostrar o no ciertas opciones en la vista
-            response.sendRedirect("principal.jsp");
+            // necesito usar un RequestDispatcher en lugar de sendRedirect porque los archivos dentro de WEB-INF no son accesibles directamente desde el navegador
+            request.getRequestDispatcher("WEB-INF/jsp/principal.jsp").forward(request, response);
         } else {
             request.setAttribute("errorMessage", "datos incorrectos");
             request.getRequestDispatcher("index.jsp").forward(request, response);
