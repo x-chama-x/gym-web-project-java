@@ -3,10 +3,7 @@ package com.mycompany.gym.web.project.java.controlador;
 import com.mycompany.gym.web.project.java.modelo.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
+import jakarta.servlet.http.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,9 +57,13 @@ public class AgregarEjercicioServlet extends HttpServlet {
             int parteDelCuerpoID = parteDelCuerpoDAOHardCodeado.getByName(musculoPrincipal).getParteDelCuerpoID();
             int equipoID = equipoDAOHardCodeado.getByName(equipoNombre).getEquipoID();
 
-            Ejercicio nuevoEjercicio = new Ejercicio(0, 0, equipoID, parteDelCuerpoID, nombre, null, musculosQueTrabaja, preparacion, consejosClave, descripcion, ejecucion, musculoPrincipal, CargadoPor.SISTEMA);
+            CargadoPor cargadoPor = determinarOrigen(request); // Determina si el ejercicio fue cargado por el sistema o un usuario
+
+            Ejercicio nuevoEjercicio = new Ejercicio(0, 0, equipoID, parteDelCuerpoID, nombre, null, musculosQueTrabaja, preparacion, consejosClave, descripcion, ejecucion, musculoPrincipal, cargadoPor);
+            ejercicioDAOHardCodeado.add(nuevoEjercicio); // Agregar primero para obtener el ID
+
             procesarImagen(filePart, nuevoEjercicio);
-            ejercicioDAOHardCodeado.add(nuevoEjercicio);
+            ejercicioDAOHardCodeado.update(nuevoEjercicio); // actualizo el ejercicio en la base de datos
             response.sendRedirect("wikiEjercicios");
         } catch (Exception e) {
             throw new ServletException("Error al agregar el ejercicio", e);
@@ -72,38 +73,29 @@ public class AgregarEjercicioServlet extends HttpServlet {
     // Guarda la imagen en el servidor y actualiza el nombre de la imagen en el ejercicio
     private void procesarImagen(Part filePart, Ejercicio ejercicio) throws IOException {
         if (filePart != null && filePart.getSize() > 0) {
-            String fileName = obtenerNombreDelArchivo(filePart);
-            String uniqueFileName = System.currentTimeMillis() + "_" + fileName; // Genera un nombre de archivo único
-            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\" + uniqueFileName;
+            String fileName = ejercicio.getEjercicioID() + ".jpg"; // Usar el ID del ejercicio como nombre de archivo
+            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\" + fileName;
 
             // Guardar el archivo en el servidor
             File file = new File(filePath);
             file.getParentFile().mkdirs();
 
-            // Generar un nombre de archivo único si el archivo ya existe
-            String uniqueFilePath = filePath;
-            int count = 0;
-            while (file.exists()) {
-                count++;
-                uniqueFilePath = filePath.replace(".", "_" + count + ".");
-                file = new File(uniqueFilePath);
-            }
-
             try (InputStream input = filePart.getInputStream()) {
                 Files.copy(input, file.toPath());
             }
-            ejercicio.setImagen(uniqueFileName);
+            ejercicio.setImagen(fileName);
         }
     }
 
-    // Obtiene el nombre del archivo de la parte recibida
-    private String obtenerNombreDelArchivo(Part part) {
-        String contentDisposition = part.getHeader("content-disposition");
-        for (String cd : contentDisposition.split(";")) {
-            if (cd.trim().startsWith("filename")) {
-                return cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-            }
+
+    // Metodo para determinar el origen del ejercicio basado en el rol del usuario
+    private CargadoPor determinarOrigen(HttpServletRequest request) {
+        CargadoPor cargadoPor = CargadoPor.USUARIO;
+        HttpSession session = request.getSession(); // Obtener la sesion del usuario
+        String rolUsuario = (String) session.getAttribute("rolUsuario"); // Obtener el rol del usuario
+        if (rolUsuario != null && rolUsuario.equals(RolUsuario.ADMINISTRADOR.name())) {
+            cargadoPor = CargadoPor.SISTEMA;
         }
-        return null;
+        return cargadoPor;
     }
 }
