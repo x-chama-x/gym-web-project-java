@@ -57,10 +57,15 @@ public class AgregarEjercicioServlet extends HttpServlet {
             int parteDelCuerpoID = parteDelCuerpoDAOHardCodeado.getByName(musculoPrincipal).getParteDelCuerpoID();
             int equipoID = equipoDAOHardCodeado.getByName(equipoNombre).getEquipoID();
 
+            // Obtener el ID del usuario de la sesión
+            HttpSession session = request.getSession();
+            Usuario usuario = (Usuario) session.getAttribute("usuario");
+            int usuarioID = usuario != null ? usuario.getUsuarioID() : 0;
+
             CargadoPor cargadoPor = determinarOrigen(request); // Determina si el ejercicio fue cargado por el sistema o un usuario
 
-            Ejercicio nuevoEjercicio = new Ejercicio(0, 0, equipoID, parteDelCuerpoID, nombre, null, musculosQueTrabaja, preparacion, consejosClave, descripcion, ejecucion, musculoPrincipal, cargadoPor);
-            ejercicioDAOHardCodeado.add(nuevoEjercicio); // Agregar primero para obtener el ID
+            Ejercicio nuevoEjercicio = new Ejercicio(0, usuarioID, equipoID, parteDelCuerpoID, nombre, null, musculosQueTrabaja, preparacion, consejosClave, descripcion, ejecucion, musculoPrincipal, cargadoPor);
+            ejercicioDAOHardCodeado.add(nuevoEjercicio); // Agregar primero para obtener el ID del ejercicio
 
             procesarImagen(filePart, nuevoEjercicio);
             ejercicioDAOHardCodeado.update(nuevoEjercicio); // actualizo el ejercicio en la base de datos

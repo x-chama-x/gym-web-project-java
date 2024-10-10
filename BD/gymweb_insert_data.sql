@@ -1,10 +1,7 @@
 -- Inserción de datos en la tabla usuario
 INSERT INTO `mydb`.`usuario` (`usuarioID`, `nombre`, `correo`, `contraseña`, `rol`) VALUES
-(1, 'Juan Pérez', 'juan.perez@email.com', 'contraseña123', 'final'),
-(2, 'María García', 'maria.garcia@email.com', 'clave456', 'final'),
-(3, 'Carlos Rodríguez', 'carlos.rodriguez@email.com', 'segura789', 'administrador'),
-(4, 'Ana Martínez', 'ana.martinez@email.com', 'gym2024', 'final'),
-(5, 'Luis González', 'luis.gonzalez@email.com', 'fuerte101', 'final');
+(1, 'francisco', 'franciscofchiminelli@hotmail.com', '123456', 'administrador'),
+(2, 'santi', 'santi.garcia@email.com', '1234', 'final'),
 
 -- Inserción de datos en la tabla entrenamiento
 INSERT INTO `mydb`.`entrenamiento` (`entrenamientoID`, `usuarioID`, `nombre`, `cantidadEjercicios`) VALUES
@@ -16,27 +13,43 @@ INSERT INTO `mydb`.`entrenamiento` (`entrenamientoID`, `usuarioID`, `nombre`, `c
 
 -- Inserción de datos en la tabla equipo
 INSERT INTO `mydb`.`equipo` (`equipoID`, `nombre`, `imagen`) VALUES
-(1, 'Mancuernas', 'https://ejemplo.com/imagenes/mancuernas.jpg'),
-(2, 'Barra olímpica', 'https://ejemplo.com/imagenes/barra-olimpica.jpg'),
-(3, 'Máquina de poleas', 'https://ejemplo.com/imagenes/maquina-poleas.jpg'),
-(4, 'Banco plano', 'https://ejemplo.com/imagenes/banco-plano.jpg'),
-(5, 'Cinta de correr', 'https://ejemplo.com/imagenes/cinta-correr.jpg');
+(1, 'Banco plano', 'banco_plano.jpg'),
+(2, 'Mancuernas', 'mancuernas.jpg'),
+(3, 'Peso corporal', 'peso_corporal.jpg'),
+(4, 'Barra de pesas', 'barra.jpg'),
+(5, 'Máquina de poleas', 'poleas.jpg'),
+(6, 'Máquina de pectorales', 'maquinapec.jpg');
 
 -- Inserción de datos en la tabla parteDelCuerpo
 INSERT INTO `mydb`.`parteDelCuerpo` (`parteDelCuerpoID`, `nombre`, `imagen`) VALUES
-(1, 'Pecho', 'https://ejemplo.com/imagenes/musculos-pecho.jpg'),
-(2, 'Espalda', 'https://ejemplo.com/imagenes/musculos-espalda.jpg'),
-(3, 'Piernas', 'https://ejemplo.com/imagenes/musculos-piernas.jpg'),
-(4, 'Hombros', 'https://ejemplo.com/imagenes/musculos-hombros.jpg'),
-(5, 'Bíceps', 'https://ejemplo.com/imagenes/musculos-biceps.jpg');
+(1, 'Pecho', 'pecho.jpg'),
+(2, 'Espalda', 'espalda.jpg'),
+(3, 'Piernas', 'piernas.jpg'),
+(4, 'Hombros', 'hombros.jpg'),
+(5, 'Brazos', 'brazos.jpg'),
+(6, 'Abdominales', 'abdominales.jpg');
 
 -- Inserción de datos en la tabla ejercicio
 INSERT INTO `mydb`.`ejercicio` (`ejercicioID`, `nombre`, `imagen`, `parteDelCuerpoID`, `musculosQueTrabaja`, `equipoID`, `descripcion`, `preparacion`, `ejecucion`, `consejosClave`, `cargadoPor`, `usuario_usuarioID`) VALUES
-(1, 'Press de banca', 'https://ejemplo.com/imagenes/press-banca.jpg', 1, 'Pecho, tríceps, hombros', 2, 'Ejercicio clásico para pecho', 'Acuéstate en el banco con los pies en el suelo', 'Baja la barra al pecho y empuja hacia arriba', 'Mantén los codos a 45 grados del cuerpo', 'sistema', 3),
-(2, 'Sentadillas', 'https://ejemplo.com/imagenes/sentadillas.jpg', 3, 'Cuádriceps, glúteos, isquiotibiales', 2, 'Ejercicio fundamental para piernas', 'Coloca la barra en los trapecios', 'Flexiona las rodillas y caderas, baja y sube', 'Mantén la espalda recta y el pecho hacia fuera', 'sistema', 3),
-(3, 'Remo con barra', 'https://ejemplo.com/imagenes/remo-barra.jpg', 2, 'Espalda, bíceps, antebrazos', 2, 'Excelente para la espalda', 'Inclínate hacia adelante con la espalda recta', 'Tira de la barra hacia el abdomen', 'Aprieta los omóplatos al final del movimiento', 'sistema', 3),
-(4, 'Curl de bíceps', 'https://ejemplo.com/imagenes/curl-biceps.jpg', 5, 'Bíceps, antebrazos', 1, 'Aislamiento de bíceps', 'De pie, mancuernas a los lados', 'Flexiona los codos y levanta las mancuernas', 'No balancees el cuerpo', 'usuario', 1),
-(5, 'Press militar', 'https://ejemplo.com/imagenes/press-militar.jpg', 4, 'Hombros, tríceps', 2, 'Desarrollo de hombros', 'De pie, barra a la altura de los hombros', 'Empuja la barra sobre la cabeza', 'Mantén el core apretado', 'sistema', 3);
+(1, 'Press de banca', 'press_banca.jpg', 1, 'Pectorales, tríceps', 1, 'Ejercicio básico para pecho', 'Acostado en banco', 'Baja la barra al pecho', 'Empuja la barra hacia arriba', 'sistema', NULL),
+(2, 'Aperturas con mancuernas', 'aperturas.jpg', 1, 'Pectorales', 1, 'Aísla los pectorales', 'Acostado en banco', 'Abre y cierra los brazos', 'Mantén los codos ligeramente flexionados', 'sistema', NULL),
+(3, 'Dominadas', 'dominadas.jpg', 2, 'Espalda, bíceps', 1, 'Ejercicio compuesto para espalda', 'Colgado de barra', 'Eleva el cuerpo', 'Agarre firme', 'sistema', NULL),
+(4, 'Remo con barra', 'remo_barra.jpg', 2, 'Espalda media, bíceps', 1, 'Fortalece la espalda media', 'De pie, inclinado', 'Tira de la barra hacia el abdomen', 'Mantén la espalda recta', 'sistema', NULL),
+(5, 'Sentadillas', 'sentadillas.jpg', 3, 'Cuádriceps, glúteos', 1, 'Ejercicio completo para piernas', 'De pie, pies separados', 'Flexiona rodillas, baja y sube', 'Mantén la espalda recta', 'sistema', NULL),
+(6, 'Peso muerto', 'peso_muerto.jpg', 3, 'Isquiotibiales, glúteos, espalda baja', 1, 'Ejercicio compuesto para piernas y espalda', 'De pie, barra al frente', 'Flexiona caderas y rodillas, baja y sube', 'Mantén la espalda recta', 'sistema', NULL),
+(7, 'Press militar', 'press_militar.jpg', 4, 'Deltoides, tríceps', 1, 'Ejercicio básico para hombros', 'De pie o sentado', 'Empuja la barra sobre la cabeza', 'Mantén el core estable', 'sistema', NULL),
+(8, 'Elevaciones laterales', 'elevaciones_laterales.jpg', 4, 'Deltoides laterales', 1, 'Aísla los deltoides laterales', 'De pie, mancuernas a los lados', 'Eleva las mancuernas hasta la altura de los hombros', 'Codos ligeramente flexionados', 'sistema', NULL),
+(9, 'Curl de bíceps Mancuerna', 'curl_biceps.jpg', 5, 'Bíceps', 1, 'Ejercicio de aislamiento para bíceps', 'De pie, mancuernas', 'Flexiona y extiende los codos', 'Codos pegados al cuerpo', 'sistema', NULL),
+(10, 'Extensiones de tríceps', 'extensiones_triceps.jpg', 5, 'Tríceps', 1, 'Aísla los tríceps', 'De pie o sentado', 'Extiende los brazos sobre la cabeza', 'Mantén los codos cerca de la cabeza', 'sistema', NULL),
+(11, 'Crunches', 'crunches.jpg', 6, 'Abdominales superiores', 1, 'Ejercicio básico para abdominales', 'Acostado, rodillas flexionadas', 'Eleva los hombros del suelo', 'Mantén la zona lumbar pegada al suelo', 'sistema', NULL),
+(12, 'Plancha', 'plancha.jpg', 6, 'Core, abdominales', 1, 'Fortalece el core y la estabilidad', 'Posición de flexiones', 'Mantén la posición', 'Mantén el cuerpo en línea recta', 'sistema', NULL);
+
+-- El campo usuario_usuarioID es NULL porque en los datos hardcodeados
+-- de los ejercicios en EjercicioDAOHardCodeado, no se especifica un valor
+-- para este campo. En el archivo SQL, el valor NULL se utiliza
+-- para indicar que no hay un usuario específico asociado con la inserción de esos ejercicios.
+
+
 
 -- Inserción de datos en la tabla entrenamiento_has_ejercicio
 INSERT INTO `mydb`.`entrenamiento_has_ejercicio` (`EjercicioEntrenamientoID`, `EntrenamientoID`, `usuarioID`, `ejercicioID`, `numeroSerie`, `repeticiones`, `peso`) VALUES
