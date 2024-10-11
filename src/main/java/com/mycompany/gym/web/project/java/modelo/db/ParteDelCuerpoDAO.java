@@ -43,24 +43,38 @@ public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
         }
     }
 
+    // metodo que devuelve una categoria por su ID
     @Override
     public ParteDelCuerpo getById(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "SELECT * FROM partedelcuerpo WHERE partedelcuerpoID = ?";
+        ParteDelCuerpo c = null;
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    c = rsRowToParteDelCuerpo(resultSet);
+                }
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return c;
     }
 
     // metodos no implementados
     @Override
     public void add(ParteDelCuerpo entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void update(ParteDelCuerpo entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void delete(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -32,17 +32,17 @@ INSERT INTO `gymwebbd`.`parteDelCuerpo` (`parteDelCuerpoID`, `nombre`, `imagen`)
 -- Inserción de datos en la tabla ejercicio
 INSERT INTO `gymwebbd`.`ejercicio` (`ejercicioID`, `nombre`, `imagen`, `parteDelCuerpoID`, `musculosQueTrabaja`, `equipoID`, `descripcion`, `preparacion`, `ejecucion`, `consejosClave`, `cargadoPor`, `usuario_usuarioID`) VALUES
 (1, 'Press de banca', 'press_banca.jpg', 1, 'Pectorales, tríceps', 1, 'Ejercicio básico para pecho', 'Acostado en banco', 'Baja la barra al pecho', 'Empuja la barra hacia arriba', 'sistema', 1),
-(2, 'Aperturas con mancuernas', 'aperturas.jpg', 1, 'Pectorales', 1, 'Aísla los pectorales', 'Acostado en banco', 'Abre y cierra los brazos', 'Mantén los codos ligeramente flexionados', 'sistema', 1),
-(3, 'Dominadas', 'dominadas.jpg', 2, 'Espalda, bíceps', 1, 'Ejercicio compuesto para espalda', 'Colgado de barra', 'Eleva el cuerpo', 'Agarre firme', 'sistema', 1),
-(4, 'Remo con barra', 'remo_barra.jpg', 2, 'Espalda media, bíceps', 1, 'Fortalece la espalda media', 'De pie, inclinado', 'Tira de la barra hacia el abdomen', 'Mantén la espalda recta', 'sistema', 1),
-(5, 'Sentadillas', 'sentadillas.jpg', 3, 'Cuádriceps, glúteos', 1, 'Ejercicio completo para piernas', 'De pie, pies separados', 'Flexiona rodillas, baja y sube', 'Mantén la espalda recta', 'sistema', 1),
-(6, 'Peso muerto', 'peso_muerto.jpg', 3, 'Isquiotibiales, glúteos, espalda baja', 1, 'Ejercicio compuesto para piernas y espalda', 'De pie, barra al frente', 'Flexiona caderas y rodillas, baja y sube', 'Mantén la espalda recta', 'sistema', 1),
-(7, 'Press militar', 'press_militar.jpg', 4, 'Deltoides, tríceps', 1, 'Ejercicio básico para hombros', 'De pie o sentado', 'Empuja la barra sobre la cabeza', 'Mantén el core estable', 'sistema', 1),
-(8, 'Elevaciones laterales', 'elevaciones_laterales.jpg', 4, 'Deltoides laterales', 1, 'Aísla los deltoides laterales', 'De pie, mancuernas a los lados', 'Eleva las mancuernas hasta la altura de los hombros', 'Codos ligeramente flexionados', 'sistema', 1),
-(9, 'Curl de bíceps Mancuerna', 'curl_biceps.jpg', 5, 'Bíceps', 1, 'Ejercicio de aislamiento para bíceps', 'De pie, mancuernas', 'Flexiona y extiende los codos', 'Codos pegados al cuerpo', 'sistema', 1),
-(10, 'Extensiones de tríceps', 'extensiones_triceps.jpg', 5, 'Tríceps', 1, 'Aísla los tríceps', 'De pie o sentado', 'Extiende los brazos sobre la cabeza', 'Mantén los codos cerca de la cabeza', 'sistema', 1),
-(11, 'Crunches', 'crunches.jpg', 6, 'Abdominales superiores', 1, 'Ejercicio básico para abdominales', 'Acostado, rodillas flexionadas', 'Eleva los hombros del suelo', 'Mantén la zona lumbar pegada al suelo', 'sistema', 1),
-(12, 'Plancha', 'plancha.jpg', 6, 'Core, abdominales', 1, 'Fortalece el core y la estabilidad', 'Posición de flexiones', 'Mantén la posición', 'Mantén el cuerpo en línea recta', 'sistema', 1);
+(2, 'Aperturas con mancuernas', 'aperturas.jpg', 1, 'Pectorales', 2, 'Aísla los pectorales', 'Acostado en banco', 'Abre y cierra los brazos', 'Mantén los codos ligeramente flexionados', 'sistema', 1),
+(3, 'Dominadas', 'dominadas.jpg', 2, 'Espalda, bíceps', 3, 'Ejercicio compuesto para espalda', 'Colgado de barra', 'Eleva el cuerpo', 'Agarre firme', 'sistema', 1),
+(4, 'Remo con barra', 'remo_barra.jpg', 2, 'Espalda media, bíceps', 4, 'Fortalece la espalda media', 'De pie, inclinado', 'Tira de la barra hacia el abdomen', 'Mantén la espalda recta', 'sistema', 1),
+(5, 'Sentadillas', 'sentadillas.jpg', 3, 'Cuádriceps, glúteos', 3, 'Ejercicio completo para piernas', 'De pie, pies separados', 'Flexiona rodillas, baja y sube', 'Mantén la espalda recta', 'sistema', 1),
+(6, 'Peso muerto', 'peso_muerto.jpg', 3, 'Isquiotibiales, glúteos, espalda baja', 4, 'Ejercicio compuesto para piernas y espalda', 'De pie, barra al frente', 'Flexiona caderas y rodillas, baja y sube', 'Mantén la espalda recta', 'sistema', 1),
+(7, 'Press militar', 'press_militar.jpg', 4, 'Deltoides, tríceps', 2, 'Ejercicio básico para hombros', 'De pie o sentado', 'Empuja la barra sobre la cabeza', 'Mantén el core estable', 'sistema', 1),
+(8, 'Elevaciones laterales', 'elevaciones_laterales.jpg', 4, 'Deltoides laterales', 2, 'Aísla los deltoides laterales', 'De pie, mancuernas a los lados', 'Eleva las mancuernas hasta la altura de los hombros', 'Codos ligeramente flexionados', 'sistema', 1),
+(9, 'Curl de bíceps Mancuerna', 'curl_biceps.jpg', 5, 'Bíceps', 2, 'Ejercicio de aislamiento para bíceps', 'De pie, mancuernas', 'Flexiona y extiende los codos', 'Codos pegados al cuerpo', 'sistema', 1),
+(10, 'Extensiones de tríceps', 'extensiones_triceps.jpg', 5, 'Tríceps', 5, 'Aísla los tríceps', 'De pie o sentado', 'Extiende los brazos sobre la cabeza', 'Mantén los codos cerca de la cabeza', 'sistema', 1),
+(11, 'Crunches', 'crunches.jpg', 6, 'Abdominales superiores', 3, 'Ejercicio básico para abdominales', 'Acostado, rodillas flexionadas', 'Eleva los hombros del suelo', 'Mantén la zona lumbar pegada al suelo', 'sistema', 1),
+(12, 'Plancha', 'plancha.jpg', 6, 'Core, abdominales', 3, 'Fortalece el core y la estabilidad', 'Posición de flexiones', 'Mantén la posición', 'Mantén el cuerpo en línea recta', 'sistema', 1);
 
 
 -- Inserción de datos en la tabla entrenamiento_has_ejercicio
