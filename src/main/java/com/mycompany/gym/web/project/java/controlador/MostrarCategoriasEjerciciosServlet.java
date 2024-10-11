@@ -2,6 +2,7 @@ package com.mycompany.gym.web.project.java.controlador;
 
 import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpo;
 import com.mycompany.gym.web.project.java.modelo.ParteDelCuerpoDAOHardCodeado;
+import com.mycompany.gym.web.project.java.modelo.db.ParteDelCuerpoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,20 +12,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MostrarCategoriasEjerciciosServlet extends HttpServlet {
-    private ParteDelCuerpoDAOHardCodeado parteDelCuerpoDAOHardCodeado;
+    private ParteDelCuerpoDAO parteDelCuerpoDAO;
 
 
     // inicializa el servlet y carga las categorias
     @Override
     public void init() throws ServletException {
-        parteDelCuerpoDAOHardCodeado = new ParteDelCuerpoDAOHardCodeado();
+        parteDelCuerpoDAO = new ParteDelCuerpoDAO();
     }
 
     // muestra las categorias en la pagina wikiEjercicios.jsp
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            ArrayList<ParteDelCuerpo> categorias = new ArrayList<>(parteDelCuerpoDAOHardCodeado.getAll()); // obtengo las categorias cargadas en el DAO
+            ArrayList<ParteDelCuerpo> categorias = new ArrayList<>(parteDelCuerpoDAO.getAll()); // obtengo las categorias cargadas en el DAO
             request.setAttribute("categorias", categorias); // establezco las categorias como atributo de la request (solicitud)
             request.getRequestDispatcher("WEB-INF/jsp/wikiEjercicios.jsp").forward(request, response); // se reenvia la solicitud a la pagina wikiEjercicios.jsp
         } catch (Exception e) {
