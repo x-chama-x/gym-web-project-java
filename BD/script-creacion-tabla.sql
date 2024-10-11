@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema gymwebBD
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema gymwebBD
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `gymwebBD` DEFAULT CHARACTER SET utf8 ;
+USE `gymwebBD` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuario`
+-- Table `gymwebBD`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
+CREATE TABLE IF NOT EXISTS `gymwebBD`.`usuario` (
   `usuarioID` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `correo` VARCHAR(45) NOT NULL,
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`entrenamiento`
+-- Table `gymwebBD`.`entrenamiento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`entrenamiento` (
+CREATE TABLE IF NOT EXISTS `gymwebBD`.`entrenamiento` (
   `entrenamientoID` INT NOT NULL,
   `usuarioID` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
@@ -39,16 +39,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`entrenamiento` (
   INDEX `fk_entrenamiento_usuario_idx` (`usuarioID` ASC) VISIBLE,
   CONSTRAINT `fk_entrenamiento_usuario`
     FOREIGN KEY (`usuarioID`)
-    REFERENCES `mydb`.`usuario` (`usuarioID`)
+    REFERENCES `gymwebBD`.`usuario` (`usuarioID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`equipo`
+-- Table `gymwebBD`.`equipo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`equipo` (
+CREATE TABLE IF NOT EXISTS `gymwebBD`.`equipo` (
   `equipoID` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `imagen` VARCHAR(45) NOT NULL,
@@ -57,9 +57,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`parteDelCuerpo`
+-- Table `gymwebBD`.`parteDelCuerpo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`parteDelCuerpo` (
+CREATE TABLE IF NOT EXISTS `gymwebBD`.`parteDelCuerpo` (
   `parteDelCuerpoID` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `imagen` VARCHAR(45) NOT NULL,
@@ -68,9 +68,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`ejercicio`
+-- Table `gymwebBD`.`ejercicio`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`ejercicio` (
+CREATE TABLE IF NOT EXISTS `gymwebBD`.`ejercicio` (
   `ejercicioID` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `imagen` VARCHAR(45) NOT NULL,
@@ -89,26 +89,26 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ejercicio` (
   INDEX `fk_ejercicio_usuario1_idx` (`usuario_usuarioID` ASC) VISIBLE,
   CONSTRAINT `fk_ejercicio_Equipo1`
     FOREIGN KEY (`equipoID`)
-    REFERENCES `mydb`.`equipo` (`equipoID`)
+    REFERENCES `gymwebBD`.`equipo` (`equipoID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ejercicio_parteDelCuerpo1`
     FOREIGN KEY (`parteDelCuerpoID`)
-    REFERENCES `mydb`.`parteDelCuerpo` (`parteDelCuerpoID`)
+    REFERENCES `gymwebBD`.`parteDelCuerpo` (`parteDelCuerpoID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ejercicio_usuario1`
     FOREIGN KEY (`usuario_usuarioID`)
-    REFERENCES `mydb`.`usuario` (`usuarioID`)
+    REFERENCES `gymwebBD`.`usuario` (`usuarioID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`entrenamiento_has_ejercicio`
+-- Table `gymwebBD`.`entrenamiento_has_ejercicio`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`entrenamiento_has_ejercicio` (
+CREATE TABLE IF NOT EXISTS `gymwebBD`.`entrenamiento_has_ejercicio` (
   `EjercicioEntrenamientoID` INT NOT NULL,
   `EntrenamientoID` INT NOT NULL,
   `usuarioID` INT NOT NULL,
@@ -121,12 +121,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`entrenamiento_has_ejercicio` (
   INDEX `fk_entrenamiento_has_ejercicio_entrenamiento1_idx` (`EntrenamientoID` ASC, `usuarioID` ASC) VISIBLE,
   CONSTRAINT `fk_entrenamiento_has_ejercicio_entrenamiento1`
     FOREIGN KEY (`EntrenamientoID` , `usuarioID`)
-    REFERENCES `mydb`.`entrenamiento` (`entrenamientoID` , `usuarioID`)
+    REFERENCES `gymwebBD`.`entrenamiento` (`entrenamientoID` , `usuarioID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_entrenamiento_has_ejercicio_ejercicio1`
     FOREIGN KEY (`ejercicioID`)
-    REFERENCES `mydb`.`ejercicio` (`ejercicioID`)
+    REFERENCES `gymwebBD`.`ejercicio` (`ejercicioID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
