@@ -15,17 +15,74 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
 
     @Override
     public void add(Ejercicio entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entidad.setEjercicioID(getNextId()); // Obtener el próximo ID incremental
+        String query = "INSERT INTO ejercicio (ejercicioID, nombre, imagen, descripcion, parteDelCuerpoID, musculosQueTrabaja, equipoID, preparacion, ejecucion, consejosClave, cargadoPor, usuario_usuarioID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setInt(1, entidad.getEjercicioID());
+            preparedStatement.setString(2, entidad.getNombre());
+            preparedStatement.setString(3, entidad.getImagen());
+            preparedStatement.setString(4, entidad.getDescripcion());
+            preparedStatement.setInt(5, entidad.getParteDelCuerpoID());
+            preparedStatement.setString(6, entidad.getMusculosQueTrabaja());
+            preparedStatement.setInt(7, entidad.getEquipoID());
+            preparedStatement.setString(8, entidad.getPreparacion());
+            preparedStatement.setString(9, entidad.getEjecucion());
+            preparedStatement.setString(10, entidad.getConsejosClave());
+            preparedStatement.setString(11, entidad.getCargadoPor().name()); // Convertir el Enum a String
+            preparedStatement.setInt(12, entidad.getUsuarioID());
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    // Metodo para obtener el próximo ID incremental
+    private int getNextId() throws SQLException {
+        String query = "SELECT MAX(ejercicioID) AS maxId FROM ejercicio";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            if (resultSet.next()) {
+                return resultSet.getInt("maxId") + 1;
+            } else {
+                return 1; // Si no hay registros, el primer ID será 1
+            }
+        }
     }
 
     @Override
     public void update(Ejercicio entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String query = "UPDATE ejercicio SET nombre = ?, imagen = ?, parteDelCuerpoID = ?, musculosQueTrabaja = ?, equipoID = ?, descripcion = ?, preparacion = ?, ejecucion = ?, consejosClave = ?, cargadoPor = ? WHERE ejercicioID = ? ";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setString(1, entidad.getNombre());
+            preparedStatement.setString(2, entidad.getImagen());
+            preparedStatement.setInt(3, entidad.getParteDelCuerpoID());
+            preparedStatement.setString(4, entidad.getMusculosQueTrabaja());
+            preparedStatement.setInt(5, entidad.getEquipoID());
+            preparedStatement.setString(6, entidad.getDescripcion());
+            preparedStatement.setString(7, entidad.getPreparacion());
+            preparedStatement.setString(8, entidad.getEjecucion());
+            preparedStatement.setString(9, entidad.getConsejosClave());
+            preparedStatement.setString(10, entidad.getCargadoPor().name()); // Convertir el Enum a String
+            preparedStatement.setInt(11, entidad.getEjercicioID());
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public void delete(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String query = "DELETE FROM ejercicio WHERE ejercicioID = ?";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override

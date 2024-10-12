@@ -62,6 +62,24 @@ public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
         return c;
     }
 
+    // metodo que devuelve una categoria por su nombre
+    public ParteDelCuerpo getByName(String nombre) throws Exception {
+        String query = "SELECT * FROM partedelcuerpo WHERE nombre = ?";
+        ParteDelCuerpo c = null;
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setString(1, nombre);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    c = rsRowToParteDelCuerpo(resultSet);
+                }
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return c;
+    }
+
     // metodos no implementados
     @Override
     public void add(ParteDelCuerpo entidad) throws Exception {

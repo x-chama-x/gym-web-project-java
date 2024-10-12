@@ -72,4 +72,21 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
         }
         return equipo;
     }
+    // metodo que devuelve una categoria por su nombre
+    public Equipo getByName(String nombre) throws Exception {
+        Equipo equipo = null;
+        String query = "SELECT * FROM equipo WHERE nombre = ?";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setString(1, nombre);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    equipo = rsRowToEquipo(resultSet);
+                }
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return equipo;
+    }
 }
