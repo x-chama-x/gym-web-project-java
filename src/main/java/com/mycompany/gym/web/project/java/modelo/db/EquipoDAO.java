@@ -12,21 +12,6 @@ import java.util.List;
 
 public class EquipoDAO implements DAO<Equipo, Integer> {
 
-    @Override
-    public void add(Equipo entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void update(Equipo entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void delete(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     // metodo que devuelve una lista de todos los equipos
     @Override
     public List<Equipo> getAll() throws Exception {
@@ -91,5 +76,21 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
             throw new RuntimeException(ex);
         }
         return equipo;
+    }
+
+    // metodos no implementados
+    @Override
+    public void add(Equipo entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void update(Equipo entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Integer id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
