@@ -71,7 +71,6 @@ public class AgregarEjercicioServlet extends HttpServlet {
             ejercicioDAO.add(nuevoEjercicio); // Agregar primero para obtener el ID del ejercicio
             String imagenNombre = procesarImagen(filePart, nuevoEjercicio); // Procesar la imagen del ejercicio
             nuevoEjercicio.setImagen(imagenNombre); // Actualizar el nombre de la imagen en el objeto Ejercicio
-            System.out.println("Imagen: " + nuevoEjercicio.getImagen());
             ejercicioDAO.update(nuevoEjercicio); // Actualizar el ejercicio con el nombre de la imagen
             response.sendRedirect("wikiEjercicios");
         } catch (Exception e) {
