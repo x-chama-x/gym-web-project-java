@@ -8,9 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-// autenticar a los usuarios en la base de datos
 public class UsuarioDAO {
+
+    // Metodo que autentica un usuario por su nombre y contraseña
     public Usuario autenticar(String nombre, String contrasena) {
         Usuario u = null;
         String query = "SELECT * FROM usuario WHERE nombre = ? AND contraseña = ?";
@@ -29,7 +29,7 @@ public class UsuarioDAO {
         return u;
     }
 
-    // Convertir un ResultSet a un objeto Usuario
+    // convierte una fila de la tabla usuario en un objeto Usuario
     private Usuario rsRowToUsuario(ResultSet resultSet) {
         try {
             Usuario usuario = new Usuario();

@@ -13,6 +13,7 @@ import java.util.List;
 
 public class EjercicioDAO implements DAO<Ejercicio,Integer> {
 
+    // Metodo para agregar un ejercicio a la base de datos
     @Override
     public void add(Ejercicio entidad) throws Exception {
         entidad.setEjercicioID(getNextId()); // Obtener el próximo ID incremental
@@ -51,6 +52,7 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         }
     }
 
+    // Metodo para actualizar un ejercicio en la base de datos
     @Override
     public void update(Ejercicio entidad) throws Exception {
         String query = "UPDATE ejercicio SET nombre = ?, imagen = ?, parteDelCuerpoID = ?, musculosQueTrabaja = ?, equipoID = ?, descripcion = ?, preparacion = ?, ejecucion = ?, consejosClave = ?, cargadoPor = ? WHERE ejercicioID = ? ";
@@ -73,6 +75,7 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         }
     }
 
+    // Metodo para eliminar un ejercicio de la base de datos
     @Override
     public void delete(Integer id) throws Exception {
         String query = "DELETE FROM ejercicio WHERE ejercicioID = ?";
@@ -85,6 +88,7 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         }
     }
 
+    // Metodo para obtener todos los ejercicios de la base de datos
     @Override
     public List<Ejercicio> getAll() throws Exception {
         List <Ejercicio> ejercicios = new ArrayList<>();
@@ -101,6 +105,7 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         return ejercicios;
     }
 
+    // Metodo que convierte una fila de la tabla ejercicio en un objeto Ejercicio
     private Ejercicio rsRowToEjercicio(ResultSet resultSet) {
         try {
             Ejercicio ejercicio = new Ejercicio();
@@ -122,6 +127,7 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         }
     }
 
+    // Metodo para obtener un ejercicio por su ID
     @Override
     public Ejercicio getById(Integer id) throws Exception {
         String query = "SELECT * FROM ejercicio WHERE ejercicioID = ?";

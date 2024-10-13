@@ -27,6 +27,7 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    // metodo que devuelve una lista de todos los equipos
     @Override
     public List<Equipo> getAll() throws Exception {
         List <Equipo> equipos = new ArrayList<>();
@@ -43,6 +44,7 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
         return equipos;
     }
 
+    // metodo que convierte una fila de la tabla equipo en un objeto Equipo
     private Equipo rsRowToEquipo(ResultSet resultSet) {
         try {
             Equipo equipo = new Equipo();
@@ -55,6 +57,7 @@ public class EquipoDAO implements DAO<Equipo, Integer> {
         }
     }
 
+    // metodo que devuelve una categoria por su ID
     @Override
     public Equipo getById(Integer id) throws Exception {
         Equipo equipo = null;

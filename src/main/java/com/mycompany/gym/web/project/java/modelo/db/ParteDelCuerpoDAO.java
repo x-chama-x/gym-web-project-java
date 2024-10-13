@@ -12,7 +12,6 @@ import java.util.List;
 
 public class ParteDelCuerpoDAO implements DAO<ParteDelCuerpo, Integer> {
 
-
     // metodo que devuelve una lista de todas las categorias
     @Override
     public List<ParteDelCuerpo> getAll() throws Exception {
