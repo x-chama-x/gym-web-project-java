@@ -88,7 +88,7 @@ public class EditarEjercicioServlet extends HttpServlet {
     private void procesarImagen(Part filePart, Ejercicio ejercicio) throws IOException {
         if (filePart != null && filePart.getSize() > 0) {
             String fileName = ejercicio.getEjercicioID() + ".jpg"; // Usar el ID del ejercicio como nombre de archivo
-            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\" + fileName;
+            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\ejercicioImagen\\" + fileName;
 
             // Guardar la imagen en la carpeta assets/img
             File file = new File(filePath);

@@ -19,7 +19,7 @@
                         <div class="cajafuera" align="center">
                             <div class="formulariocaja">
                                 <div class="formtitulo">${ejercicio.nombre}</div>
-                                <img src="assets/img/${ejercicio.imagen}" alt="${ejercicio.nombre}" class="ejercicio-imagen">
+                                <img src="assets/img/ejercicioImagen/${ejercicio.imagen}" alt="${ejercicio.nombre}" class="ejercicio-imagen">
                                 <div class="ejercicio-espaciado"></div>
                                 <div class="ejercicio-detalles">
                                     <span><strong>Músculos Principales:</strong> ${ejercicio.musculosQueTrabaja}</span><br>

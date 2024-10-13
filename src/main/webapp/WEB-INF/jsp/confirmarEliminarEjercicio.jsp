@@ -19,7 +19,7 @@
                             <div class="formulariocaja">
                                 <div class="formtitulo">Confirmar Eliminación de Ejercicio</div>
                                 <p>¿Estás seguro de que deseas eliminar el ejercicio <strong>${ejercicioNombre}</strong>?</p>
-                                <img src="assets/img/${ejercicioImagen}" alt="${ejercicioNombre}" style="max-width: 200px;">
+                                <img src="assets/img/ejercicioImagen/${ejercicioImagen}" alt="${ejercicioNombre}" style="max-width: 200px;">
                                 <form action="eliminarEjercicio" method="post">
                                     <input type="hidden" name="ejercicioId" value="${ejercicioId}">
                                     <input type="hidden" name="categoriaId" value="${categoriaId}">

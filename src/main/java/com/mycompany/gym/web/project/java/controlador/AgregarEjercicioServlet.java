@@ -83,7 +83,7 @@ public class AgregarEjercicioServlet extends HttpServlet {
         String fileName = null;
         if (filePart != null && filePart.getSize() > 0) {
             fileName = ejercicio.getEjercicioID() + ".jpg"; // Usar el ID del ejercicio como nombre de archivo
-            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\" + fileName;
+            String filePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\ejercicioImagen\\" + fileName;
 
             // Guardar el archivo en el servidor
             File file = new File(filePath);

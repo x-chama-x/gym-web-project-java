@@ -22,7 +22,7 @@
                                 <div class="ejercicios-contenedor">
                                     <c:forEach var="ejercicio" items="${ejercicios}">
                                         <div class="ejercicio">
-                                            <img src="assets/img/${ejercicio.imagen}" alt="${ejercicio.nombre}" class="ejercicio-thumbnail">
+                                            <img src="assets/img/ejercicioImagen/${ejercicio.imagen}" alt="${ejercicio.nombre}" class="ejercicio-thumbnail">
                                             <a href="mostrarDetalleDeEjercicio?ejercicioId=${ejercicio.ejercicioID}&categoriaId=${ejercicio.parteDelCuerpoID}" class="ejercicio-nombre">${ejercicio.nombre}</a>
                                             <span class="ejercicio-detalles">${ejercicio.musculosQueTrabaja}</span>
                                         </div>
