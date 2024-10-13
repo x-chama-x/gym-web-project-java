@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.io.File;
 import java.io.IOException;
 
 public class EliminarEjercicioServlet extends HttpServlet {
@@ -55,6 +56,8 @@ public class EliminarEjercicioServlet extends HttpServlet {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
                 int categoriaId = Integer.parseInt(categoriaIdStr);
+                Ejercicio ejercicio = ejercicioDAO.getById(ejercicioId);
+                eliminarImagen(ejercicio.getImagen()); // elimino la imagen del ejercicio
                 ejercicioDAO.delete(ejercicioId); // elimino el ejercicio
                 response.sendRedirect("mostrarEjercicios?categoriaId=" + categoriaId);
             } catch (Exception e) {
@@ -64,4 +67,15 @@ public class EliminarEjercicioServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ejercicio o categoría no especificada");
         }
     }
+
+    // elimina la imagen del ejercicio del directorio
+    private void eliminarImagen(String imagen) {
+        String imagePath = "C:\\Users\\Francisco\\Desktop\\gym-web-project-java\\src\\main\\webapp\\assets\\img\\ejercicioImagen\\" + imagen;
+        File imageFile = new File(imagePath);
+        if (imageFile.exists()) {
+            imageFile.delete();
+        }
+    }
+
+
 }
