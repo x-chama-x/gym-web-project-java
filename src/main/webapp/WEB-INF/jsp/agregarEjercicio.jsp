@@ -20,19 +20,19 @@
                                 <div class="formtitulo">Agregar Ejercicio</div>
                                 <form action="agregarEjercicio" method="post" enctype="multipart/form-data">
                                     <label for="nombre">Nombre:</label>
-                                    <input type="text" id="nombre" name="nombre" required><br>
+                                    <input type="text" id="nombre" name="nombre" maxlength="35" required><br>
                                     <label for="imagen">Imagen:</label>
                                     <input type="file" id="imagen" name="imagen" accept="image/*" required><br>
                                     <label for="musculosQueTrabaja">Músculos que Trabaja:</label>
-                                    <input type="text" id="musculosQueTrabaja" name="musculosQueTrabaja" required><br>
+                                    <input type="text" id="musculosQueTrabaja" name="musculosQueTrabaja" maxlength="45" required><br>
                                     <label for="preparacion">Preparación:</label>
-                                    <input type="text" id="preparacion" name="preparacion" required><br>
+                                    <input type="text" id="preparacion" name="preparacion" maxlength="150" required><br>
                                     <label for="consejosClave">Consejos Clave:</label>
-                                    <input type="text" id="consejosClave" name="consejosClave" required><br>
+                                    <input type="text" id="consejosClave" name="consejosClave" maxlength="150" required><br>
                                     <label for="descripcion">Descripción:</label>
-                                    <input type="text" id="descripcion" name="descripcion" required><br>
+                                    <input type="text" id="descripcion" name="descripcion" maxlength="150" required><br>
                                     <label for="ejecucion">Ejecución:</label>
-                                    <input type="text" id="ejecucion" name="ejecucion" required><br>
+                                    <input type="text" id="ejecucion" name="ejecucion" maxlength="150" required><br>
                                     <label for="musculoPrincipal">Músculo Principal:</label>
                                     <select id="musculoPrincipal" name="musculoPrincipal" required>
                                         <c:forEach var="parte" items="${partesDelCuerpo}">

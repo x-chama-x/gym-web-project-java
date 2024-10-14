@@ -22,19 +22,19 @@
                                     <input type="hidden" name="ejercicioId" value="${ejercicio.ejercicioID}">
                                     <input type="hidden" name="categoriaId" value="${ejercicio.parteDelCuerpoID}">
                                     <label for="nombre">Nombre:</label>
-                                    <input type="text" id="nombre" name="nombre" value="${ejercicio.nombre}" required><br>
+                                    <input type="text" id="nombre" name="nombre" value="${ejercicio.nombre}" maxlength="35" required><br>
                                     <label for="imagen">Imagen:</label>
                                     <input type="file" id="imagen" name="imagen" accept="image/*"><br>
                                     <label for="musculosQueTrabaja">Músculos que Trabaja:</label>
-                                    <input type="text" id="musculosQueTrabaja" name="musculosQueTrabaja" value="${ejercicio.musculosQueTrabaja}" required><br>
+                                    <input type="text" id="musculosQueTrabaja" name="musculosQueTrabaja" value="${ejercicio.musculosQueTrabaja}" maxlength="45" required><br>
                                     <label for="preparacion">Preparación:</label>
-                                    <input type="text" id="preparacion" name="preparacion" value="${ejercicio.preparacion}" required><br>
+                                    <input type="text" id="preparacion" name="preparacion" value="${ejercicio.preparacion}" maxlength="150" required><br>
                                     <label for="consejosClave">Consejos Clave:</label>
-                                    <input type="text" id="consejosClave" name="consejosClave" value="${ejercicio.consejosClave}" required><br>
+                                    <input type="text" id="consejosClave" name="consejosClave" value="${ejercicio.consejosClave}" maxlength="150" required><br>
                                     <label for="descripcion">Descripción:</label>
-                                    <input type="text" id="descripcion" name="descripcion" value="${ejercicio.descripcion}" required><br>
+                                    <input type="text" id="descripcion" name="descripcion" value="${ejercicio.descripcion}" maxlength="150" required><br>
                                     <label for="ejecucion">Ejecución:</label>
-                                    <input type="text" id="ejecucion" name="ejecucion" value="${ejercicio.ejecucion}" required><br>
+                                    <input type="text" id="ejecucion" name="ejecucion" value="${ejercicio.ejecucion}" maxlength="150" required><br>
                                     <label for="musculoPrincipal">Músculo Principal:</label>
                                     <select id="musculoPrincipal" name="musculoPrincipal" required>
                                         <c:forEach var="parte" items="${partesDelCuerpo}">
