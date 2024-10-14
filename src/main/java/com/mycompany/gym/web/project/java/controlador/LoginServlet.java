@@ -1,6 +1,7 @@
 package com.mycompany.gym.web.project.java.controlador;
 import com.mycompany.gym.web.project.java.modelo.Usuario;
 import com.mycompany.gym.web.project.java.modelo.UsuarioDAOHardCodeado;
+import com.mycompany.gym.web.project.java.modelo.db.UsuarioDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 
 public class LoginServlet extends HttpServlet {
-    private UsuarioDAOHardCodeado usuarioDAO = new UsuarioDAOHardCodeado();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
 
     // este metodo es para autenticar a los usuarios
@@ -29,7 +30,9 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("userLogueado", usuario);
             session.setAttribute("rolUsuario", usuario.getRol().name()); // Guardo el rol del usuario autenticado para mostrar o no ciertas opciones en la vista
-            response.sendRedirect("principal.jsp");
+            session.setMaxInactiveInterval(-1); // La sesión no expira
+            // necesito usar un RequestDispatcher en lugar de sendRedirect porque los archivos dentro de WEB-INF no son accesibles directamente desde el navegador
+            request.getRequestDispatcher("WEB-INF/jsp/principal.jsp").forward(request, response);
         } else {
             request.setAttribute("errorMessage", "datos incorrectos");
             request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -19,7 +19,7 @@
                         <div class="cajafuera" align="center">
                             <div class="formulariocaja">
                                 <div class="formtitulo">${ejercicio.nombre}</div>
-                                <img src="assets/img/${ejercicio.imagen}" alt="${ejercicio.nombre}" class="ejercicio-imagen">
+                                <img src="assets/img/ejercicioImagen/${ejercicio.imagen}" alt="${ejercicio.nombre}" class="ejercicio-imagen">
                                 <div class="ejercicio-espaciado"></div>
                                 <div class="ejercicio-detalles">
                                     <span><strong>Músculos Principales:</strong> ${ejercicio.musculosQueTrabaja}</span><br>
@@ -46,7 +46,7 @@
                                     <a href="eliminarEjercicio?ejercicioId=${ejercicio.ejercicioID}&categoriaId=${ejercicio.parteDelCuerpoID}" class="boton">Eliminar Ejercicio</a>
                                     <br>
                                 </c:if>
-                                <a href="principal.jsp">Volver al menú de perfil</a>
+                                <a href="redirigirPerfil">Volver al menú de perfil</a>
                                 <br>
                                 <c:import url="includes/cerrarSesion.jsp" />
                             </div>

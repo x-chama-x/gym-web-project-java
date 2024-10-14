@@ -35,6 +35,10 @@
         <servlet-name>logout-servlet</servlet-name>
         <servlet-class>com.mycompany.gym.web.project.java.controlador.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>redirigir-perfil-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.RedirigirPerfilServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
         <url-pattern>/wikiEjercicios</url-pattern>
@@ -66,6 +70,10 @@
     <servlet-mapping>
         <servlet-name>logout-servlet</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>redirigir-perfil-servlet</servlet-name>
+        <url-pattern>/redirigirPerfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
