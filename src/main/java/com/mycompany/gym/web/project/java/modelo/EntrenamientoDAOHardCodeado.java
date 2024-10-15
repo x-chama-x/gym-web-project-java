@@ -23,8 +23,6 @@ public class EntrenamientoDAOHardCodeado implements DAO<Entrenamiento,Integer> {
     private void cargarEntrenamientos() {
         entrenamientos.add(new Entrenamiento(1, 6, "Dia 1", 1));
         entrenamientos.add(new Entrenamiento(2, 5, "Dia 2", 1));
-        entrenamientos.add(new Entrenamiento(3, 4, "Dia 3", 1));
-        entrenamientos.add(new Entrenamiento(4, 6, "Dia 4", 1));
     }
 
     @Override
@@ -49,7 +47,14 @@ public class EntrenamientoDAOHardCodeado implements DAO<Entrenamiento,Integer> {
 
     @Override
     public Entrenamiento getById(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Entrenamiento entrenamiento = null;
+        int i = 0;
+        while (i < entrenamientos.size() && entrenamiento == null) {
+            if (entrenamientos.get(i).getEntrenamientoID() == id) {
+                entrenamiento = entrenamientos.get(i);
+            }
+            i++;
+        }
+        return entrenamiento;
     }
-
 }

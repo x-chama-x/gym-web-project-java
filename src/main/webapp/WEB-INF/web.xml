@@ -43,6 +43,10 @@
         <servlet-name>ver-entrenamientos-servlet</servlet-name>
         <servlet-class>com.mycompany.gym.web.project.java.controlador.VerEntrenamientosServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>mostrar-entrenamiento-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.MostrarEntrenamientoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
         <url-pattern>/wikiEjercicios</url-pattern>
@@ -82,6 +86,10 @@
     <servlet-mapping>
         <servlet-name>ver-entrenamientos-servlet</servlet-name>
         <url-pattern>/verEntrenamientos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrar-entrenamiento-servlet</servlet-name>
+        <url-pattern>/mostrarEntrenamiento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

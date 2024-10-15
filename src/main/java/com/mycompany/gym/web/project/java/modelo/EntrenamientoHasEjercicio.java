@@ -1,6 +1,8 @@
 package com.mycompany.gym.web.project.java.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntrenamientoHasEjercicio implements Serializable {
     private int ejercicioEntrenamientoID;
@@ -11,6 +13,26 @@ public class EntrenamientoHasEjercicio implements Serializable {
     private int repeticiones;
 
     public EntrenamientoHasEjercicio() {
+    }
+
+    public EntrenamientoHasEjercicio(int ejercicioEntrenamientoID, int entrenamientoID, int ejercicioID, int numeroSerie, double peso, int repeticiones) {
+        this.ejercicioEntrenamientoID = ejercicioEntrenamientoID;
+        this.entrenamientoID = entrenamientoID;
+        this.ejercicioID = ejercicioID;
+        this.numeroSerie = numeroSerie;
+        this.peso = peso;
+        this.repeticiones = repeticiones;
+    }
+
+    // Filtrar los datos de la tabla intermedia por el ID del entrenamiento
+    public static List<EntrenamientoHasEjercicio> filtrarPorEntrenamientoID(List<EntrenamientoHasEjercicio> ejercicios, int entrenamientoID) {
+        List<EntrenamientoHasEjercicio> ejerciciosFiltrados = new ArrayList<>();
+        for (EntrenamientoHasEjercicio e : ejercicios) {
+            if (e.getEntrenamientoID() == entrenamientoID) {
+                ejerciciosFiltrados.add(e);
+            }
+        }
+        return ejerciciosFiltrados;
     }
 
     public int getEjercicioEntrenamientoID() {

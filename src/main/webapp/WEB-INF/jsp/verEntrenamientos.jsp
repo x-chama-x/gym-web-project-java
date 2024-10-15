@@ -25,7 +25,7 @@
                 <div class="profile-usermenu">
                   <ul>
                     <c:forEach var="entrenamiento" items="${entrenamientos}">
-                      <li><a href="verEntrenamiento.html?entrenamientoId=${entrenamiento.entrenamientoID}"><i class="bi bi-caret-right"></i> ${entrenamiento.nombre}</a></li>
+                      <li><a href="mostrarEntrenamiento?entrenamientoId=${entrenamiento.entrenamientoID}"><i class="bi bi-caret-right"></i> ${entrenamiento.nombre}</a></li>
                     </c:forEach>
                   </ul>
                   <ul>

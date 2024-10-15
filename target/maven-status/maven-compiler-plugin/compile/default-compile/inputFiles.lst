@@ -15,6 +15,7 @@ C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\EditarEjercicioServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\UsuarioDAOHardCodeado.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\ParteDelCuerpo.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarEntrenamientoServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\db\EjercicioDAO.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarCategoriasEjerciciosServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\AgregarEjercicioServlet.java
@@ -27,3 +28,4 @@ C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\Equipo.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\EliminarEjercicioServlet.java
 C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\controlador\MostrarDetalleDeEjercicioServlet.java
+C:\Users\Francisco\Desktop\gym-web-project-java\src\main\java\com\mycompany\gym\web\project\java\modelo\EntrenamientoHasEjercicioDAOHardCodeado.java
