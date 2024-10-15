@@ -41,7 +41,7 @@
     </servlet>
     <servlet>
         <servlet-name>ver-entrenamientos-servlet</servlet-name>
-        <servlet-class>com.mycompany.gym.web.project.java.controlador.verEntrenamientosServlet</servlet-class>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.VerEntrenamientosServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>

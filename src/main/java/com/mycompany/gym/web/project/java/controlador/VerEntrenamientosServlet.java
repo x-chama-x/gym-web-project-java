@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class verEntrenamientosServlet extends HttpServlet {
+public class VerEntrenamientosServlet extends HttpServlet {
     private EntrenamientoDAOHardCodeado entrenamientoDAO;
 
 
