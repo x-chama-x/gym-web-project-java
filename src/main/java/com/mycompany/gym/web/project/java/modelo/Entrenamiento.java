@@ -11,6 +11,13 @@ public class Entrenamiento implements Serializable {
     public Entrenamiento() {
     }
 
+    public Entrenamiento(int entrenamientoID, int cantidadEjercicios, String nombre, int usuarioID) {
+        this.entrenamientoID = entrenamientoID;
+        this.cantidadEjercicios = cantidadEjercicios;
+        this.nombre = nombre;
+        this.usuarioID = usuarioID;
+    }
+
     public int getEntrenamientoID() {
         return entrenamientoID;
     }
@@ -41,5 +48,15 @@ public class Entrenamiento implements Serializable {
 
     public void setUsuarioID(int usuarioID) {
         this.usuarioID = usuarioID;
+    }
+
+    @Override
+    public String toString() {
+        return "Entrenamiento{" +
+                "entrenamientoID=" + entrenamientoID +
+                ", cantidadEjercicios=" + cantidadEjercicios +
+                ", nombre='" + nombre + '\'' +
+                ", usuarioID=" + usuarioID +
+                '}';
     }
 }

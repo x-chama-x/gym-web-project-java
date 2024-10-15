@@ -26,7 +26,7 @@
                                         <p>Encuentra una variedad de ejercicios para mejorar tu entrenamiento.</p>
                                     </li>
                                     <li>
-                                        <a href="Entrenamientos.html"><i class="bi bi-calendar"></i> Entrenamientos</a>
+                                        <a href="verEntrenamientos"><i class="bi bi-calendar"></i> Entrenamientos</a>
                                         <p>Accede a tu calendario de entrenamientos personalizados.</p>
                                     </li>
                                     <li>
