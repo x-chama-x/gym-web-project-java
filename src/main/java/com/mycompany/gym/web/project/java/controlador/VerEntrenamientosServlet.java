@@ -2,10 +2,12 @@ package com.mycompany.gym.web.project.java.controlador;
 
 import com.mycompany.gym.web.project.java.modelo.Entrenamiento;
 import com.mycompany.gym.web.project.java.modelo.EntrenamientoDAOHardCodeado;
+import com.mycompany.gym.web.project.java.modelo.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,8 +26,13 @@ public class VerEntrenamientosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            ArrayList<Entrenamiento> entrenamientos = new ArrayList<>(entrenamientoDAO.getAll()); // obtengo los entrenamientos cargados en el DAO
-            imprimirEntrenamientos();
+
+            // Obtener el ID del usuario de la sesión
+            HttpSession session = request.getSession();
+            Usuario usuario = (Usuario) session.getAttribute("userLogueado");
+            int userId = usuario.getUsuarioID();
+
+            ArrayList<Entrenamiento> entrenamientos = new ArrayList<>(entrenamientoDAO.getByUserId(userId)); // obtengo los entrenamientos del usuario
             request.setAttribute("entrenamientos", entrenamientos); // establezco los entrenamientos como atributo de la request (solicitud)
             request.getRequestDispatcher("WEB-INF/jsp/verEntrenamientos.jsp").forward(request, response); // se reenvia la solicitud a la pagina verEntrenamientos.jsp
         } catch (Exception e) {
@@ -33,15 +40,4 @@ public class VerEntrenamientosServlet extends HttpServlet {
         }
     }
 
-    // imprimir lista de entrenamientos
-    public void imprimirEntrenamientos() {
-        try {
-            ArrayList<Entrenamiento> entrenamientos = new ArrayList<>(entrenamientoDAO.getAll());
-            for (Entrenamiento entrenamiento : entrenamientos) {
-                System.out.println(entrenamiento);
-            }
-        } catch (Exception e) {
-            System.out.println("Error al cargar los entrenamientos");
-        }
-    }
 }

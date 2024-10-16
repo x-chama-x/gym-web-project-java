@@ -25,6 +25,16 @@ public class EntrenamientoDAOHardCodeado implements DAO<Entrenamiento,Integer> {
         entrenamientos.add(new Entrenamiento(2, 5, "Dia 2", 1));
     }
 
+    public List<Entrenamiento> getByUserId(int userId) throws Exception {
+        List<Entrenamiento> entrenamientosUsuario = new ArrayList<>();
+        for (Entrenamiento entrenamiento : entrenamientos) {
+            if (entrenamiento.getUsuarioID() == userId) {
+                entrenamientosUsuario.add(entrenamiento);
+            }
+        }
+        return entrenamientosUsuario;
+    }
+
     @Override
     public void add(Entrenamiento entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
