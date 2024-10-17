@@ -19,12 +19,20 @@ public class EntrenamientoHasEjercicioDAOHardCodeado implements DAO<Entrenamient
         return instance;
     }
 
+    // se cargan los datos de la tabla intermedia EntrenamientoHasEjercicio (series, peso, repeticiones, etc)
     private void cargarEjerciciosDeEntrenamiento() {
-        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(1, 1, 1, 1, 10.0, 10));
-        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(2, 1, 2, 1, 10.0, 10));
-        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(3, 2, 3, 2, 10.0, 10));
-        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(4, 2, 4, 2, 10.0, 10));
+        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(1, 1, 1, 1, 10.0, 8));
+        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(2, 1, 1, 2, 15.0, 12));
+        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(3, 1, 1, 3, 15.0, 12));
+        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(4, 2, 4, 1, 100.0, 100));
     }
+
+    @Override
+    public List<EntrenamientoHasEjercicio> getAll() throws Exception {
+        return new ArrayList<>(entrenamientosHasEjercios);
+    }
+
+    // metodos no implementados
 
 
     @Override
@@ -42,10 +50,7 @@ public class EntrenamientoHasEjercicioDAOHardCodeado implements DAO<Entrenamient
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public List<EntrenamientoHasEjercicio> getAll() throws Exception {
-        return new ArrayList<>(entrenamientosHasEjercios);
-    }
+
 
     @Override
     public EntrenamientoHasEjercicio getById(Integer id) throws Exception {
