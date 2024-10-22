@@ -21,13 +21,12 @@
                 <div class="formtitulo"> ${entrenamiento.nombre}</div>
                 <div class="profile-usermenu">
                   <ul>
-                    <c:forEach var="ejercicio" items="${ejercicios}" varStatus="status">
-                      <c:set var="serie" value="${series[status.index]}" />
+                    <c:forEach var="ejercicioConSeries" items="${ejerciciosConSeries}">
                       <li>
                         <div class="ejercicio">
-                          <img src="assets/img/${ejercicio.imagen}" alt="${ejercicio.nombre}" class="ejercicio-thumbnail">
-                          <a href="#"><span class="ejercicio-nombre">${ejercicio.nombre}</span></a>
-                          <span class="ejercicio-detalles">${serie.numeroSerie} series</span>
+                          <img src="assets/img/${ejercicioConSeries.ejercicio.imagen}" alt="${ejercicioConSeries.ejercicio.nombre}" class="ejercicio-thumbnail">
+                          <a href="#"><span class="ejercicio-nombre">${ejercicioConSeries.ejercicio.nombre}</span></a>
+                          <span class="ejercicio-detalles">${ejercicioConSeries.maxSeries} series</span>
                         </div>
                       </li>
                     </c:forEach>

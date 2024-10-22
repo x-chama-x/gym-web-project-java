@@ -25,6 +25,7 @@ public class EntrenamientoHasEjercicioDAOHardCodeado implements DAO<Entrenamient
         entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(2, 1, 1, 2, 15.0, 12));
         entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(3, 1, 1, 3, 15.0, 12));
         entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(4, 2, 4, 1, 100.0, 100));
+        entrenamientosHasEjercios.add(new EntrenamientoHasEjercicio(5, 2, 4, 2, 100.0, 100));
     }
 
     @Override

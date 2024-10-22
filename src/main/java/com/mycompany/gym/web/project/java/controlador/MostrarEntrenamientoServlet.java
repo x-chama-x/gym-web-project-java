@@ -11,6 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MostrarEntrenamientoServlet extends HttpServlet {
+    private EjercicioDAOHardCodeado ejercicioDAO;
+
+
+    // inicializa el servlet y carga los ejercicios
+    @Override
+    public void init() throws ServletException {
+        ejercicioDAO = EjercicioDAOHardCodeado.getInstance();
+    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,31 +36,56 @@ public class MostrarEntrenamientoServlet extends HttpServlet {
             // Filtrar los datos de la tabla intermedia por el ID del entrenamiento (para obtener los datos de ese entrenamiento)
             List<EntrenamientoHasEjercicio> datosFiltradosTablaInt = EntrenamientoHasEjercicio.filtrarPorEntrenamientoID(datosTablaIntermedia, entrenamientoId);
 
-            // Obtener los ejercicios del entrenamiento
-            List<Ejercicio> ejerciciosDeEntrenamiento = obtenerEjerciciosDeEntrenamiento(datosFiltradosTablaInt);
+            // pasar los datos de la tabla intermedia de un entrenamiento a una lista de EjercicioConSeries
+            List<EjercicioConSeries> ejerciciosDeEntrenamiento = obtenerEjerciciosDeEntrenamiento(datosFiltradosTablaInt);
 
             // Enviar los datos al JSP
-            enviarDatosAVerEntrenamiento(request, response, entrenamiento, ejerciciosDeEntrenamiento, datosFiltradosTablaInt);
+            enviarDatosAVerEntrenamiento(request, response, entrenamiento, ejerciciosDeEntrenamiento);
 
         } catch (Exception e) {
             throw new ServletException("Error al mostrar el entrenamiento", e);
         }
     }
 
-    private void enviarDatosAVerEntrenamiento(HttpServletRequest request, HttpServletResponse response, Entrenamiento entrenamiento, List<Ejercicio> ejerciciosDeEntrenamiento, List<EntrenamientoHasEjercicio> datosFiltradosTablaInt) throws ServletException, IOException {
+    private void enviarDatosAVerEntrenamiento(HttpServletRequest request, HttpServletResponse response, Entrenamiento entrenamiento, List<EjercicioConSeries> ejerciciosDeEntrenamiento) throws ServletException, IOException {
         request.setAttribute("entrenamiento", entrenamiento);
-        request.setAttribute("ejercicios", ejerciciosDeEntrenamiento);
-        request.setAttribute("series", datosFiltradosTablaInt);
+        request.setAttribute("ejerciciosConSeries", ejerciciosDeEntrenamiento);
         request.getRequestDispatcher("WEB-INF/jsp/verEntrenamiento.jsp").forward(request, response);
     }
 
-    private List<Ejercicio> obtenerEjerciciosDeEntrenamiento(List<EntrenamientoHasEjercicio> datosFiltradosTablaInt) throws Exception {
-        EjercicioDAOHardCodeado ejercicioDAO = EjercicioDAOHardCodeado.getInstance();
-        List<Ejercicio> ejerciciosDeEntrenamiento = new ArrayList<>();
-        for (EntrenamientoHasEjercicio e : datosFiltradosTablaInt) {
-            Ejercicio ejercicio = ejercicioDAO.getById(e.getEjercicioID());
-            ejerciciosDeEntrenamiento.add(ejercicio);
+    // Convierte los datos de la tabla intermedia en una lista de EjercicioConSeries
+    private List<EjercicioConSeries> obtenerEjerciciosDeEntrenamiento(List<EntrenamientoHasEjercicio> datosFiltradosTablaInt) throws Exception {
+        List<EjercicioConSeries> ejerciciosDeEntrenamiento = new ArrayList<>(); // lista de ejercicios con sus series
+
+        // recorrer los datos de la tabla intermedia y agregarlos a la lista de ejercicios con series
+        for (int i = 0; i < datosFiltradosTablaInt.size(); i++) {
+            EntrenamientoHasEjercicio e = datosFiltradosTablaInt.get(i);
+            EjercicioConSeries ecs = encontrarEjercicioConSeries(ejerciciosDeEntrenamiento, e.getEjercicioID());
+            if (ecs == null) {
+                Ejercicio ejercicio = ejercicioDAO.getById(e.getEjercicioID());
+                ecs = new EjercicioConSeries(ejercicio);
+                ejerciciosDeEntrenamiento.add(ecs); // si no existe el ejercicio en la lista, agregarlo
+            }
+            ecs.agregarSerie(e);
+        }
+
+        // setear el maximo de series de cada ejercicio
+        for (EjercicioConSeries ejercicioConSeries : ejerciciosDeEntrenamiento) {
+            ejercicioConSeries.setMaxSeries();
         }
         return ejerciciosDeEntrenamiento;
+    }
+
+    // Busca un ejercicio en la lista de ejercicios con series
+    private EjercicioConSeries encontrarEjercicioConSeries(List<EjercicioConSeries> ejerciciosList, int ejercicioID) {
+        EjercicioConSeries ecs = null;
+        int i = 0;
+        while (ecs == null && i < ejerciciosList.size()) {
+            if (ejerciciosList.get(i).getEjercicio().getEjercicioID() == ejercicioID) {
+                ecs = ejerciciosList.get(i);
+            }
+            i++;
+        }
+        return ecs;
     }
 }

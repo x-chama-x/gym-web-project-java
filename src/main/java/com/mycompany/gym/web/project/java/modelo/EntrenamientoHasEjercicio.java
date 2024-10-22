@@ -82,4 +82,9 @@ public class EntrenamientoHasEjercicio implements Serializable {
     public void setRepeticiones(int repeticiones) {
         this.repeticiones = repeticiones;
     }
+
+    @Override
+    public String toString() {
+        return "EntrenamientoHasEjercicio{" + "ejercicioEntrenamientoID=" + ejercicioEntrenamientoID + ", entrenamientoID=" + entrenamientoID + ", ejercicioID=" + ejercicioID + ", numeroSerie=" + numeroSerie + ", peso=" + peso + ", repeticiones=" + repeticiones + '}';
+    }
 }
