@@ -10,17 +10,16 @@ GYMWEB es una aplicación web que permite a los usuarios realizar un seguimiento
 #### Usuario final:
 - Puede registrarse e iniciar sesión en la plataforma
 - Puede acceder a su perfil, que incluye secciones para entrenamientos personalizados, una wiki de ejercicios y un informe de progreso
-- Puede crear nuevos entrenamientos, incluyendo detalles como la fecha, duración y los ejercicios realizados
-- Puede agregar múltiples ejercicios a un entrenamiento, especificando el nombre del ejercicio, la cantidad de repeticiones y series
-- Puede crear, eliminar o usar ejercicios preexistentes
+- Puede crear nuevos entrenamientos y agregarle múltiples ejercicios, especificando el nombre del ejercicio, la cantidad de repeticiones y series
 - Puede visualizar, editar y eliminar entrenamientos cargados previamente
-- Puede ver, editar y eliminar ejercicios en la wiki de ejercicios, tanto los cargados por el sistema como los creados por él mismo
+- Puede ver los ejercicios en la wiki de ejercicios, tanto los cargados por el sistema (solo verlos) como los creados por él mismo (editar y eliminar)
 - Puede ver un resumen de sus entrenamientos anteriores, así como detalles sobre qué músculo se trabaja más en promedio
 
 #### Administrador:
 - Puede gestionar usuarios: agregar, modificar y eliminar cuentas
 - Puede asignar roles de "Usuario Final" o "Administrador" a los usuarios
 - Puede gestionar ejercicios: agregar, eliminar y editar ejercicios del sistema
+- también puede hacer todo lo que un usuario final puede hacer
 
 ### Características generales:
 - Entrenamientos personalizados: Los usuarios finales pueden crear, editar y visualizar sus propios entrenamientos
