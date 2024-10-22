@@ -1,51 +1,81 @@
-# Proyecto GYMWEB
+# 📁 Proyecto GYMWEB - Seguimiento de actividad física
 
-GYMWEB es una aplicación web de seguimiento de actividades físicas para usuarios que desean llevar un registro de sus entrenamientos y progresos en el gimnasio.
+## Descripción:
+GYMWEB es una aplicación web que permite a los usuarios realizar un seguimiento de sus entrenamientos y progreso en el gimnasio. Ofrece funciones para registrar entrenamientos, gestionar ejercicios y analizar estadísticas.
 
-## Estructura del Proyecto
+## 🚀 Características Principales
 
-El proyecto está organizado en las siguientes carpetas:
+### Dos roles de usuario:
 
-### BD (Base de Datos)
+#### Usuario final:
+- Puede registrarse e iniciar sesión en la plataforma
+- Puede acceder a su perfil, que incluye secciones para entrenamientos personalizados, una wiki de ejercicios y un informe de progreso
+- Puede crear nuevos entrenamientos, incluyendo detalles como la fecha, duración y los ejercicios realizados
+- Puede agregar múltiples ejercicios a un entrenamiento, especificando el nombre del ejercicio, la cantidad de repeticiones y series
+- Puede crear, eliminar o usar ejercicios preexistentes
+- Puede visualizar, editar y eliminar entrenamientos cargados previamente
+- Puede ver, editar y eliminar ejercicios en la wiki de ejercicios, tanto los cargados por el sistema como los creados por él mismo
+- Puede ver un resumen de sus entrenamientos anteriores, así como detalles sobre qué músculo se trabaja más en promedio
 
-Esta carpeta contiene los scripts SQL necesarios para la creación y gestión de la base de datos del proyecto. Aquí encontrarás:
+#### Administrador:
+- Puede gestionar usuarios: agregar, modificar y eliminar cuentas
+- Puede asignar roles de "Usuario Final" o "Administrador" a los usuarios
+- Puede gestionar ejercicios: agregar, eliminar y editar ejercicios del sistema
 
-- **BD_GYM_WEB.mwb**: Modelo de base de datos de MySQL Workbench.
+### Características generales:
+- Entrenamientos personalizados: Los usuarios finales pueden crear, editar y visualizar sus propios entrenamientos
+- Wiki de ejercicios: Una base de datos completa de ejercicios con descripciones detalladas, imágenes y categorización por parte del cuerpo
+- Informes de progreso: Ofrece a los usuarios información sobre su rendimiento, incluyendo qué músculos se trabajan con más frecuencia
 
-### DOCUMENTACION
+## 🧱 Estructura del Proyecto
 
-En esta carpeta se encuentra toda la documentación relacionada con el proyecto, incluyendo:
+El proyecto sigue una arquitectura Modelo-Vista-Controlador (MVC) y se basa en las siguientes tecnologías:
 
-- **WIREFRAME GYMWEB.vsdx**: Diagrama de flujo de la aplicación.
+- Frontend: HTML, CSS, JavaScript, JSP (Jakarta Server Pages)
+- Backend: Java, Jakarta EE (anteriormente Java EE), Servlets
+- Base de datos: MySQL
+- Gestión de dependencias: Maven
+- Librería de etiquetas: JSTL (Jakarta Standard Tag Library)
+- Conexión a la base de datos: Pool de conexiones
 
-### src/main
+### Carpetas principales:
 
-Esta es la carpeta principal del código fuente del proyecto. Está organizada de la siguiente manera:
+- **BD**: Contiene los scripts SQL y el modelo de base de datos (BD_GYM_WEB.mwb) para la creación y gestión de la base de datos.
 
-- **java**: Contiene el código fuente Java del proyecto, organizado en paquetes según la funcionalidad.
-    - **controlador**: Contiene los servlets para el manejo de las peticiones HTTP y la lógica de control.
-    - **modelo**: Contiene las clases JavaBeans que representan las entidades de la base de datos.
-- **resources**: Contiene los archivos de configuración y recursos estáticos como archivos de propiedades, plantillas, etc.
-- **webapp**: Contiene los archivos web estáticos y dinámicos, incluyendo HTML, CSS, JavaScript y JSP.
+- **DOCUMENTACION**: Contiene la documentación del proyecto, incluyendo el diagrama de flujo (WIREFRAME GYMWEB.vsdx), el diagrama entidad-relación, casos de uso y notas sobre características específicas como la wiki de ejercicios.
 
-### Otros Archivos y Carpetas
+- **src/main/java**: Contiene el código fuente Java del proyecto, organizado en paquetes:
+  - controlador: Servlets que manejan las peticiones HTTP, la lógica de control y el enrutamiento
+  - modelo: Clases JavaBeans que representan las entidades de la base de datos
+  - modelo/db: Clases responsables de la interacción con la base de datos
 
-- **pom.xml**: Archivo de configuración de Maven, que gestiona las dependencias y el ciclo de vida del proyecto.
-- **README.md**: Este archivo, que proporciona una visión general del proyecto y su estructura.
+- **src/main/resources**: Contiene archivos de configuración, incluyendo el archivo de propiedades para la conexión a la base de datos.
 
-## Flujo de Trabajo
+- **src/main/webapp**: Contiene los archivos web estáticos (HTML, CSS, JavaScript) y dinámicos (JSP).
 
-El proyecto sigue un flujo de trabajo basado en una combinación de fork y una versión simplificada de Git-Flow. Este enfoque se adapta bien a equipos pequeños y permite mantener una rama principal estable.
+## 💻 Flujo de trabajo
 
-### Estructura de Ramas
+El proyecto utiliza una combinación de fork y una versión simplificada de Git-Flow para gestionar el desarrollo colaborativo.
 
-- **main**: La rama principal intocable que refleja el código en producción.
-- **develop**: Una copia de main donde se integrarán las nuevas características.
-- **Ramas de características (feature branches)**: Por ejemplo, feature/login, feature/user-profile, etc.
+### Estructura de ramas:
+- main: Rama principal que contiene el código de producción
+- develop: Rama de desarrollo donde se integran las nuevas características
+- Ramas de características (feature branches): Ramas dedicadas al desarrollo de nuevas funcionalidades
 
-### Convención de nombres de commits:
-Los mensajes de commit deben comenzar con una categoría de cambio, que puede ser una de las siguientes: feat, fix, refactor o chore.
-- **feat**: Nueva funcionalidad.
-- **fix**: Corrección de errores.
-- **refactor**: Cambios en el código que no añaden nuevas funcionalidades ni corrigen errores.
-- **chore**: se utiliza para cualquier otro tipo de cambio, como escribir documentación, formatear código, agregar pruebas, etc.
+## 🔧 Instalación y ejecución
+
+1. Clonar el repositorio: `git clone [URL del repositorio]`
+2. Importar el proyecto en un IDE compatible con Java EE, como NetBeans o Eclipse
+3. Configurar la conexión a la base de datos: Modificar el archivo `src/main/resources/META-INF/DBConnection.properties`
+4. Compilar y desplegar el archivo WAR generado en un servidor Apache Tomcat
+
+## 👤 Contacto
+
+- Desarrollador: Francisco Chiminelli
+
+## 📚 Recursos adicionales
+
+- [Documentación de Jakarta EE](https://jakarta.ee/)
+- [Documentación de Apache Tomcat](https://tomcat.apache.org/)
+- [Documentación de MySQL](https://dev.mysql.com/doc/)
+- [Documentación de JSTL](https://docs.oracle.com/javaee/5/tutorial/doc/bnalj.html)
