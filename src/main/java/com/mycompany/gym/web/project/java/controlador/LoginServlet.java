@@ -12,12 +12,11 @@ import java.io.IOException;
 
 
 public class LoginServlet extends HttpServlet {
-    private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-
-    // este metodo es para autenticar a los usuarios
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // creo un objeto de la clase UsuarioDAO para autenticar al usuario
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
 
         // obtengo los datos del usuario del formulario
         String username = request.getParameter("username");
@@ -39,6 +38,7 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
+    // este metodo es para autenticar a los usuarios
     // utilizo un metodo doPost solamente ya que tengo el formulario en el index.jsp
     // y no necesito un doGet para mostrar la pagina de login
 }
