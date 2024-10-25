@@ -25,8 +25,8 @@ public class LoginServlet extends HttpServlet {
         // autentico al usuario
         Usuario usuario = usuarioDAO.autenticar(username, password);
 
-        if (usuario != null) {
-            HttpSession session = request.getSession();
+        if (usuario != null) { // si el usuario es autenticado correctamente lo guardo en la sesión
+            HttpSession session = request.getSession(); // obtengo la sesión
             session.setAttribute("userLogueado", usuario);
             session.setAttribute("rolUsuario", usuario.getRol().name()); // Guardo el rol del usuario autenticado para mostrar o no ciertas opciones en la vista
             session.setMaxInactiveInterval(-1); // La sesión no expira
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    // este metodo es para autenticar a los usuarios
+    // este metodo es para autenticar al usuario que se loguea y enviarlo a la pagina principal
     // utilizo un metodo doPost solamente ya que tengo el formulario en el index.jsp
     // y no necesito un doGet para mostrar la pagina de login
 }
