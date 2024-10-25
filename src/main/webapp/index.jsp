@@ -61,24 +61,6 @@
             </div>
         </div>
     </footer>
-
     <script src="assets/js/main.js"></script>
-    <script>
-        document.getElementById('rolSelect').addEventListener('change', function() {
-            this.style.background = 'transparent';
-        });
-
-        document.getElementById('rolSelect').addEventListener('focus', function() {
-            this.style.background = '#333';
-        });
-
-        document.getElementById('rolSelect').addEventListener('blur', function() {
-            if (this.value) {
-                this.style.background = 'transparent';
-            } else {
-                this.style.background = 'transparent';
-            }
-        });
-    </script>
 </body>
 </html>
