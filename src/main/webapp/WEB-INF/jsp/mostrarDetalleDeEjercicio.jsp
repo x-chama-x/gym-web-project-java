@@ -31,11 +31,7 @@
                                     <h3>Ejecución</h3>
                                     <p>${ejercicio.ejecucion}</p>
                                     <h3>Consejos Clave</h3>
-                                    <ul>
-                                        <c:forEach var="consejo" items="${ejercicio.consejosClave.split(',')}">
-                                            <li>${consejo}</li>
-                                        </c:forEach>
-                                    </ul>
+                                    <p>${ejercicio.consejosClave}</p>
                                 </div>
                                 <a href="mostrarEjercicios?categoriaId=${ejercicio.parteDelCuerpoID}" class="boton">Volver a la lista de ejercicios </a>
                                 <br>
