@@ -13,6 +13,13 @@ import java.io.IOException;
 
 public class LoginServlet extends HttpServlet {
 
+    // mandar siempre a la pagina principal (index.jsp)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.sendRedirect(request.getContextPath());
+    }
+
+    // autenticar al usuario que se loguea y enviarlo a la pagina principal
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // creo un objeto de la clase UsuarioDAO para autenticar al usuario
@@ -30,15 +37,10 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("userLogueado", usuario);
             session.setAttribute("rolUsuario", usuario.getRol().name()); // Guardo el rol del usuario autenticado para mostrar o no ciertas opciones en la vista
             session.setMaxInactiveInterval(-1); // La sesión no expira
-            // necesito usar un RequestDispatcher en lugar de sendRedirect porque los archivos dentro de WEB-INF no son accesibles directamente desde el navegador
-            request.getRequestDispatcher("WEB-INF/jsp/principal.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/perfil"); // Redirijo al perfil del usuario
         } else {
             request.setAttribute("errorMessage", "datos incorrectos");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
-
-    // este metodo es para autenticar al usuario que se loguea y enviarlo a la pagina principal
-    // utilizo un metodo doPost solamente ya que tengo el formulario en el index.jsp
-    // y no necesito un doGet para mostrar la pagina de login
 }

@@ -42,7 +42,7 @@
                                     <a href="eliminarEjercicio?ejercicioId=${ejercicio.ejercicioID}&categoriaId=${ejercicio.parteDelCuerpoID}" class="boton">Eliminar Ejercicio</a>
                                     <br>
                                 </c:if>
-                                <a href="redirigirPerfil">Volver al menú de perfil</a>
+                                <a href="perfil">Volver al menú de perfil</a>
                                 <br>
                                 <c:import url="includes/cerrarSesion.jsp" />
                             </div>

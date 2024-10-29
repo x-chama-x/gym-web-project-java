@@ -30,7 +30,7 @@
                             </div>
                             <a href="agregarEjercicio" class="boton">Agregar Ejercicio</a>
                             <br>
-                            <a href="redirigirPerfil">Volver al menú de perfil</a>
+                            <a href="perfil">Volver al menú de perfil</a>
                             <br>
                             <c:import url="includes/cerrarSesion.jsp" />
                         </div>
