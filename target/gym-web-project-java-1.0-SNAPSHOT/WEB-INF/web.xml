@@ -7,6 +7,9 @@
     <filter-mapping>
         <filter-name>auth-filter</filter-name>
         <url-pattern>/perfil</url-pattern>
+        <url-pattern>/wikiEjercicios</url-pattern>
+        <url-pattern>/mostrarEjercicios</url-pattern>
+        <url-pattern>/mostrarDetalleDeEjercicio</url-pattern>
     </filter-mapping>
     <servlet>
         <description>El MuscleCategoryServlet es responsable de manejar las solicitudes relacionadas con las categorías de músculos en una aplicación web de gimnasio.</description>

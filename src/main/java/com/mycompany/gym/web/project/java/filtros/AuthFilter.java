@@ -12,7 +12,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class AuthFilter implements Filter {
-    // Este filtro se encarga de verificar si el usuario está logueado antes de permitir el acceso a ciertas páginas (faltan las internas de WIKI EJERCICIOS)
+    // Este filtro se encarga de verificar si el usuario está logueado antes de permitir el acceso a ciertas páginas
+    // especificadas en el web.xml en la sección del filtro
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
