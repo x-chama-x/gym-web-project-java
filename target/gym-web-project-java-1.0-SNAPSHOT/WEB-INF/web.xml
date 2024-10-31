@@ -10,6 +10,9 @@
         <url-pattern>/wikiEjercicios</url-pattern>
         <url-pattern>/mostrarEjercicios</url-pattern>
         <url-pattern>/mostrarDetalleDeEjercicio</url-pattern>
+        <url-pattern>/editarEjercicio</url-pattern>
+        <url-pattern>/eliminarEjercicio</url-pattern>
+        <url-pattern>/agregarEjercicio</url-pattern>
     </filter-mapping>
     <servlet>
         <description>El MuscleCategoryServlet es responsable de manejar las solicitudes relacionadas con las categorías de músculos en una aplicación web de gimnasio.</description>
