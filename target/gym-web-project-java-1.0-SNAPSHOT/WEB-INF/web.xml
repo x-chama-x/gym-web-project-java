@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <filter>
+        <filter-name>auth-filter</filter-name>
+        <filter-class>com.mycompany.gym.web.project.java.filtros.AuthFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>admin-authorization-filter</filter-name>
+        <filter-class>com.mycompany.gym.web.project.java.filtros.AdminAuthorizationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>auth-filter</filter-name>
+        <url-pattern>/perfil</url-pattern>
+        <url-pattern>/wikiEjercicios</url-pattern>
+        <url-pattern>/mostrarEjercicios</url-pattern>
+        <url-pattern>/mostrarDetalleDeEjercicio</url-pattern>
+        <url-pattern>/editarEjercicio</url-pattern>
+        <url-pattern>/eliminarEjercicio</url-pattern>
+        <url-pattern>/agregarEjercicio</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>admin-authorization-filter</filter-name>
+        <url-pattern>/editarEjercicio</url-pattern>
+        <url-pattern>/eliminarEjercicio</url-pattern>
+    </filter-mapping>
     <servlet>
         <description>El MuscleCategoryServlet es responsable de manejar las solicitudes relacionadas con las categorías de músculos en una aplicación web de gimnasio.</description>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
@@ -73,7 +96,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>redirigir-perfil-servlet</servlet-name>
-        <url-pattern>/redirigirPerfil</url-pattern>
+        <url-pattern>/perfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

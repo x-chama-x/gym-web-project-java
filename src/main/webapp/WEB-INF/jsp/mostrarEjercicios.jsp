@@ -32,7 +32,7 @@
                                 <br>
                                 <a href="wikiEjercicios">Volver a la wiki de ejercicios</a>
                                 <br>
-                                <a href="redirigirPerfil">Volver al menú de perfil</a>
+                                <a href="perfil">Volver al menú de perfil</a>
                                 <br>
                                 <c:import url="includes/cerrarSesion.jsp" />
                             </div>
