@@ -47,6 +47,7 @@ El proyecto sigue una arquitectura Modelo-Vista-Controlador (MVC) y se basa en l
   - controlador: Servlets que manejan las peticiones HTTP, la lógica de control y el enrutamiento
   - modelo: Clases JavaBeans que representan las entidades de la base de datos
   - modelo/db: Clases responsables de la interacción con la base de datos
+  - fitros: Filtros que se aplican a las peticiones HTTP para la autenticación y autorización de usuarios a ciertas rutas
 
 - **src/main/resources**: Contiene archivos de configuración, incluyendo el archivo de propiedades para la conexión a la base de datos.
 
