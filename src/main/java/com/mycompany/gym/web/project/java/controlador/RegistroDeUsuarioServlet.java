@@ -28,7 +28,7 @@ public class RegistroDeUsuarioServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login");
         } else {
             request.setAttribute("errorMessage", "El usuario ya existe");
-            request.getRequestDispatcher("registro.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/jsp/registro.jsp").forward(request, response);
         }
     }
 }
