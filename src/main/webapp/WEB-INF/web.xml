@@ -62,6 +62,10 @@
         <servlet-name>redirigir-perfil-servlet</servlet-name>
         <servlet-class>com.mycompany.gym.web.project.java.controlador.RedirigirPerfilServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrar-usuarios-servlet</servlet-name>
+        <servlet-class>com.mycompany.gym.web.project.java.controlador.RegistroDeUsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mostrar-categorias-ejercicios-servlet</servlet-name>
         <url-pattern>/wikiEjercicios</url-pattern>
@@ -97,6 +101,10 @@
     <servlet-mapping>
         <servlet-name>redirigir-perfil-servlet</servlet-name>
         <url-pattern>/perfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrar-usuarios-servlet</servlet-name>
+        <url-pattern>/registro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

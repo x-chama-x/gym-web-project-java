@@ -38,7 +38,7 @@
                                 <input type="password" name="password" placeholder="&#128274; Ingresar password" class="cajaentradatexto" required>
                                 <div align="right" class="af"><a href="#">Recuperar contraseña</a></div>
                                 <input type="submit" value="Iniciar sesión" class="botonenviar">
-                                <div>¿Necesitas una cuenta? <a href="registro.html">Registrar</a></div>
+                                <div>¿Necesitas una cuenta? <a href="registro">Registrar</a></div>
                             </form>
                         </div>
                     </div>
