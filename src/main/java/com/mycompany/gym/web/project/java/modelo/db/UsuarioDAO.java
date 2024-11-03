@@ -44,4 +44,35 @@ public class UsuarioDAO {
             throw new RuntimeException(ex);
         }
     }
+
+    private int obtenerMaxUsuarioID() {
+        String query = "SELECT MAX(usuarioID) AS maxID FROM usuario";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            if (resultSet.next()) {
+                return resultSet.getInt("maxID");
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return 0; // Si no hay usuarios, retorna 0
+    }
+
+    // Metodo que registra un usuario con rol de usuario final
+    public void registrar(String nombre, String contrasena, String correo) {
+        int nuevoUsuarioID = obtenerMaxUsuarioID() + 1;
+        String query = "INSERT INTO usuario (usuarioID, nombre, contraseña, correo, rol) VALUES (?, ?, ?, ?, ?)";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setInt(1, nuevoUsuarioID);
+            preparedStatement.setString(2, nombre);
+            preparedStatement.setString(3, contrasena);
+            preparedStatement.setString(4, correo);
+            preparedStatement.setString(5, "final");
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }
