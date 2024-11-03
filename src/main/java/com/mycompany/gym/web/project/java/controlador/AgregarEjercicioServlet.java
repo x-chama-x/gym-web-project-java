@@ -47,16 +47,15 @@ public class AgregarEjercicioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         Part filePart = request.getPart("imagen");
+        String musculosQueTrabaja = request.getParameter("musculosQueTrabaja");
+        String preparacion = request.getParameter("preparacion");
+        String consejosClave = request.getParameter("consejosClave");
+        String descripcion = request.getParameter("descripcion");
+        String ejecucion = request.getParameter("ejecucion");
+        String musculoPrincipal = request.getParameter("musculoPrincipal");
+        String equipoNombre = request.getParameter("equipo");
 
         try {
-            String musculosQueTrabaja = request.getParameter("musculosQueTrabaja");
-            String preparacion = request.getParameter("preparacion");
-            String consejosClave = request.getParameter("consejosClave");
-            String descripcion = request.getParameter("descripcion");
-            String ejecucion = request.getParameter("ejecucion");
-            String musculoPrincipal = request.getParameter("musculoPrincipal");
-            String equipoNombre = request.getParameter("equipo");
-
             int parteDelCuerpoID = parteDelCuerpoDAO.getByName(musculoPrincipal).getParteDelCuerpoID();
             int equipoID = equipoDAO.getByName(equipoNombre).getEquipoID();
 
