@@ -26,10 +26,10 @@
                     </div>
                   </c:if>
                   <img src="assets/img/apple-touch-icon.png"/>
-                  <input type="text" name="username" placeholder="&#128273; Ingresar nombre de usuario" class="cajaentradatexto" required>
-                  <input type="email" name="email" placeholder="&#128231; Ingresar correo electrónico" class="cajaentradatexto" required>
-                  <input type="password" name="password" placeholder="&#128274; Ingresar contraseña" class="cajaentradatexto" required>
-                  <input type="password" name="confirmpassword" placeholder="&#128274; Confirmar contraseña" class="cajaentradatexto" required>
+                  <input type="text" name="username" placeholder="&#128273; Ingresar nombre de usuario" maxlength="12" class="cajaentradatexto" required>
+                  <input type="email" name="email" placeholder="&#128231; Ingresar correo electrónico" maxlength="35" class="cajaentradatexto" required>
+                  <input type="password" name="password" placeholder="&#128274; Ingresar contraseña" maxlength="12" class="cajaentradatexto" required>
+                  <input type="password" name="confirmpassword" placeholder="&#128274; Confirmar contraseña" maxlength="12" class="cajaentradatexto" required>
                   <input type="submit" value="Registrarse" class="botonenviar">
                   <div>¿Ya tienes una cuenta? <a href="index.jsp">Iniciar sesión</a></div>
                 </form>
