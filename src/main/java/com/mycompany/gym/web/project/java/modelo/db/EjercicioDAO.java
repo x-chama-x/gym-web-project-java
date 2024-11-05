@@ -163,4 +163,23 @@ public class EjercicioDAO implements DAO<Ejercicio,Integer> {
         }
         return ejercicios;
     }
+
+    // metodo que devuelve un ejercicio por su ID y el ID de la parte del cuerpo
+    public Ejercicio getByIdAndParteDelCuerpoID(int ejercicioId, int parteDelCuerpoID) throws Exception {
+        String query = "SELECT * FROM ejercicio WHERE ejercicioID = ? AND parteDelCuerpoID = ?";
+        Ejercicio ejercicio = null;
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setInt(1, ejercicioId);
+            preparedStatement.setInt(2, parteDelCuerpoID);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    ejercicio = rsRowToEjercicio(resultSet);
+                }
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return ejercicio;
+    }
 }

@@ -26,18 +26,22 @@ public class MostrarDetalleDeEjercicioServlet extends HttpServlet {
         equipoDAO = new EquipoDAO();
     }
 
-    // muestra los detalles del ejercicio en la pagina mostrarDetalleDeEjercicio.jsp
+    // MostrarDetalleDeEjercicioServlet.java
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ejercicioIdStr = request.getParameter("ejercicioId"); // obtengo el id del ejercicio de la solicitud
-        // String categoriaIdStr = request.getParameter("categoriaId"); // obtengo el id de la categoria de la solicitud (solo para datos hardcodeados)
-        if (ejercicioIdStr != null /*&& categoriaIdStr != null*/) {
+        String ejercicioIdStr = request.getParameter("ejercicioId");
+        String categoriaIdStr = request.getParameter("categoriaId");
+        if (ejercicioIdStr != null && categoriaIdStr != null) {
             try {
                 int ejercicioId = Integer.parseInt(ejercicioIdStr);
-                // int categoriaId = Integer.parseInt(categoriaIdStr); // solo para datos hardcodeados
-                Ejercicio ejercicio = ejercicioDAO.getById(ejercicioId); // obtengo el ejercicio por su id
-                Equipo equipo = cargarEquipoDelEjercicio(ejercicio); // obtengo el equipo del ejercicio
-                redirigirADetalleDeEjercicio(request, response, ejercicio, equipo);
+                int categoriaId = Integer.parseInt(categoriaIdStr);
+                Ejercicio ejercicio = ejercicioDAO.getByIdAndParteDelCuerpoID(ejercicioId, categoriaId);
+                if (ejercicio != null) {
+                    Equipo equipo = cargarEquipoDelEjercicio(ejercicio);
+                    redirigirADetalleDeEjercicio(request, response, ejercicio, equipo);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND, "Ejercicio no encontrado para la categoría especificada");
+                }
             } catch (Exception e) {
                 throw new ServletException("Error al cargar los detalles del ejercicio", e);
             }
